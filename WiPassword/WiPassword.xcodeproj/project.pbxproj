@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */; };
+		B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCE41F44193F00A1BC5C /* AppDelegate.swift */; };
+		B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCE81F44193F00A1BC5C /* Main.storyboard */; };
+		B538FCEC1F44193F00A1BC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B538FCEB1F44193F00A1BC5C /* Assets.xcassets */; };
+		B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */; };
+		B538FCFA1F44193F00A1BC5C /* WiPasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */; };
+		B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD101F441CD500A1BC5C /* KJLoginController.swift */; };
+		B538FD171F44287100A1BC5C /* KJThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD161F44287100A1BC5C /* KJThemeColor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B538FCF61F44193F00A1BC5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B538FCD91F44193F00A1BC5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B538FCE01F44193F00A1BC5C;
+			remoteInfo = WiPassword;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.release.xcconfig"; sourceTree = "<group>"; };
+		5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.debug.xcconfig"; sourceTree = "<group>"; };
+		B538FCE11F44193F00A1BC5C /* WiPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B538FCE41F44193F00A1BC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B538FCE91F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B538FCEB1F44193F00A1BC5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		B538FCEE1F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B538FCF01F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B538FCF51F44193F00A1BC5C /* WiPasswordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiPasswordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiPasswordUITests.swift; sourceTree = "<group>"; };
+		B538FCFB1F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B538FD101F441CD500A1BC5C /* KJLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJLoginController.swift; sourceTree = "<group>"; };
+		B538FD161F44287100A1BC5C /* KJThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeColor.swift; sourceTree = "<group>"; };
+		FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiPassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B538FCDE1F44193F00A1BC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B538FCF21F44193F00A1BC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		116E0C38EBD5837C2F66B405 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7586B40B286B5CAEDC5FFDF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */,
+				1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B538FCD81F44193F00A1BC5C = {
+			isa = PBXGroup;
+			children = (
+				B538FCE31F44193F00A1BC5C /* WiPassword */,
+				B538FCF81F44193F00A1BC5C /* WiPasswordUITests */,
+				B538FCE21F44193F00A1BC5C /* Products */,
+				7586B40B286B5CAEDC5FFDF4 /* Pods */,
+				116E0C38EBD5837C2F66B405 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B538FCE21F44193F00A1BC5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B538FCE11F44193F00A1BC5C /* WiPassword.app */,
+				B538FCF51F44193F00A1BC5C /* WiPasswordUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B538FCE31F44193F00A1BC5C /* WiPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD071F441A3200A1BC5C /* Classes */,
+				B538FD081F441A3900A1BC5C /* Resources */,
+				B538FD091F441A4000A1BC5C /* Supporting Files */,
+				B538FCE41F44193F00A1BC5C /* AppDelegate.swift */,
+				B538FCE81F44193F00A1BC5C /* Main.storyboard */,
+				B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */,
+			);
+			path = WiPassword;
+			sourceTree = "<group>";
+		};
+		B538FCF81F44193F00A1BC5C /* WiPasswordUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */,
+				B538FCFB1F44193F00A1BC5C /* Info.plist */,
+			);
+			path = WiPasswordUITests;
+			sourceTree = "<group>";
+		};
+		B538FD071F441A3200A1BC5C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD0B1F441B3C00A1BC5C /* Module */,
+				B538FD0A1F441B3C00A1BC5C /* Common */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B538FD081F441A3900A1BC5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B538FCEB1F44193F00A1BC5C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B538FD091F441A4000A1BC5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B538FCF01F44193F00A1BC5C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B538FD0A1F441B3C00A1BC5C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD151F44283100A1BC5C /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B538FD0B1F441B3C00A1BC5C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD0C1F441B8200A1BC5C /* Login */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		B538FD0C1F441B8200A1BC5C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD0D1F441B8200A1BC5C /* Controller */,
+				B538FD0E1F441B8200A1BC5C /* Model */,
+				B538FD0F1F441B8200A1BC5C /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B538FD0D1F441B8200A1BC5C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD101F441CD500A1BC5C /* KJLoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B538FD0E1F441B8200A1BC5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B538FD0F1F441B8200A1BC5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B538FD151F44283100A1BC5C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B538FD161F44287100A1BC5C /* KJThemeColor.swift */,
+			);
+			name = Extension;
+			path = ../Module/Login/View/Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B538FCE01F44193F00A1BC5C /* WiPassword */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B538FCFE1F44193F00A1BC5C /* Build configuration list for PBXNativeTarget "WiPassword" */;
+			buildPhases = (
+				BDA15F9B3072669E24377399 /* [CP] Check Pods Manifest.lock */,
+				B538FCDD1F44193F00A1BC5C /* Sources */,
+				B538FCDE1F44193F00A1BC5C /* Frameworks */,
+				B538FCDF1F44193F00A1BC5C /* Resources */,
+				85DA2C311231369538C93A22 /* [CP] Embed Pods Frameworks */,
+				70C062DC3CACBE87CA800AC7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WiPassword;
+			productName = WiPassword;
+			productReference = B538FCE11F44193F00A1BC5C /* WiPassword.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B538FCF41F44193F00A1BC5C /* WiPasswordUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B538FD011F44193F00A1BC5C /* Build configuration list for PBXNativeTarget "WiPasswordUITests" */;
+			buildPhases = (
+				B538FCF11F44193F00A1BC5C /* Sources */,
+				B538FCF21F44193F00A1BC5C /* Frameworks */,
+				B538FCF31F44193F00A1BC5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B538FCF71F44193F00A1BC5C /* PBXTargetDependency */,
+			);
+			name = WiPasswordUITests;
+			productName = WiPasswordUITests;
+			productReference = B538FCF51F44193F00A1BC5C /* WiPasswordUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B538FCD91F44193F00A1BC5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KJ;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = KnighhtJoker;
+				TargetAttributes = {
+					B538FCE01F44193F00A1BC5C = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					B538FCF41F44193F00A1BC5C = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B538FCE01F44193F00A1BC5C;
+					};
+				};
+			};
+			buildConfigurationList = B538FCDC1F44193F00A1BC5C /* Build configuration list for PBXProject "WiPassword" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B538FCD81F44193F00A1BC5C;
+			productRefGroup = B538FCE21F44193F00A1BC5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B538FCE01F44193F00A1BC5C /* WiPassword */,
+				B538FCF41F44193F00A1BC5C /* WiPasswordUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B538FCDF1F44193F00A1BC5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */,
+				B538FCEC1F44193F00A1BC5C /* Assets.xcassets in Resources */,
+				B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B538FCF31F44193F00A1BC5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70C062DC3CACBE87CA800AC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85DA2C311231369538C93A22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA15F9B3072669E24377399 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B538FCDD1F44193F00A1BC5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
+				B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */,
+				B538FD171F44287100A1BC5C /* KJThemeColor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B538FCF11F44193F00A1BC5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B538FCFA1F44193F00A1BC5C /* WiPasswordUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B538FCF71F44193F00A1BC5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B538FCE01F44193F00A1BC5C /* WiPassword */;
+			targetProxy = B538FCF61F44193F00A1BC5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B538FCE81F44193F00A1BC5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B538FCE91F44193F00A1BC5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B538FCEE1F44193F00A1BC5C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B538FCFC1F44193F00A1BC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B538FCFD1F44193F00A1BC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B538FCFF1F44193F00A1BC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WiPassword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPassword;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B538FD001F44193F00A1BC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WiPassword/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPassword;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B538FD021F44193F00A1BC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = WiPasswordUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPasswordUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WiPassword;
+			};
+			name = Debug;
+		};
+		B538FD031F44193F00A1BC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = WiPasswordUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPasswordUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WiPassword;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B538FCDC1F44193F00A1BC5C /* Build configuration list for PBXProject "WiPassword" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B538FCFC1F44193F00A1BC5C /* Debug */,
+				B538FCFD1F44193F00A1BC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B538FCFE1F44193F00A1BC5C /* Build configuration list for PBXNativeTarget "WiPassword" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B538FCFF1F44193F00A1BC5C /* Debug */,
+				B538FD001F44193F00A1BC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B538FD011F44193F00A1BC5C /* Build configuration list for PBXNativeTarget "WiPasswordUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B538FD021F44193F00A1BC5C /* Debug */,
+				B538FD031F44193F00A1BC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B538FCD91F44193F00A1BC5C /* Project object */;
+}
