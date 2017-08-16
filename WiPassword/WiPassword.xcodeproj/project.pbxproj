@@ -10,11 +10,12 @@
 		132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */; };
 		B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCE41F44193F00A1BC5C /* AppDelegate.swift */; };
 		B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCE81F44193F00A1BC5C /* Main.storyboard */; };
-		B538FCEC1F44193F00A1BC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B538FCEB1F44193F00A1BC5C /* Assets.xcassets */; };
 		B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */; };
 		B538FCFA1F44193F00A1BC5C /* WiPasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */; };
 		B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD101F441CD500A1BC5C /* KJLoginController.swift */; };
 		B538FD171F44287100A1BC5C /* KJThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD161F44287100A1BC5C /* KJThemeColor.swift */; };
+		B538FD191F443FBE00A1BC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B538FD181F443FBE00A1BC5C /* Assets.xcassets */; };
+		B538FD1B1F44502E00A1BC5C /* KJThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD1A1F44502E00A1BC5C /* KJThemeFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +34,6 @@
 		B538FCE11F44193F00A1BC5C /* WiPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B538FCE41F44193F00A1BC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B538FCE91F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B538FCEB1F44193F00A1BC5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		B538FCEE1F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B538FCF01F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B538FCF51F44193F00A1BC5C /* WiPasswordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiPasswordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +41,8 @@
 		B538FCFB1F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B538FD101F441CD500A1BC5C /* KJLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJLoginController.swift; sourceTree = "<group>"; };
 		B538FD161F44287100A1BC5C /* KJThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeColor.swift; sourceTree = "<group>"; };
+		B538FD181F443FBE00A1BC5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B538FD1A1F44502E00A1BC5C /* KJThemeFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeFont.swift; sourceTree = "<group>"; };
 		FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiPassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,7 +136,7 @@
 		B538FD081F441A3900A1BC5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B538FCEB1F44193F00A1BC5C /* Assets.xcassets */,
+				B538FD181F443FBE00A1BC5C /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				B538FD161F44287100A1BC5C /* KJThemeColor.swift */,
+				B538FD1A1F44502E00A1BC5C /* KJThemeFont.swift */,
 			);
 			name = Extension;
 			path = ../Module/Login/View/Extension;
@@ -292,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */,
-				B538FCEC1F44193F00A1BC5C /* Assets.xcassets in Resources */,
+				B538FD191F443FBE00A1BC5C /* Assets.xcassets in Resources */,
 				B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +365,7 @@
 				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
 				B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */,
 				B538FD171F44287100A1BC5C /* KJThemeColor.swift in Sources */,
+				B538FD1B1F44502E00A1BC5C /* KJThemeFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class KJLoginController: UIViewController {
     
@@ -29,6 +30,29 @@ class KJLoginController: UIViewController {
     // MARK: init View
     
     func setupView() {
-        self.view.backgroundColor = kjThemeBackgroundColor
+        self.view.backgroundColor = kThemeBackgroundColor
+        
+        let logoImageView = UIImageView(image:UIImage(named:"logo"))
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "WiPassword"
+        titleLabel.font = kFont22
+        titleLabel.textColor = kTextNormalColor
+        
+        self.view.addSubview(logoImageView)
+        self.view.addSubview(titleLabel)
+        
+        logoImageView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(100)
+            make.centerX.equalTo(self.view)
+            make.width.equalTo(75)
+            make.height.equalTo(90)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoImageView.snp.bottom).offset(40)
+            make.centerX.equalTo(self.view)
+
+        }
     }
 }

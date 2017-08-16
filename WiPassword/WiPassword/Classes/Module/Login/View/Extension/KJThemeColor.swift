@@ -8,7 +8,8 @@
 
 import UIKit
 
-public let kjThemeBackgroundColor:UIColor = UIColor.hexColor(hexColor:0x29292B)
+public let kThemeBackgroundColor:UIColor = UIColor.hexColor(hexColor:0x29292B)
+public let kTextNormalColor:UIColor = UIColor.hexColor(hexColor:0xDCDCDC)
 
 extension UIColor {
     static func hexColor(hexColor:Int64) -> UIColor{
@@ -21,8 +22,4 @@ extension UIColor {
     }
 }
 
-
-//class KJThemeColor: UIColor {
-//    
-//}
 
