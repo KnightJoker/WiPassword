@@ -8,8 +8,10 @@
 
 import UIKit
 
-public let kThemeBackgroundColor:UIColor = UIColor.hexColor(hexColor:0x29292B)
-public let kTextNormalColor:UIColor = UIColor.hexColor(hexColor:0xDCDCDC)
+public let kThemeBackgroundColor    :UIColor    = UIColor.hexColor(hexColor:0x29292B)
+public let kTextNormalColor         :UIColor    = UIColor.hexColor(hexColor:0xDCDCDC)
+public let kLineViewColor           :UIColor    = UIColor.hexColor(hexColor:0x8C8C8C)
+public let kThemeGreenColor         :UIColor    = UIColor.hexColor(hexColor:0x36BE6A)
 
 extension UIColor {
     static func hexColor(hexColor:Int64) -> UIColor{

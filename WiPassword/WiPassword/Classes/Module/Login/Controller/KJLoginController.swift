@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SnapKit
+
 
 class KJLoginController: UIViewController {
     
@@ -28,7 +28,6 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: init View
-    
     func setupView() {
         self.view.backgroundColor = kThemeBackgroundColor
         
@@ -39,20 +38,61 @@ class KJLoginController: UIViewController {
         titleLabel.font = kFont22
         titleLabel.textColor = kTextNormalColor
         
+        let userTextField = KJTextField()
+        userTextField.initWithImage(image: UIImage(named:"userName_gray")!, placeHolder: "username")
+        
+        let passTextField = KJTextField()
+        passTextField.initWithImage(image: UIImage(named:"password_gray")!, placeHolder: "password")
+        
+        let loginButton = UIButton()
+        loginButton.backgroundColor = kThemeGreenColor
+        loginButton.setTitle("Login", for: UIControlState.normal)
+        loginButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        loginButton.addTarget(self, action: #selector(loginButtonDidClicked), for:.touchUpInside)
+        
         self.view.addSubview(logoImageView)
         self.view.addSubview(titleLabel)
+        self.view.addSubview(userTextField)
+        self.view.addSubview(passTextField)
+        self.view.addSubview(loginButton)
         
         logoImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(100)
+            make.top.equalTo(120)
             make.centerX.equalTo(self.view)
             make.width.equalTo(75)
             make.height.equalTo(90)
         }
         
         titleLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(logoImageView.snp.bottom).offset(40)
+            make.top.equalTo(logoImageView.snp.bottom).offset(20)
             make.centerX.equalTo(self.view)
 
         }
+        
+        userTextField.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(titleLabel.snp.bottom).offset(50)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(30)
+        }
+        
+        passTextField.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(userTextField.snp.bottom).offset(20)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(30)
+        }
+        
+        loginButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(passTextField.snp.bottom).offset(65)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(40)
+        }
+    }
+    
+    // MARK: events
+    func loginButtonDidClicked() {
+        print("Did the button")
     }
 }
