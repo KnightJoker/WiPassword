@@ -8,11 +8,20 @@
 
 import UIKit
 
-class KJTextField: UIView {
+
+
+class KJTextField: UIView,UITextFieldDelegate {
     
     let imageView = UIImageView()
     let lineView = UIView()
     let textField = UITextField()
+    
+    typealias textFieldString = (_ text:String) -> Void
+    private var textFieldReturnClosure: textFieldString?
+    
+    func textFieldValueClosure(closure:textFieldString?){
+        textFieldReturnClosure = closure
+    }
     
     
     func initWithImage(image:UIImage,placeHolder:String) {
@@ -22,8 +31,8 @@ class KJTextField: UIView {
         
         lineView.backgroundColor = kLineViewColor
         
-//        textField.placeholder = placeHolder
         textField.textColor = kTextNormalColor
+        textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                                attributes:[NSForegroundColorAttributeName:kLineViewColor])
     
@@ -52,6 +61,21 @@ class KJTextField: UIView {
             make.bottom.equalTo(0)
         }
         
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textFieldReturnClosure != nil) {
+            textFieldReturnClosure!(textField.text!)
+        }
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+        if (textFieldReturnClosure != nil) {
+            textFieldReturnClosure!(textField.text!)
+        }
+        
+        return true
     }
     
 }

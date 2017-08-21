@@ -13,10 +13,10 @@
 		B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */; };
 		B538FCFA1F44193F00A1BC5C /* WiPasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */; };
 		B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD101F441CD500A1BC5C /* KJLoginController.swift */; };
-		B538FD191F443FBE00A1BC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B538FD181F443FBE00A1BC5C /* Assets.xcassets */; };
 		B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD231F45750B00A1BC5C /* KJTextField.swift */; };
 		B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD291F457B5700A1BC5C /* KJThemeColor.swift */; };
 		B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */; };
+		B5A552071F469B3C0032FE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A552061F469B3C0032FE78 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +41,10 @@
 		B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiPasswordUITests.swift; sourceTree = "<group>"; };
 		B538FCFB1F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B538FD101F441CD500A1BC5C /* KJLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJLoginController.swift; sourceTree = "<group>"; };
-		B538FD181F443FBE00A1BC5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B538FD231F45750B00A1BC5C /* KJTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJTextField.swift; sourceTree = "<group>"; };
 		B538FD291F457B5700A1BC5C /* KJThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeColor.swift; sourceTree = "<group>"; };
 		B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeFont.swift; sourceTree = "<group>"; };
+		B5A552061F469B3C0032FE78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiPassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,7 +138,7 @@
 		B538FD081F441A3900A1BC5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B538FD181F443FBE00A1BC5C /* Assets.xcassets */,
+				B5A552061F469B3C0032FE78 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */,
-				B538FD191F443FBE00A1BC5C /* Assets.xcassets in Resources */,
+				B5A552071F469B3C0032FE78 /* Assets.xcassets in Resources */,
 				B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

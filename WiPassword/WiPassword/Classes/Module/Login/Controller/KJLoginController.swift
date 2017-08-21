@@ -40,9 +40,15 @@ class KJLoginController: UIViewController {
         
         let userTextField = KJTextField()
         userTextField.initWithImage(image: UIImage(named:"userName_gray")!, placeHolder: "username")
+        userTextField.textFieldValueClosure { (text) in
+            print(text)
+        }
         
         let passTextField = KJTextField()
         passTextField.initWithImage(image: UIImage(named:"password_gray")!, placeHolder: "password")
+        passTextField.textFieldValueClosure { (text) in
+            print(text)
+        }
         
         let loginButton = UIButton()
         loginButton.backgroundColor = kThemeGreenColor
