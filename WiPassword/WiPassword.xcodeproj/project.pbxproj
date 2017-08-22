@@ -17,6 +17,9 @@
 		B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD291F457B5700A1BC5C /* KJThemeColor.swift */; };
 		B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */; };
 		B5A552071F469B3C0032FE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A552061F469B3C0032FE78 /* Assets.xcassets */; };
+		B5A552141F4AB4CE0032FE78 /* KJHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */; };
+		B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */; };
+		B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552211F4BDF7A0032FE78 /* KJImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		B538FD291F457B5700A1BC5C /* KJThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeColor.swift; sourceTree = "<group>"; };
 		B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeFont.swift; sourceTree = "<group>"; };
 		B5A552061F469B3C0032FE78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJHomeController.swift; sourceTree = "<group>"; };
+		B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJTabBarController.swift; sourceTree = "<group>"; };
+		B5A552211F4BDF7A0032FE78 /* KJImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJImage.swift; sourceTree = "<group>"; };
 		FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiPassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,7 @@
 		B538FD0A1F441B3C00A1BC5C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B5A5521B1F4AC8500032FE78 /* TabBarController */,
 				B538FD281F457B5700A1BC5C /* Extension */,
 			);
 			path = Common;
@@ -162,6 +169,7 @@
 		B538FD0B1F441B3C00A1BC5C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				B5A5520F1F4AB49E0032FE78 /* Home */,
 				B538FD0C1F441B8200A1BC5C /* Login */,
 			);
 			path = Module;
@@ -205,8 +213,49 @@
 			children = (
 				B538FD291F457B5700A1BC5C /* KJThemeColor.swift */,
 				B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */,
+				B5A552211F4BDF7A0032FE78 /* KJImage.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B5A5520F1F4AB49E0032FE78 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B5A552101F4AB49E0032FE78 /* Controller */,
+				B5A552111F4AB49E0032FE78 /* Model */,
+				B5A552121F4AB49E0032FE78 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B5A552101F4AB49E0032FE78 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B5A552111F4AB49E0032FE78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5A552121F4AB49E0032FE78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5A5521B1F4AC8500032FE78 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,11 +413,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */,
+				B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */,
 				B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */,
 				B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */,
 				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
 				B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */,
 				B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */,
+				B5A552141F4AB4CE0032FE78 /* KJHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

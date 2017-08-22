@@ -20,6 +20,16 @@ class KJLoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.initNavigationBar()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+
+        self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +38,11 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: init View
+    func initNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
+        
+    }
+    
     func setupView() {
         self.view.backgroundColor = kThemeBackgroundColor
         
@@ -99,6 +114,10 @@ class KJLoginController: UIViewController {
     
     // MARK: events
     func loginButtonDidClicked() {
+        //Todo 账户密码的校验
         print("Did the button")
+        let tabBarVC = KJTabBarController()
+        self.navigationController?.pushViewController(tabBarVC, animated: true)
+        
     }
 }
