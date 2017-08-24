@@ -10,14 +10,14 @@ import UIKit
 
 
 
-class KJTextField: UIView,UITextFieldDelegate {
+class KJTextField: UIView {
     
     let imageView = UIImageView()
     let lineView = UIView()
     let textField = UITextField()
     
     typealias textFieldString = (_ text:String) -> Void
-    private var textFieldReturnClosure: textFieldString?
+    var textFieldReturnClosure: textFieldString?
     
     func textFieldValueClosure(closure:textFieldString?){
         textFieldReturnClosure = closure
@@ -63,6 +63,11 @@ class KJTextField: UIView,UITextFieldDelegate {
         
     }
     
+    
+}
+
+extension KJTextField: UITextFieldDelegate {
+
     public func textFieldDidEndEditing(_ textField: UITextField) {
         if (textFieldReturnClosure != nil) {
             textFieldReturnClosure!(textField.text!)
@@ -70,12 +75,11 @@ class KJTextField: UIView,UITextFieldDelegate {
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
+        
         if (textFieldReturnClosure != nil) {
             textFieldReturnClosure!(textField.text!)
         }
         
         return true
     }
-    
 }

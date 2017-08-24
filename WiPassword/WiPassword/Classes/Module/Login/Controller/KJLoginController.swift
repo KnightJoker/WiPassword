@@ -24,12 +24,7 @@ class KJLoginController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-
-        self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
-        self.navigationController?.navigationBar.isHidden = false
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,13 +49,13 @@ class KJLoginController: UIViewController {
         titleLabel.textColor = kTextNormalColor
         
         let userTextField = KJTextField()
-        userTextField.initWithImage(image: UIImage(named:"userName_gray")!, placeHolder: "username")
+        userTextField.initWithImage(image: UIImage(named:"ic_username_gray")!, placeHolder: "username")
         userTextField.textFieldValueClosure { (text) in
             print(text)
         }
         
         let passTextField = KJTextField()
-        passTextField.initWithImage(image: UIImage(named:"password_gray")!, placeHolder: "password")
+        passTextField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "password")
         passTextField.textFieldValueClosure { (text) in
             print(text)
         }

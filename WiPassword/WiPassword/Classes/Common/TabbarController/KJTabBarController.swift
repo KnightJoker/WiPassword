@@ -14,11 +14,16 @@ class KJTabBarController: UITabBarController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.addTabBarChildViewController(childVC: KJHomeController(), title: "密码", imageName: "ic_home_gray", selectedImageName:"ic_home_green", tag: 0)
-        self.addTabBarChildViewController(childVC: KJHomeController(), title: "密码", imageName: "ic_home_gray", selectedImageName:"ic_home_green", tag: 0)
+        self.addTabBarChildViewController(childVC: KJSettingController(), title: "设置", imageName: "ic_setting_gray", selectedImageName:"ic_setting_green", tag: 0)
 
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = kThemeBlockColor
         self.tabBar.tintColor = kThemeGreenColor
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,3 +40,5 @@ class KJTabBarController: UITabBarController {
     }
 
 }
+
+
