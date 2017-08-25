@@ -25,39 +25,73 @@ class KJHomeCell: UITableViewCell {
     func updateHomeCellWithModel(_ model : KJHomeViewModel) {
         
         self.backgroundColor = kThemeBlockColor
+        let iconImageView = UIImageView.init()
+        switch model.passType {
+        case KJHomePasswordType.account:
+            iconImageView.image = UIImage(named:"ic_password_gray")
+        case KJHomePasswordType.mail:
+            iconImageView.image = UIImage(named:"ic_email_gray")
+        case KJHomePasswordType.message:
+            iconImageView.image = UIImage(named:"ic_message_gray")
+        default:
+            iconImageView.image = UIImage(named:"ic_star_gray")
+        }
         
-        let iconImageView = UIImageView.init(image: UIImage(named:""))
-        iconImageView.layer.cornerRadius = 30                           //Todo这里需要计算icon大小
-        self.addSubview(iconImageView)
+        iconImageView.contentMode = .scaleAspectFit
+     
+        let iconView = UIView()
+        iconView.backgroundColor = kThemeBackgroundColor
+        iconView.layer.cornerRadius = 25
+        
+        self.addSubview(iconView)
+        iconView.addSubview(iconImageView)
+        
+        iconView.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self)
+            make.left.equalTo(self).offset(15)
+            make.width.height.equalTo(50)
+        }
         
         iconImageView.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self)
-            make.left.equalTo(self)
-            make.width.height.equalTo(50)
+            make.centerY.equalTo(iconView)
+            make.centerX.equalTo(iconView)
+            make.width.height.equalTo(25)
         }
         
         let titleLabel = UILabel()
         titleLabel.text = model.title
         titleLabel.textColor = kThemeGreenColor
-        titleLabel.font = kFont14
+        titleLabel.font = kFont16
         
         self.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(iconImageView)
-            make.left.equalTo(iconImageView.snp.right).offset(10)
+            make.top.equalTo(iconView).offset(4)
+            make.left.equalTo(iconView.snp.right).offset(10)
         }
         
         let userLabel = UILabel()
         userLabel.text = model.username
         userLabel.textColor = kTextNormalColor
-        userLabel.font = kFont12
+        userLabel.font = kFont14
         
         self.addSubview(userLabel)
         
         userLabel.snp.makeConstraints { (make) -> Void in
-            make.bottom.equalTo(iconImageView)
+            make.bottom.equalTo(iconView).offset(-4)
             make.left.equalTo(titleLabel.snp.left)
+        }
+        
+        let statusButton = UIButton.init()
+        statusButton.contentMode = .scaleAspectFit
+        statusButton.setImage(UIImage(named:"ic_moreDown_gray"), for: UIControlState.normal)
+        statusButton.addTarget(self, action: #selector(statusButtonDidClicked), for: UIControlEvents.touchUpInside)
+        self.addSubview(statusButton)
+        
+        statusButton.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self)
+            make.right.equalTo(-15)
+            make.width.height.equalTo(20)
         }
         
         let lineView = UIView()
@@ -74,4 +108,8 @@ class KJHomeCell: UITableViewCell {
     }
 
 
+    // MARK: events
+    func statusButtonDidClicked() {
+        print("打开")
+    }
 }

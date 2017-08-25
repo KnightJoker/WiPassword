@@ -102,6 +102,7 @@ extension KJHomeController: UITableViewDataSource {
         let tempModel = KJHomeViewModel()
         tempModel.title = "我的Email"
         tempModel.username = "huni@git.com"
+        tempModel.passType = KJHomePasswordType.mail
         cell.updateHomeCellWithModel(tempModel)
         return cell
     }
