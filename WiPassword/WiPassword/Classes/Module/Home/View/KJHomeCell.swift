@@ -9,9 +9,14 @@
 import UIKit
 
 let homeCellIdentifier = "KJHomeCellIdentifier"
+private var status = false
 
 class KJHomeCell: UITableViewCell {
     
+    typealias statusButtonClosure = (_ status:Bool) -> Void
+    
+    var _statusClosure: statusButtonClosure?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,7 +27,9 @@ class KJHomeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateHomeCellWithModel(_ model : KJHomeViewModel) {
+    func updateHomeCellWithModel(_ model : KJHomeViewModel,_ statusClosure:@escaping statusButtonClosure) {
+        
+        _statusClosure = statusClosure
         
         self.backgroundColor = kThemeBlockColor
         let iconImageView = UIImageView.init()
@@ -47,7 +54,7 @@ class KJHomeCell: UITableViewCell {
         iconView.addSubview(iconImageView)
         
         iconView.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self)
+            make.top.equalTo(self).offset(15)
             make.left.equalTo(self).offset(15)
             make.width.height.equalTo(50)
         }
@@ -85,11 +92,11 @@ class KJHomeCell: UITableViewCell {
         let statusButton = UIButton.init()
         statusButton.contentMode = .scaleAspectFit
         statusButton.setImage(UIImage(named:"ic_moreDown_gray"), for: UIControlState.normal)
-        statusButton.addTarget(self, action: #selector(statusButtonDidClicked), for: UIControlEvents.touchUpInside)
+        statusButton.addTarget(self, action: #selector(statusButtonDidClicked(_:)), for: UIControlEvents.touchUpInside)
         self.addSubview(statusButton)
         
         statusButton.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self)
+            make.centerY.equalTo(iconView)
             make.right.equalTo(-15)
             make.width.height.equalTo(20)
         }
@@ -105,11 +112,63 @@ class KJHomeCell: UITableViewCell {
             make.width.equalTo(self)
             make.height.equalTo(3)
         }
+        
+        let passGroundView = UIView()
+        let passLabel = UILabel()
+        let passStrengthView = UIView()
+        let passStrengthLabel = UILabel()
+        
+        if model.expandStatus {
+            
+            passGroundView.backgroundColor = kThemeBackgroundColor
+            self.addSubview(passGroundView)
+            passGroundView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(userLabel.snp.bottom).offset(10)
+                make.left.equalTo(iconView.snp.left)
+                make.right.equalTo(statusButton.snp.right)
+                make.height.equalTo(35)
+            }
+            
+            passLabel.textColor = kTextNormalColor
+            passLabel.font = kFont14
+            passLabel.text = "当前密码:" + model.password
+            passGroundView.addSubview(passLabel)
+            passLabel.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(10)
+                make.centerY.equalTo(passGroundView)
+            }
+        
+            passStrengthView.backgroundColor = kThemeBackgroundColor
+            self.addSubview(passStrengthView)
+            passStrengthView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(passGroundView.snp.bottom).offset(4)
+                make.left.equalTo(iconView.snp.left)
+                make.right.equalTo(statusButton.snp.right)
+                make.height.equalTo(25)
+            }
+            
+            // Todo 判断密码强度
+            passStrengthLabel.textColor = kTextNormalColor
+            passStrengthLabel.font = kFont12
+            passStrengthLabel.text = "较强"
+            passStrengthView.addSubview(passStrengthLabel)
+            passStrengthLabel.snp.makeConstraints { (make) -> Void in
+                make.right.equalTo(-4)
+                make.centerY.equalTo(passStrengthView)
+            }
+        } else {
+            passGroundView.removeFromSuperview()
+            passLabel.removeFromSuperview()
+            passStrengthView.removeFromSuperview()
+            passStrengthLabel.removeFromSuperview()
+        }
     }
-
-
+    
     // MARK: events
-    func statusButtonDidClicked() {
-        print("打开")
+    func statusButtonDidClicked(_ button:UIButton) {
+        status = !status
+        if (_statusClosure != nil) {
+            _statusClosure!(status)
+        }
     }
 }

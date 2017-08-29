@@ -20,11 +20,17 @@ enum KJHomePasswordType : Int {
 
 }
 
+class KJHomeModel {
+    var viewModelList = Array<KJHomeViewModel>()
+}
+
 class KJHomeViewModel {
     
     var passType = KJHomePasswordType(rawValue: 0)!
     var title : String = ""
     var username : String = ""
     var password : String = ""
+    var expandStatus : Bool = false
+    
     
 }

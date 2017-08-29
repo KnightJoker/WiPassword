@@ -11,6 +11,7 @@ import UIKit
 class KJHomeController: UIViewController {
 
     let tableView = UITableView.init()
+    let model = KJHomeModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,32 @@ class KJHomeController: UIViewController {
             make.left.right.bottom.equalTo(self.view)
         }
         
+        self.initData()
+    }
+    
+    // to testUI,would delete this func
+    func initData() {
+        
+        let tempModel = KJHomeViewModel()
+        tempModel.title = "我的Email"
+        tempModel.username = "huni@git.com"
+        tempModel.password = "1234456dsda"
+        tempModel.passType = KJHomePasswordType.mail
+        
+        let tempModel1 = KJHomeViewModel()
+        tempModel1.title = "我的账户"
+        tempModel1.username = "chenxuli@git.com"
+        tempModel1.password = "345fda"
+        tempModel1.passType = KJHomePasswordType.account
+        
+        let tempModel2 = KJHomeViewModel()
+        tempModel2.title = "我的Email"
+        tempModel2.username = "besthuni@git.com"
+        tempModel2.password = "325432535"
+        tempModel2.passType = KJHomePasswordType.message
+        
+        model.viewModelList = [tempModel,tempModel1,tempModel2]
+        
     }
     
     // MARK: - Event
@@ -93,17 +120,19 @@ extension KJHomeController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return model.viewModelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        weak var weakSelf = self
         let cell = KJHomeCell.init(style: UITableViewCellStyle.default, reuseIdentifier: homeCellIdentifier)
-        let tempModel = KJHomeViewModel()
-        tempModel.title = "我的Email"
-        tempModel.username = "huni@git.com"
-        tempModel.passType = KJHomePasswordType.mail
-        cell.updateHomeCellWithModel(tempModel)
+        let tempModel = model.viewModelList[indexPath.row]
+        cell.updateHomeCellWithModel(tempModel, {(status) -> Void in
+//            print(status)
+            tempModel.expandStatus = status
+            weakSelf?.tableView.reloadData()
+        })
         return cell
     }
 }
@@ -121,7 +150,13 @@ extension KJHomeController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75.0
+        let tempModel = model.viewModelList[indexPath.row]
+        if tempModel.expandStatus {
+            return 150.0
+        } else {
+            return 75.0
+        }
+       
     }
     
     
