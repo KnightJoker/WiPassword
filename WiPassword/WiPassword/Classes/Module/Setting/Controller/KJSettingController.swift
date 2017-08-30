@@ -77,7 +77,7 @@ extension KJSettingController : UITableViewDataSource {
         } else if indexPath.section == 1 && indexPath.row == 0 {
             cell.configCell(Icon: UIImage(named:"ic_notification_green")!, Title: "系统通知", Type: KJSettingRoutineCellType.switchCell)
         } else if indexPath.section == 1 && indexPath.row == 1 {
-            cell.configCell(Icon: UIImage(named:"ic_username_green")!, Title: "Touch ID", Type: KJSettingRoutineCellType.switchCell)
+            cell.configCell(Icon: UIImage(named:"ic_touch_green")!, Title: "Touch ID", Type: KJSettingRoutineCellType.switchCell)
         } else if indexPath.section == 2 && indexPath.row == 0 {
             cell.configCell(Icon: UIImage(named:"ic_suggestion_green")!, Title: "反馈与意见", Type: KJSettingRoutineCellType.defaultCell)
         } else if indexPath.section == 2 && indexPath.row == 1 {

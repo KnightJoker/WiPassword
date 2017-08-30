@@ -22,7 +22,7 @@ class KJHomeController: UIViewController {
         super.viewWillAppear(animated)
         self.initNavigationBar()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,7 +112,9 @@ class KJHomeController: UIViewController {
     }
     
     func rightButtonDidClicked() {
-        print("右边")
+        let addVC = KJAddController()
+        addVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(addVC, animated: true)
     }
 }
 
@@ -129,7 +131,6 @@ extension KJHomeController: UITableViewDataSource {
         let cell = KJHomeCell.init(style: UITableViewCellStyle.default, reuseIdentifier: homeCellIdentifier)
         let tempModel = model.viewModelList[indexPath.row]
         cell.updateHomeCellWithModel(tempModel, {(status) -> Void in
-//            print(status)
             tempModel.expandStatus = status
             weakSelf?.tableView.reloadData()
         })
@@ -159,9 +160,19 @@ extension KJHomeController: UITableViewDelegate {
        
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    
+        let delete = UITableViewRowAction(style: .normal, title: "删除") {
+            action, index in
+            print("delete")
+        }
+        delete.backgroundColor = kThemeGreenColor
+        return [delete]
+        
     }
 }
 
