@@ -70,18 +70,67 @@ class KJAddController: UIViewController {
 
 extension KJAddController : UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 3
+        } else {
+            return 2
+        }
+ 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = KJAddRoutineCell.init(style: UITableViewCellStyle.default, reuseIdentifier: addRoutineCellIdentifier)
-        cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "")
+
+        if indexPath.section == 0 {
+            cell.configCell(Type: KJAddRoutineCellType.imageHeaderCell, Title: "")
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
+            cell.setTextFieldPlaceHolder(PlaceHolder: "请输入用户名")
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
+            cell.setTextFieldPlaceHolder(PlaceHolder: "请输入密码")
+        } else if indexPath.section == 1 && indexPath.row == 2 {
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
+            cell.setTextFieldPlaceHolder(PlaceHolder: "请再次输入密码")
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            cell.configCell(Type: KJAddRoutineCellType.switchCell, Title: "随机密码")
+        } else {
+            cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "备注")
+        }
+        
         return cell
     }
 }
 
 extension KJAddController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 14.0
+        }
+        return 1.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 75.0
+        } else if indexPath.section == 2 && indexPath.row == 1 {
+            return 80.0
+        }
+        return 50.0
+    }
 
 }
 

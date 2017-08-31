@@ -89,14 +89,14 @@ class KJLoginController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(50)
             make.left.equalTo(35)
             make.right.equalTo(-35)
-            make.height.equalTo(30)
+            make.height.equalTo(35)
         }
         
         passTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(userTextField.snp.bottom).offset(20)
             make.left.equalTo(35)
             make.right.equalTo(-35)
-            make.height.equalTo(30)
+            make.height.equalTo(35)
         }
         
         loginButton.snp.makeConstraints { (make) -> Void in

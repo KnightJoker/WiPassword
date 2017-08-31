@@ -156,6 +156,7 @@ class KJHomeCell: UITableViewCell {
                 make.right.equalTo(-4)
                 make.centerY.equalTo(passStrengthView)
             }
+            
         } else {
             passGroundView.removeFromSuperview()
             passLabel.removeFromSuperview()
