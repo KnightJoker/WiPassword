@@ -8,8 +8,12 @@
 
 import UIKit
 
-class KJHomeController: UIViewController {
+private var skiddingButtonStatus = false
 
+class KJHomeController: UIViewController {
+    
+    private let skiddingVC = KJSkiddingController()
+    
     let tableView = UITableView.init()
     let model = KJHomeModel()
     
@@ -97,7 +101,7 @@ class KJHomeController: UIViewController {
         tempModel1.passType = KJHomePasswordType.account
         
         let tempModel2 = KJHomeViewModel()
-        tempModel2.title = "我的Email"
+        tempModel2.title = "QQ账户"
         tempModel2.username = "besthuni@git.com"
         tempModel2.password = "325432535"
         tempModel2.passType = KJHomePasswordType.message
@@ -108,7 +112,25 @@ class KJHomeController: UIViewController {
     
     // MARK: - Event
     func leftButtonDidClicked() {
-        print("左边")
+
+        skiddingButtonStatus = !skiddingButtonStatus
+        
+        if skiddingButtonStatus {
+            skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+            self.tabBarController?.view.superview?.addSubview(skiddingVC.view)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.skiddingVC.view.frame = CGRect(x:0,y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+                self.tabBarController?.view.frame =  CGRect(x:(kScreenWidth * 2 / 3),y:0,width:kScreenWidth,height:kScreenHeight)
+            })
+        } else {
+            // Todo 右侧试图点击返回动画
+            UIView.animate(withDuration: 0.5, animations: {
+                self.skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+                self.tabBarController?.view.frame =  CGRect(x:0,y:0,width:kScreenWidth,height:kScreenHeight)
+            }, completion: {(bool) -> Void in
+                self.skiddingVC.view.removeFromSuperview()
+            })
+        }
     }
     
     func rightButtonDidClicked() {
