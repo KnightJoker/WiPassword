@@ -14,6 +14,8 @@ public let kThemeDeepBlockColor     :UIColor    = UIColor.hexColor(hexColor:0x14
 public let kTextNormalColor         :UIColor    = UIColor.hexColor(hexColor:0xDCDCDC)
 public let kLineViewColor           :UIColor    = UIColor.hexColor(hexColor:0x8C8C8C)
 public let kThemeGreenColor         :UIColor    = UIColor.hexColor(hexColor:0x36BE6A)
+public let kThemeRedColor           :UIColor    = UIColor.hexColor(hexColor:0xFF0000)
+public let kThemeOrangleColor       :UIColor    = UIColor.hexColor(hexColor:0xEEC900)
 
 extension UIColor {
     static func hexColor(hexColor:Int64) -> UIColor{
