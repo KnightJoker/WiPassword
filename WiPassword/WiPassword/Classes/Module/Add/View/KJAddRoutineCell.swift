@@ -26,7 +26,14 @@ class KJAddRoutineCell: UITableViewCell {
     private let slider = UISlider()
     private let sliderLabel = UILabel()
     private let textField = UITextField()
+    private let switchButton = UISwitch()
 
+    var switchIsOn : Bool = false
+    
+    typealias switchButtonClosure = (_ isOn:Bool) -> Void
+    
+    var switchClosure: switchButtonClosure?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -104,12 +111,13 @@ class KJAddRoutineCell: UITableViewCell {
     
     private func setupCellWithSwitchType() {
         
-        let switchButton = UISwitch()
+        
         switchButton.onTintColor = kThemeGreenColor
         switchButton.thumbTintColor = kLineViewColor
         switchButton.tintColor = kLineViewColor
+        switchButton.setOn(switchIsOn, animated: false)
         switchButton.layer.cornerRadius = 1.0
-        
+        switchButton.addTarget(self, action: #selector(switchButtonValueChanged), for: UIControlEvents.valueChanged)
         self.addSubview(switchButton)
         
         switchButton.snp.makeConstraints { (make) -> Void in
@@ -218,6 +226,13 @@ class KJAddRoutineCell: UITableViewCell {
     
     func sliderValueChanged(slider:UISlider){
         sliderLabel.text = String(format: "%.f", slider.value)
+    }
+    
+    func switchButtonValueChanged(sender:UISwitch) {
+        print(sender.isOn)
+        if (switchClosure != nil) {
+            switchClosure!(sender.isOn)
+        }
     }
     
     func imageButtonDidClicked() {

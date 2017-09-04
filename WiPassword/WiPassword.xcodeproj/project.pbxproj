@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */; };
+		B5158EE61F5D3B6500E66F61 /* KJStringComplexity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */; };
 		B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCE41F44193F00A1BC5C /* AppDelegate.swift */; };
 		B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCE81F44193F00A1BC5C /* Main.storyboard */; };
 		B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.release.xcconfig"; sourceTree = "<group>"; };
 		5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.debug.xcconfig"; sourceTree = "<group>"; };
+		B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJStringComplexity.swift; sourceTree = "<group>"; };
 		B538FCE11F44193F00A1BC5C /* WiPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B538FCE41F44193F00A1BC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B538FCE91F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				B538FD291F457B5700A1BC5C /* KJThemeColor.swift */,
 				B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */,
 				B5A552211F4BDF7A0032FE78 /* KJImage.swift */,
+				B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */,
 				B5A552281F4BFCB40032FE78 /* KJSettingController.swift in Sources */,
 				B5694D011F592DEA00C6832E /* KJSkiddingController.swift in Sources */,
+				B5158EE61F5D3B6500E66F61 /* KJStringComplexity.swift in Sources */,
 				B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */,
 				B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */,
 				B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */,

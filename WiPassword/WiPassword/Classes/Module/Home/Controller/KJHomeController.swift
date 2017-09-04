@@ -103,7 +103,7 @@ class KJHomeController: UIViewController {
         let tempModel2 = KJHomeViewModel()
         tempModel2.title = "QQ账户"
         tempModel2.username = "besthuni@git.com"
-        tempModel2.password = "325432535"
+        tempModel2.password = "@$#$44235vsdvt"
         tempModel2.passType = KJHomePasswordType.message
         
         model.viewModelList = [tempModel,tempModel1,tempModel2]
@@ -149,12 +149,12 @@ extension KJHomeController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        weak var weakSelf = self
+//        weak var weakSelf = self
         let cell = KJHomeCell.init(style: UITableViewCellStyle.default, reuseIdentifier: homeCellIdentifier)
         let tempModel = model.viewModelList[indexPath.row]
-        cell.updateHomeCellWithModel(tempModel, {(status) -> Void in
+        cell.updateHomeCellWithModel(tempModel, { [weak self] (status) -> Void in
             tempModel.expandStatus = status
-            weakSelf?.tableView.reloadData()
+            self?.tableView.reloadData()
         })
         return cell
     }
@@ -197,7 +197,4 @@ extension KJHomeController: UITableViewDelegate {
         
     }
 }
-
-
-
 

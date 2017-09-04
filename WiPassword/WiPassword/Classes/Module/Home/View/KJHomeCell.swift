@@ -35,13 +35,13 @@ class KJHomeCell: UITableViewCell {
         let iconImageView = UIImageView.init()
         switch model.passType {
         case KJHomePasswordType.account:
-            iconImageView.image = UIImage(named:"ic_password_gray")
+            iconImageView.image = UIImage(named:"ic_star_gray")
         case KJHomePasswordType.mail:
             iconImageView.image = UIImage(named:"ic_email_gray")
         case KJHomePasswordType.message:
             iconImageView.image = UIImage(named:"ic_message_gray")
         default:
-            iconImageView.image = UIImage(named:"ic_star_gray")
+            iconImageView.image = UIImage(named:"ic_password_gray")
         }
         
         iconImageView.contentMode = .scaleAspectFit
@@ -117,6 +117,8 @@ class KJHomeCell: UITableViewCell {
         let passLabel = UILabel()
         let passStrengthView = UIView()
         let passStrengthLabel = UILabel()
+        let passView = UIView()
+        
         
         if model.expandStatus {
             
@@ -148,13 +150,45 @@ class KJHomeCell: UITableViewCell {
             }
             
             // Todo 判断密码强度
+            
             passStrengthLabel.textColor = kTextNormalColor
             passStrengthLabel.font = kFont12
-            passStrengthLabel.text = "较强"
+//            passStrengthLabel.text = "较强"
+            
+            passView.layer.cornerRadius = 4
             passStrengthView.addSubview(passStrengthLabel)
+            passStrengthView.addSubview(passView)
+            
+            passView.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(0)
+                make.centerY.equalTo(passStrengthView)
+                make.height.equalTo(passStrengthView)
+                make.width.equalTo(0)
+            }
+            
             passStrengthLabel.snp.makeConstraints { (make) -> Void in
                 make.right.equalTo(-4)
                 make.centerY.equalTo(passStrengthView)
+            }
+            
+            if String().judgeComplexity(model.password) == 0 {
+                passStrengthLabel.text = "弱"
+                passView.backgroundColor = kThemeRedColor
+                passView.snp.updateConstraints { (make) -> Void in
+                    make.width.equalTo(kScreenWidth / 5)
+                }
+            } else if String().judgeComplexity(model.password) == 1 {
+                passStrengthLabel.text = "较强"
+                passView.backgroundColor = kThemeOrangleColor
+                passView.snp.updateConstraints { (make) -> Void in
+                    make.width.equalTo(kScreenWidth * 2 / 5)
+                }
+            } else {
+                passStrengthLabel.text = "强"
+                passView.backgroundColor = kThemeGreenColor
+                passView.snp.updateConstraints { (make) -> Void in
+                    make.width.equalTo(kScreenWidth * 3 / 5)
+                }
             }
             
         } else {
@@ -162,6 +196,7 @@ class KJHomeCell: UITableViewCell {
             passLabel.removeFromSuperview()
             passStrengthView.removeFromSuperview()
             passStrengthLabel.removeFromSuperview()
+            passView.removeFromSuperview()
         }
     }
     

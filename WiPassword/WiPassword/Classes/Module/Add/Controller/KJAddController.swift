@@ -11,6 +11,7 @@ import UIKit
 class KJAddController: UIViewController {
     
     let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
+    var isOn =  false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +82,11 @@ extension KJAddController : UITableViewDataSource {
         } else if section == 1 {
             return 3
         } else {
-            return 2
+            
+            guard isOn else {
+                return 2
+            }
+            return 3
         }
  
     }
@@ -101,7 +106,15 @@ extension KJAddController : UITableViewDataSource {
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
             cell.setTextFieldPlaceHolder(PlaceHolder: "请再次输入密码")
         } else if indexPath.section == 2 && indexPath.row == 0 {
+            cell.switchIsOn = isOn
             cell.configCell(Type: KJAddRoutineCellType.switchCell, Title: "随机密码")
+            cell.switchClosure = { [weak self] (isOn) -> Void in
+                self?.isOn = isOn
+                self?.tableView.reloadData()
+            }
+
+        } else if indexPath.section == 2 && indexPath.row == 1 && isOn == true {
+            cell.configCell(Type: KJAddRoutineCellType.sliderCell, Title: "密码长度")
         } else {
             cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "备注")
         }
@@ -126,7 +139,9 @@ extension KJAddController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 75.0
-        } else if indexPath.section == 2 && indexPath.row == 1 {
+        } else if indexPath.section == 2 && indexPath.row == 1 && isOn == false {
+            return 80.0
+        } else if indexPath.section == 2 && indexPath.row == 2 && isOn == true {
             return 80.0
         }
         return 50.0

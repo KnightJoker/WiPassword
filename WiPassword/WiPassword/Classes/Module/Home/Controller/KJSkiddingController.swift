@@ -55,7 +55,18 @@ extension KJSkiddingController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = KJSkiddingCell.init(style: UITableViewCellStyle.default, reuseIdentifier: skiddingCellIdentifier)
-        cell.configCell(Image: "ic_allAndHome", Title: "全部")
+        
+        if indexPath.row == 0 {
+            cell.configCell(Image: "ic_allAndHome", Title: "全部")
+        } else if indexPath.row == 1 {
+            cell.configCell(Image: "ic_star", Title: "登陆")
+        } else if indexPath.row == 2 {
+            cell.configCell(Image: "ic_message", Title: "消息")
+        } else if indexPath.row == 3 {
+            cell.configCell(Image: "ic_email", Title: "邮箱")
+        }
+        
+        
         if indexPath.row == selectCell {
             cell.selectCellStyle()
         }
@@ -73,6 +84,7 @@ extension KJSkiddingController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectCell = indexPath.row
         tableView.reloadData()
+        
     }
 
 }

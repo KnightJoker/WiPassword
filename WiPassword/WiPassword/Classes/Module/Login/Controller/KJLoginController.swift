@@ -110,8 +110,8 @@ class KJLoginController: UIViewController {
     // MARK: events
     func loginButtonDidClicked() {
         //Todo 账户密码的校验
-        print("Did the button")
         let tabBarVC = KJTabBarController()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.pushViewController(tabBarVC, animated: true)
         
     }

@@ -19,7 +19,7 @@ class KJTabBarController: UITabBarController {
         self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = kThemeBlockColor
         self.tabBar.tintColor = kThemeGreenColor
-
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

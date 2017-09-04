@@ -16,6 +16,7 @@ enum KJHomePasswordType : Int {
     
     case message
     
+    // Todo
     case card
 
 }
