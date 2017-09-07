@@ -25,6 +25,7 @@ class KJSettingController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        // ASICS GEL-LYTE 3  559
     }
     
     func initNavigationBar() {
@@ -75,7 +76,7 @@ extension KJSettingController : UITableViewDataSource {
         } else if indexPath.section == 0 && indexPath.row == 1 {
             cell.configCell(Icon: UIImage(named:"ic_password_green")!, Title: "安全设置", Type: KJSettingRoutineCellType.defaultCell)
         } else if indexPath.section == 1 && indexPath.row == 0 {
-            cell.configCell(Icon: UIImage(named:"ic_notification_green")!, Title: "系统通知", Type: KJSettingRoutineCellType.switchCell)
+            cell.configCell(Icon: UIImage(named:"ic_cloud_green")!, Title: "同步到iCloud", Type: KJSettingRoutineCellType.switchCell)
         } else if indexPath.section == 1 && indexPath.row == 1 {
             cell.configCell(Icon: UIImage(named:"ic_touch_green")!, Title: "Touch ID", Type: KJSettingRoutineCellType.switchCell)
         } else if indexPath.section == 2 && indexPath.row == 0 {
