@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */; };
-		B5158EE61F5D3B6500E66F61 /* KJStringComplexity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */; };
+		B5158EE61F5D3B6500E66F61 /* KJString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158EE51F5D3B6500E66F61 /* KJString.swift */; };
+		B5158F161F690D6100E66F61 /* KJPasswordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F151F690D6100E66F61 /* KJPasswordBox.swift */; };
+		B5158F1B1F69494700E66F61 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5158F1A1F69494700E66F61 /* LocalAuthentication.framework */; };
+		B5158F1D1F6949AA00E66F61 /* KJError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F1C1F6949AA00E66F61 /* KJError.swift */; };
 		B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCE41F44193F00A1BC5C /* AppDelegate.swift */; };
 		B538FCEA1F44193F00A1BC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCE81F44193F00A1BC5C /* Main.storyboard */; };
 		B538FCEF1F44193F00A1BC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */; };
@@ -45,7 +48,10 @@
 /* Begin PBXFileReference section */
 		1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.release.xcconfig"; sourceTree = "<group>"; };
 		5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.debug.xcconfig"; sourceTree = "<group>"; };
-		B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJStringComplexity.swift; sourceTree = "<group>"; };
+		B5158EE51F5D3B6500E66F61 /* KJString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJString.swift; sourceTree = "<group>"; };
+		B5158F151F690D6100E66F61 /* KJPasswordBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPasswordBox.swift; sourceTree = "<group>"; };
+		B5158F1A1F69494700E66F61 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		B5158F1C1F6949AA00E66F61 /* KJError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJError.swift; sourceTree = "<group>"; };
 		B538FCE11F44193F00A1BC5C /* WiPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B538FCE41F44193F00A1BC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B538FCE91F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5158F1B1F69494700E66F61 /* LocalAuthentication.framework in Frameworks */,
 				132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +103,7 @@
 		116E0C38EBD5837C2F66B405 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5158F1A1F69494700E66F61 /* LocalAuthentication.framework */,
 				FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */,
 			);
 			name = Frameworks;
@@ -237,7 +245,8 @@
 				B538FD291F457B5700A1BC5C /* KJThemeColor.swift */,
 				B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */,
 				B5A552211F4BDF7A0032FE78 /* KJImage.swift */,
-				B5158EE51F5D3B6500E66F61 /* KJStringComplexity.swift */,
+				B5158EE51F5D3B6500E66F61 /* KJString.swift */,
+				B5158F1C1F6949AA00E66F61 /* KJError.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				B5A552311F4ECD4B0032FE78 /* KJHomeViewModel.swift */,
+				B5158F151F690D6100E66F61 /* KJPasswordBox.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -414,6 +424,7 @@
 				TargetAttributes = {
 					B538FCE01F44193F00A1BC5C = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = FBGLSWFH2Z;
 						ProvisioningStyle = Automatic;
 					};
 					B538FCF41F44193F00A1BC5C = {
@@ -518,7 +529,8 @@
 				B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */,
 				B5A552281F4BFCB40032FE78 /* KJSettingController.swift in Sources */,
 				B5694D011F592DEA00C6832E /* KJSkiddingController.swift in Sources */,
-				B5158EE61F5D3B6500E66F61 /* KJStringComplexity.swift in Sources */,
+				B5158F1D1F6949AA00E66F61 /* KJError.swift in Sources */,
+				B5158EE61F5D3B6500E66F61 /* KJString.swift in Sources */,
 				B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */,
 				B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */,
 				B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */,
@@ -528,6 +540,7 @@
 				B5A552321F4ECD4B0032FE78 /* KJHomeViewModel.swift in Sources */,
 				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
 				B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */,
+				B5158F161F690D6100E66F61 /* KJPasswordBox.swift in Sources */,
 				B546D8EF1F569A3C00D045D8 /* KJAddRoutineCell.swift in Sources */,
 				B5694D061F594B0900C6832E /* KJSkiddingCell.swift in Sources */,
 				B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */,
@@ -674,6 +687,7 @@
 			baseConfigurationReference = 5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FBGLSWFH2Z;
 				INFOPLIST_FILE = WiPassword/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -688,6 +702,7 @@
 			baseConfigurationReference = 1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FBGLSWFH2Z;
 				INFOPLIST_FILE = WiPassword/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

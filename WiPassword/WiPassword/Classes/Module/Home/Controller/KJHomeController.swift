@@ -13,6 +13,7 @@ private var skiddingButtonStatus = false
 class KJHomeController: UIViewController {
     
     private let skiddingVC = KJSkiddingController()
+    private let maskedGesture = UITapGestureRecognizer()
     
     let tableView = UITableView.init()
     let model = KJHomeModel()
@@ -89,23 +90,31 @@ class KJHomeController: UIViewController {
     func initData() {
         
         let tempModel = KJHomeViewModel()
-        tempModel.title = "我的Email"
-        tempModel.username = "huni@git.com"
-        tempModel.password = "1234456dsda"
+        let passBox1 = KJPasswordBox()
+        passBox1.title = "我的Email"
+        passBox1.username = "huni@git.com"
+        passBox1.password = "1234456dsda"
+        passBox1.note = "6666666"
         tempModel.passType = KJHomePasswordType.mail
+        tempModel.passwordBox = passBox1
         
         let tempModel1 = KJHomeViewModel()
-        tempModel1.title = "我的账户"
-        tempModel1.username = "chenxuli@git.com"
-        tempModel1.password = "345fda"
+        let passBox2 = KJPasswordBox()
+        passBox2.title = "我的账户"
+        passBox2.username = "chenxuli@git.com"
+        passBox2.password = "345fda"
+        passBox2.note = ""
         tempModel1.passType = KJHomePasswordType.account
+        tempModel1.passwordBox = passBox2
         
         let tempModel2 = KJHomeViewModel()
-        tempModel2.title = "QQ账户"
-        tempModel2.username = "besthuni@git.com"
-        tempModel2.password = "@$#$44235vsdvt"
+        let passBox3 = KJPasswordBox()
+        passBox3.title = "QQ账户"
+        passBox3.username = "besthuni@git.com"
+        passBox3.password = "@$#$44235vsdvt"
+        passBox3.note = "我不记得有一些什么东西了MMP"
         tempModel2.passType = KJHomePasswordType.message
-        
+        tempModel2.passwordBox = passBox3
         model.viewModelList = [tempModel,tempModel1,tempModel2]
         
     }
@@ -117,13 +126,15 @@ class KJHomeController: UIViewController {
         
         if skiddingButtonStatus {
             skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+            maskedGesture.addTarget(self, action: #selector(maskedGestureDidClicked))
+            self.tabBarController?.view.addGestureRecognizer(maskedGesture)
             self.tabBarController?.view.superview?.addSubview(skiddingVC.view)
             UIView.animate(withDuration: 0.5, animations: {
                 self.skiddingVC.view.frame = CGRect(x:0,y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
                 self.tabBarController?.view.frame =  CGRect(x:(kScreenWidth * 2 / 3),y:0,width:kScreenWidth,height:kScreenHeight)
             })
         } else {
-            // Todo 右侧试图点击返回动画
+            self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
             UIView.animate(withDuration: 0.5, animations: {
                 self.skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
                 self.tabBarController?.view.frame =  CGRect(x:0,y:0,width:kScreenWidth,height:kScreenHeight)
@@ -131,6 +142,18 @@ class KJHomeController: UIViewController {
                 self.skiddingVC.view.removeFromSuperview()
             })
         }
+    }
+    
+    func maskedGestureDidClicked() {
+        
+        skiddingButtonStatus = !skiddingButtonStatus
+        self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+            self.tabBarController?.view.frame =  CGRect(x:0,y:0,width:kScreenWidth,height:kScreenHeight)
+        }, completion: {(bool) -> Void in
+            self.skiddingVC.view.removeFromSuperview()
+        })
     }
     
     func rightButtonDidClicked() {

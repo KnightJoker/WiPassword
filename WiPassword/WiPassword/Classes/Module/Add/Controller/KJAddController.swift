@@ -11,6 +11,7 @@ import UIKit
 class KJAddController: UIViewController {
     
     let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
+    var defaultPassBox = KJPasswordBox()
     var isOn =  false
     
     override func viewDidLoad() {
@@ -95,17 +96,26 @@ extension KJAddController : UITableViewDataSource {
         let cell = KJAddRoutineCell.init(style: UITableViewCellStyle.default, reuseIdentifier: addRoutineCellIdentifier)
 
         if indexPath.section == 0 {
+            
             cell.configCell(Type: KJAddRoutineCellType.imageHeaderCell, Title: "")
+            
         } else if indexPath.section == 1 && indexPath.row == 0 {
+            
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
-            cell.setTextFieldPlaceHolder(PlaceHolder: "请输入用户名")
+            cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名")
+            
         } else if indexPath.section == 1 && indexPath.row == 1 {
+            
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
-            cell.setTextFieldPlaceHolder(PlaceHolder: "请输入密码")
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码")
+            
         } else if indexPath.section == 1 && indexPath.row == 2 {
+            
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
-            cell.setTextFieldPlaceHolder(PlaceHolder: "请再次输入密码")
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码")
+            
         } else if indexPath.section == 2 && indexPath.row == 0 {
+            
             cell.switchIsOn = isOn
             cell.configCell(Type: KJAddRoutineCellType.switchCell, Title: "随机密码")
             cell.switchClosure = { [weak self] (isOn) -> Void in
@@ -114,8 +124,17 @@ extension KJAddController : UITableViewDataSource {
             }
 
         } else if indexPath.section == 2 && indexPath.row == 1 && isOn == true {
+            
             cell.configCell(Type: KJAddRoutineCellType.sliderCell, Title: "密码长度")
+            cell.sliderClosure = { [weak self] (value) -> Void in
+                self?.defaultPassBox.password = value
+                let indexPath = IndexPath(item: 1, section: 1)
+                let indexPath1 = IndexPath(item: 2, section: 1)
+                self?.tableView.reloadRows(at: [indexPath,indexPath1], with: .none)
+            }
+            
         } else {
+            
             cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "备注")
         }
         

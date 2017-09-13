@@ -31,8 +31,11 @@ class KJAddRoutineCell: UITableViewCell {
     var switchIsOn : Bool = false
     
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
+    typealias sliderButtonClosure = (_ sliderValue:String) -> Void
     
     var switchClosure: switchButtonClosure?
+    var sliderClosure: sliderButtonClosure?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,8 +46,8 @@ class KJAddRoutineCell: UITableViewCell {
     }
 
     // MARK : config Cell
-    
-    func setTextFieldPlaceHolder(PlaceHolder placeHolder:String) {
+    func setTextField(Text text:String, PlaceHolder placeHolder:String) {
+        textField.text = text
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                              attributes:[NSForegroundColorAttributeName:kLineViewColor])
     }
@@ -224,8 +227,11 @@ class KJAddRoutineCell: UITableViewCell {
     
     // MARK : events
     
-    func sliderValueChanged(slider:UISlider){
-        sliderLabel.text = String(format: "%.f", slider.value)
+    func sliderValueChanged(slider:UISlider) {
+        sliderLabel.text = String(Int(slider.value))
+        if (sliderClosure != nil) {
+            sliderClosure!(String().randomPass(Length: Int(slider.value)))
+        }
     }
     
     func switchButtonValueChanged(sender:UISwitch) {

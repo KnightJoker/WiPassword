@@ -28,10 +28,6 @@ class KJHomeModel {
 class KJHomeViewModel {
     
     var passType = KJHomePasswordType(rawValue: 0)!
-    var title : String = ""
-    var username : String = ""
-    var password : String = ""
+    var passwordBox = KJPasswordBox()
     var expandStatus : Bool = false
-    
-    
 }

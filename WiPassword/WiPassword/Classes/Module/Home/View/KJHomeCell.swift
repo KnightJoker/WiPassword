@@ -66,7 +66,7 @@ class KJHomeCell: UITableViewCell {
         }
         
         let titleLabel = UILabel()
-        titleLabel.text = model.title
+        titleLabel.text = model.passwordBox.title
         titleLabel.textColor = kThemeGreenColor
         titleLabel.font = kFont16
         
@@ -78,7 +78,7 @@ class KJHomeCell: UITableViewCell {
         }
         
         let userLabel = UILabel()
-        userLabel.text = model.username
+        userLabel.text = model.passwordBox.username
         userLabel.textColor = kTextNormalColor
         userLabel.font = kFont14
         
@@ -133,7 +133,7 @@ class KJHomeCell: UITableViewCell {
             
             passLabel.textColor = kTextNormalColor
             passLabel.font = kFont14
-            passLabel.text = "当前密码:" + model.password
+            passLabel.text = "当前密码:" + model.passwordBox.password
             passGroundView.addSubview(passLabel)
             passLabel.snp.makeConstraints { (make) -> Void in
                 make.left.equalTo(10)
@@ -171,13 +171,13 @@ class KJHomeCell: UITableViewCell {
                 make.centerY.equalTo(passStrengthView)
             }
             
-            if String().judgeComplexity(model.password) == 0 {
+            if String().judgeComplexity(model.passwordBox.password) == 0 {
                 passStrengthLabel.text = "弱"
                 passView.backgroundColor = kThemeRedColor
                 passView.snp.updateConstraints { (make) -> Void in
                     make.width.equalTo(kScreenWidth / 5)
                 }
-            } else if String().judgeComplexity(model.password) == 1 {
+            } else if String().judgeComplexity(model.passwordBox.password) == 1 {
                 passStrengthLabel.text = "较强"
                 passView.backgroundColor = kThemeOrangleColor
                 passView.snp.updateConstraints { (make) -> Void in
