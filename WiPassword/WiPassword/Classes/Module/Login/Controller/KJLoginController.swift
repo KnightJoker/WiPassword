@@ -97,22 +97,18 @@ class KJLoginController: UIViewController {
 //        let tabBarVC = KJTabBarController()
 //        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 //        self.navigationController?.pushViewController(tabBarVC, animated: true)
-//        self.loginWithTouchID()
-        self.startTouchID()
         
+//        self.loginWithTouchID()
+//        self.startTouchID()
     }
     
     func startTouchID() {
-        let uiAlert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-        self.present(uiAlert, animated: true, completion: nil)
-        
-        uiAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
-            print("Click of default button")
-        }))
-        
-        uiAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            print("Click of cancel button")
-        }))
+        let sss = KJAlertController()
+        sss.presentAlertController(Controller: self, Title: "Title", Message: "MSSS", LeftButtonText: "OK", RightButtonText: "Cancel", LeftButtonClosure: {_ in
+            print("222")
+        }, RightButtonClosure: { _ in
+            print("444")
+        })
     }
     
     func loginWithTouchID() {
