@@ -235,7 +235,7 @@ class KJAddRoutineCell: UITableViewCell {
     }
     
     func switchButtonValueChanged(sender:UISwitch) {
-        print(sender.isOn)
+//        print(sender.isOn)
         if (switchClosure != nil) {
             switchClosure!(sender.isOn)
         }

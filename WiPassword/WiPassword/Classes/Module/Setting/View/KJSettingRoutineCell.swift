@@ -18,6 +18,11 @@ enum KJSettingRoutineCellType : Int {
 let settingRoutineCellIdentifier = "KJSettingRoutineCellIdentifier"
 
 class KJSettingRoutineCell: UITableViewCell {
+    
+    private let switchButton = UISwitch()
+    
+    typealias switchButtonClosure = (_ isOn:Bool) -> Void
+    var switchClosure: switchButtonClosure?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +33,10 @@ class KJSettingRoutineCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setSwithButtonIsOn(_ isOn:Bool) {
+        switchButton.isOn = isOn
     }
     
     func configCell(Icon icon:UIImage,Title title:String,Type type:KJSettingRoutineCellType) {
@@ -71,11 +80,12 @@ class KJSettingRoutineCell: UITableViewCell {
             
         default:
             self.selectionStyle = .none
-            let switchButton = UISwitch()
+
             switchButton.onTintColor = kThemeGreenColor
             switchButton.thumbTintColor = kTextNormalColor
             switchButton.tintColor = kLineViewColor
             switchButton.layer.cornerRadius = 1.0
+            switchButton.addTarget(self, action: #selector(switchButtonValueChanged), for: UIControlEvents.valueChanged)
             self.addSubview(switchButton)
             switchButton.snp.makeConstraints { (make) -> Void in
                 make.centerY.equalTo(self)
@@ -96,6 +106,15 @@ class KJSettingRoutineCell: UITableViewCell {
             make.height.equalTo(3)
         }
         
+    }
+    
+    // MARK : events
+
+    func switchButtonValueChanged(sender:UISwitch) {
+       
+        if (switchClosure != nil) {
+            switchClosure!(sender.isOn)
+        }
     }
 
 }

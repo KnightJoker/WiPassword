@@ -15,16 +15,20 @@ class KJLoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.setupView()
+        
+         self.setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.initNavigationBar()
+        if UserDefaults.standard.bool(forKey: kIsTouchId) {
+            self.loginWithTouchID()
+        } 
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,21 +98,12 @@ class KJLoginController: UIViewController {
     // MARK: events
     func loginButtonDidClicked() {
         //Todo 账户密码的校验
-//        let tabBarVC = KJTabBarController()
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-//        self.navigationController?.pushViewController(tabBarVC, animated: true)
+        let tabBarVC = KJTabBarController()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.pushViewController(tabBarVC, animated: true)
         
 //        self.loginWithTouchID()
 //        self.startTouchID()
-    }
-    
-    func startTouchID() {
-        let sss = KJAlertController()
-        sss.presentAlertController(Controller: self, Title: "Title", Message: "MSSS", LeftButtonText: "OK", RightButtonText: "Cancel", LeftButtonClosure: {_ in
-            print("222")
-        }, RightButtonClosure: { _ in
-            print("444")
-        })
     }
     
     func loginWithTouchID() {

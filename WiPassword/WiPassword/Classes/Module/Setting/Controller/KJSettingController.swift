@@ -86,6 +86,24 @@ extension KJSettingController : UITableViewDataSource {
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
             cell.configCell(Icon: UIImage(named:"ic_touch_green")!, Title: "Touch ID", Type: KJSettingRoutineCellType.switchCell)
+            cell.setSwithButtonIsOn(UserDefaults.standard.bool(forKey: kIsTouchId))
+            cell.switchClosure = { [weak self] (isOn) -> Void in
+                
+                if isOn {
+                    UserDefaults.standard.set(isOn, forKey: kIsTouchId)
+                } else {
+                    let AlertVC = KJAlertController()
+                    AlertVC.presentAlertController(Controller: self!, Title: "", Message: "确定关闭指纹登陆", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: {_ in
+                        UserDefaults.standard.set(true, forKey: kIsTouchId)
+                        let indexPath = IndexPath(item: 1, section: 1)
+                        self?.tableView.reloadRows(at: [indexPath], with: .none)
+                    }, RightButtonClosure: { _ in
+                        UserDefaults.standard.set(isOn, forKey: kIsTouchId)
+                    })
+                }
+                
+                
+            }
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
             
