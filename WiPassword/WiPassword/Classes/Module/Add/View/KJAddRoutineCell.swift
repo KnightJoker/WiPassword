@@ -20,7 +20,7 @@ enum KJAddRoutineCellType : Int {
     
 }
 
-class KJAddRoutineCell: UITableViewCell {
+class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     private let titleLabel = UILabel()
     private let slider = UISlider()
@@ -30,12 +30,13 @@ class KJAddRoutineCell: UITableViewCell {
 
     var switchIsOn : Bool = false
     
+    typealias defaultTextFieldClosure = (_ text:String) -> Void
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
     typealias sliderButtonClosure = (_ sliderValue:String) -> Void
     
     var switchClosure: switchButtonClosure?
     var sliderClosure: sliderButtonClosure?
-    
+    var textFieldClosure : defaultTextFieldClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +46,7 @@ class KJAddRoutineCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    // MARK : config Cell
+    // MARK: - config Cell
     func setTextField(Text text:String, PlaceHolder placeHolder:String) {
         textField.text = text
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
@@ -100,6 +101,7 @@ class KJAddRoutineCell: UITableViewCell {
         
         textField.textColor = kTextNormalColor
         textField.font = kFont14
+        textField.delegate = self
         
         self.addSubview(textField)
         
@@ -225,8 +227,16 @@ class KJAddRoutineCell: UITableViewCell {
         
     }
     
-    // MARK : events
+    // MARK: - textFieldDelegate
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textFieldClosure != nil) {
+            textFieldClosure!(textField.text!)
+        }
+    }
+    
+    // MARK: - events
+
     func sliderValueChanged(slider:UISlider) {
         sliderLabel.text = String(Int(slider.value))
         if (sliderClosure != nil) {
@@ -235,7 +245,6 @@ class KJAddRoutineCell: UITableViewCell {
     }
     
     func switchButtonValueChanged(sender:UISwitch) {
-//        print(sender.isOn)
         if (switchClosure != nil) {
             switchClosure!(sender.isOn)
         }

@@ -101,7 +101,6 @@ class KJLoginController: UIViewController {
         let tabBarVC = KJTabBarController()
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.pushViewController(tabBarVC, animated: true)
-        
 //        self.loginWithTouchID()
 //        self.startTouchID()
     }

@@ -59,7 +59,7 @@ class KJAddController: UIViewController {
         }
     }
     
-    // MARK: events
+    // MARK: - events
     
     func backButtonDidClicked() {
         self.navigationController?.popViewController(animated: true)
@@ -103,16 +103,25 @@ extension KJAddController : UITableViewDataSource {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
             cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名")
+            cell.textFieldClosure = {(text) -> Void in
+                
+            }
             
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
             cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码")
+            cell.textFieldClosure = {(text) -> Void in
+                
+            }
             
         } else if indexPath.section == 1 && indexPath.row == 2 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
             cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码")
+            cell.textFieldClosure = {(text) -> Void in
+                
+            }
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
             
