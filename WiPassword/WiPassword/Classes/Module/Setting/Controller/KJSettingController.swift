@@ -92,8 +92,8 @@ extension KJSettingController : UITableViewDataSource {
                 if isOn {
                     UserDefaults.standard.set(isOn, forKey: kIsTouchId)
                 } else {
-                    let AlertVC = KJAlertController()
-                    AlertVC.presentAlertController(Controller: self!, Title: "", Message: "确定关闭指纹登陆", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: {_ in
+                    let alertVC = KJAlertController()
+                    alertVC.presentAlertController(Controller: self!, Title: "确定关闭指纹登陆", Message: "", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: {_ in
                         UserDefaults.standard.set(true, forKey: kIsTouchId)
                         let indexPath = IndexPath(item: 1, section: 1)
                         self?.tableView.reloadRows(at: [indexPath], with: .none)

@@ -99,6 +99,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     private func setupCellWithDefaultType() {
         
+         NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         textField.textColor = kTextNormalColor
         textField.font = kFont14
         textField.delegate = self
@@ -206,6 +207,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     private func setupCellWithRemarkCell() {
     
+        NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         titleLabel.snp.updateConstraints { (make) -> Void in
             make.centerY.equalTo(self).offset(-15)
         }
@@ -252,5 +254,10 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     func imageButtonDidClicked() {
         print("点击")
+    }
+    
+    // MARK: - notification
+    func editEnd() {
+        self.endEditing(true)
     }
 }

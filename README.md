@@ -8,7 +8,24 @@ WiPassword is a free, open source and no advertising password manager. It doesn'
 
 ## Requirements
 
-- XCode 8.0 or higher
-- Target of iOS 8 or higher
+- XCode 8.0 +
+- Target of iOS 8 +
+- CocoaPods 1.1.0 +
 
 
+## How to Build
+
+- Go to the project path
+`cd /path`
+
+- Fetch the source of WiPassword
+`git clone git@github.com:KnightJoker/WiPassword.git`
+
+- To integrate Library into your Xcode project using CocoaPods
+```
+$   cd WiPassword/
+$   pod install         
+// if the pod update is slow，you can use `pod install --verbose --no-repo-update`
+```
+
+- Use the `.xcworkspace` file to build your app

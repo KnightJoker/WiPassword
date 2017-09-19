@@ -13,6 +13,8 @@ class KJAddController: UIViewController {
     let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
     var defaultPassBox = KJPasswordBox()
     var isOn =  false
+    var password = String()
+    var surePass = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,15 @@ class KJAddController: UIViewController {
     }
     
     func sureButtonDidClicked() {
-        print("确定")
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
+        
+        if password == surePass {
+            defaultPassBox.password = password
+        } else {
+            print("错误")
+        }
+//        print("确定")
     }
 }
 
@@ -103,24 +113,24 @@ extension KJAddController : UITableViewDataSource {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
             cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名")
-            cell.textFieldClosure = {(text) -> Void in
-                
+            cell.textFieldClosure = {[weak self] (text) -> Void in
+                self?.defaultPassBox.username = text
             }
             
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
             cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码")
-            cell.textFieldClosure = {(text) -> Void in
-                
+            cell.textFieldClosure = {[weak self] (text) -> Void in
+                self?.password = text
             }
             
         } else if indexPath.section == 1 && indexPath.row == 2 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
             cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码")
-            cell.textFieldClosure = {(text) -> Void in
-                
+            cell.textFieldClosure = {[weak self] (text) -> Void in
+                self?.surePass = text
             }
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
