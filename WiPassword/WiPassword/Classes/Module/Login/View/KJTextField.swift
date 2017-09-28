@@ -12,19 +12,19 @@ import UIKit
 
 class KJTextField: UIView {
     
-    let imageView = UIImageView()
-    let lineView = UIView()
-    let textField = UITextField()
+    @objc let imageView = UIImageView()
+    @objc let lineView = UIView()
+    @objc let textField = UITextField()
     
     typealias textFieldString = (_ text:String) -> Void
-    var textFieldReturnClosure: textFieldString?
+    @objc var textFieldReturnClosure: textFieldString?
     
-    func textFieldValueClosure(closure:textFieldString?){
+    @objc func textFieldValueClosure(closure:textFieldString?){
         textFieldReturnClosure = closure
     }
     
     
-    func initWithImage(image:UIImage,placeHolder:String) {
+    @objc func initWithImage(image:UIImage,placeHolder:String) {
         
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
@@ -34,7 +34,7 @@ class KJTextField: UIView {
         textField.textColor = kTextNormalColor
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
-                                                               attributes:[NSForegroundColorAttributeName:kLineViewColor])
+                                                               attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])
     
         self.addSubview(imageView)
         self.addSubview(lineView)

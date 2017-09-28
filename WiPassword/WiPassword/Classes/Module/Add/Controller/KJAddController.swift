@@ -10,11 +10,11 @@ import UIKit
 
 class KJAddController: UIViewController {
     
-    let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
+    @objc let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
     var defaultPassBox = KJPasswordBox()
-    var isOn =  false
-    var password = String()
-    var surePass = String()
+    @objc var isOn =  false
+    @objc var password = String()
+    @objc var surePass = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class KJAddController: UIViewController {
 
     // MARK: - init View
     
-    func initNavigationBar() {
+    @objc func initNavigationBar() {
         self.navigationItem.title = "新建卡片"
         let backItem = UIBarButtonItem(image:UIImage(named:"ic_back_gray"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(backButtonDidClicked))
         backItem.tintColor = kTextNormalColor
@@ -46,7 +46,7 @@ class KJAddController: UIViewController {
         
     }
     
-    func setupView() {
+    @objc func setupView() {
       
         tableView.backgroundColor = kThemeBackgroundColor
         tableView.register(KJAddRoutineCell.self,forCellReuseIdentifier: addRoutineCellIdentifier)
@@ -63,11 +63,11 @@ class KJAddController: UIViewController {
     
     // MARK: - events
     
-    func backButtonDidClicked() {
+    @objc func backButtonDidClicked() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func sureButtonDidClicked() {
+    @objc func sureButtonDidClicked() {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
         

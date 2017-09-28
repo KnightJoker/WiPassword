@@ -37,12 +37,12 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: init View
-    func initNavigationBar() {
+    @objc func initNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
         
     }
     
-    func setupView() {
+    @objc func setupView() {
         self.view.backgroundColor = kThemeBackgroundColor
         
         let logoImageView = UIImageView(image:UIImage(named:"logo"))
@@ -96,7 +96,7 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: events
-    func loginButtonDidClicked() {
+    @objc func loginButtonDidClicked() {
         //Todo 账户密码的校验
         let tabBarVC = KJTabBarController()
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -105,7 +105,7 @@ class KJLoginController: UIViewController {
 //        self.startTouchID()
     }
     
-    func loginWithTouchID() {
+    @objc func loginWithTouchID() {
         let authContext : LAContext = LAContext()
         var error: NSError?
         

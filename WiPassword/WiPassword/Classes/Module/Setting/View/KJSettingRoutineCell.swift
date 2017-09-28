@@ -22,7 +22,7 @@ class KJSettingRoutineCell: UITableViewCell {
     private let switchButton = UISwitch()
     
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
-    var switchClosure: switchButtonClosure?
+    @objc var switchClosure: switchButtonClosure?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +35,7 @@ class KJSettingRoutineCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setSwithButtonIsOn(_ isOn:Bool) {
+    @objc func setSwithButtonIsOn(_ isOn:Bool) {
         switchButton.isOn = isOn
     }
     
@@ -110,7 +110,7 @@ class KJSettingRoutineCell: UITableViewCell {
     
     // MARK : events
 
-    func switchButtonValueChanged(sender:UISwitch) {
+    @objc func switchButtonValueChanged(sender:UISwitch) {
        
         if (switchClosure != nil) {
             switchClosure!(sender.isOn)

@@ -28,15 +28,15 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     private let textField = UITextField()
     private let switchButton = UISwitch()
 
-    var switchIsOn : Bool = false
+    @objc var switchIsOn : Bool = false
     
     typealias defaultTextFieldClosure = (_ text:String) -> Void
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
     typealias sliderButtonClosure = (_ sliderValue:String) -> Void
     
-    var switchClosure: switchButtonClosure?
-    var sliderClosure: sliderButtonClosure?
-    var textFieldClosure : defaultTextFieldClosure?
+    @objc var switchClosure: switchButtonClosure?
+    @objc var sliderClosure: sliderButtonClosure?
+    @objc var textFieldClosure : defaultTextFieldClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,10 +47,10 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     }
 
     // MARK: - config Cell
-    func setTextField(Text text:String, PlaceHolder placeHolder:String) {
+    @objc func setTextField(Text text:String, PlaceHolder placeHolder:String) {
         textField.text = text
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
-                                                             attributes:[NSForegroundColorAttributeName:kLineViewColor])
+                                                             attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])
     }
     
     func configCell(Type type:KJAddRoutineCellType, Title title:String) {
@@ -239,25 +239,25 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     // MARK: - events
 
-    func sliderValueChanged(slider:UISlider) {
+    @objc func sliderValueChanged(slider:UISlider) {
         sliderLabel.text = String(Int(slider.value))
         if (sliderClosure != nil) {
             sliderClosure!(String().randomPass(Length: Int(slider.value)))
         }
     }
     
-    func switchButtonValueChanged(sender:UISwitch) {
+    @objc func switchButtonValueChanged(sender:UISwitch) {
         if (switchClosure != nil) {
             switchClosure!(sender.isOn)
         }
     }
     
-    func imageButtonDidClicked() {
+    @objc func imageButtonDidClicked() {
         print("点击")
     }
     
     // MARK: - notification
-    func editEnd() {
+    @objc func editEnd() {
         self.endEditing(true)
     }
 }

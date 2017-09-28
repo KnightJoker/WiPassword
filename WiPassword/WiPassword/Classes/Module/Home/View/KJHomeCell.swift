@@ -15,7 +15,7 @@ class KJHomeCell: UITableViewCell {
     
     typealias statusButtonClosure = (_ status:Bool) -> Void
     
-    var _statusClosure: statusButtonClosure?
+    @objc var _statusClosure: statusButtonClosure?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -201,7 +201,7 @@ class KJHomeCell: UITableViewCell {
     }
     
     // MARK: events
-    func statusButtonDidClicked(_ button:UIButton) {
+    @objc func statusButtonDidClicked(_ button:UIButton) {
         status = !status
         if (_statusClosure != nil) {
             _statusClosure!(status)

@@ -12,7 +12,7 @@ private var selectCell = 0          //默认选中的Cell
 
 class KJSkiddingController: UIViewController {
 
-    let tableView = UITableView.init()
+    @objc let tableView = UITableView.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class KJSkiddingController: UIViewController {
     }
     
     // MARK : setupView
-    func setupView() {
+    @objc func setupView() {
         self.view.backgroundColor = kThemeDeepBlockColor
         
         tableView.backgroundColor = kThemeDeepBlockColor

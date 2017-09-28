@@ -15,7 +15,7 @@ class KJHomeController: UIViewController {
     private let skiddingVC = KJSkiddingController()
     private let maskedGesture = UITapGestureRecognizer()
     
-    let tableView = UITableView.init()
+    @objc let tableView = UITableView.init()
     let model = KJHomeModel()
     
     override func viewDidLoad() {
@@ -34,14 +34,14 @@ class KJHomeController: UIViewController {
     }
     
     // MARK: - init View
-    func initNavigationBar() {
+    @objc func initNavigationBar() {
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage().getImageWithColor(color: kThemeBlockColor), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage().getImageWithColor(color: kThemeBlockColor)
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: kTextNormalColor]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: kTextNormalColor]
         self.navigationItem.title = "密码管理"
 
         let leftItem = UIBarButtonItem(image:UIImage(named:"ic_menu_gray"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(leftButtonDidClicked))
@@ -55,7 +55,7 @@ class KJHomeController: UIViewController {
         
     }
     
-    func setupView() {
+    @objc func setupView() {
         
         let searchBar = UISearchBar.init()
         searchBar.backgroundImage = UIImage().getImageWithColor(color: kThemeBlockColor)
@@ -87,7 +87,7 @@ class KJHomeController: UIViewController {
     }
     
     // to testUI,would delete this func
-    func initData() {
+    @objc func initData() {
         
         let tempModel = KJHomeViewModel()
         let passBox1 = KJPasswordBox()
@@ -120,7 +120,7 @@ class KJHomeController: UIViewController {
     }
     
     // MARK: - Event
-    func leftButtonDidClicked() {
+    @objc func leftButtonDidClicked() {
 
         skiddingButtonStatus = !skiddingButtonStatus
         
@@ -144,7 +144,7 @@ class KJHomeController: UIViewController {
         }
     }
     
-    func maskedGestureDidClicked() {
+    @objc func maskedGestureDidClicked() {
         
         skiddingButtonStatus = !skiddingButtonStatus
         self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
@@ -156,7 +156,7 @@ class KJHomeController: UIViewController {
         })
     }
     
-    func rightButtonDidClicked() {
+    @objc func rightButtonDidClicked() {
         let addVC = KJAddController()
         addVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(addVC, animated: true)

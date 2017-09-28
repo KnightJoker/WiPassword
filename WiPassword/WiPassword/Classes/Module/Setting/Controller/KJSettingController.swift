@@ -10,7 +10,7 @@ import UIKit
 
 class KJSettingController: UIViewController {
 
-    let tableView = UITableView.init()
+    @objc let tableView = UITableView.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +28,18 @@ class KJSettingController: UIViewController {
         // ASICS GEL-LYTE 3  559
     }
     
-    func initNavigationBar() {
+    @objc func initNavigationBar() {
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage().getImageWithColor(color: kThemeBlockColor), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage().getImageWithColor(color: kThemeBlockColor)
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: kTextNormalColor]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: kTextNormalColor]
         self.navigationItem.title = "设置"
     }
 
-    func setupView() {
+    @objc func setupView() {
         
         tableView.backgroundColor = kThemeBlockColor
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none

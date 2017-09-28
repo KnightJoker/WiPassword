@@ -13,8 +13,8 @@ class KJAlertController: UIAlertController {
     typealias leftButtonClosure = ((UIAlertAction) -> Swift.Void)
     typealias rightButtonClosure = ((UIAlertAction) -> Swift.Void)
     
-    var leftButtonDidClickClosure : leftButtonClosure?
-    var rightButtonDidClickClosure : rightButtonClosure?
+    @objc var leftButtonDidClickClosure : leftButtonClosure?
+    @objc var rightButtonDidClickClosure : rightButtonClosure?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class KJAlertController: UIAlertController {
  
 
     // MARK - public
-     func presentAlertController(Controller vc:UIViewController,Title title:String,Message message:String,LeftButtonText leftText:String,RightButtonText rightText:String,LeftButtonClosure leftClosure:leftButtonClosure?,RightButtonClosure rightClosure:rightButtonClosure?) {
+     @objc func presentAlertController(Controller vc:UIViewController,Title title:String,Message message:String,LeftButtonText leftText:String,RightButtonText rightText:String,LeftButtonClosure leftClosure:leftButtonClosure?,RightButtonClosure rightClosure:rightButtonClosure?) {
         
         let uiAlert = KJAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         vc.present(uiAlert, animated: true, completion: nil)

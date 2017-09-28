@@ -28,7 +28,7 @@ class KJSkiddingCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(Image image:String,Title title:String) {
+    @objc func configCell(Image image:String,Title title:String) {
         
         self.backgroundColor = kThemeDeepBlockColor
         self.selectionStyle = .none
@@ -70,7 +70,7 @@ class KJSkiddingCell: UITableViewCell {
         }
     }
     
-    func selectCellStyle() {
+    @objc func selectCellStyle() {
         
         titleImage.image = UIImage(named:titleImageString + "_green")
         self.backgroundColor = kThemeBackgroundColor
