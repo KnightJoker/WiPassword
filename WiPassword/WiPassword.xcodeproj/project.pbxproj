@@ -25,6 +25,7 @@
 		B546D8DB1F50150200D045D8 /* KJSettingRoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546D8DA1F50150200D045D8 /* KJSettingRoutineCell.swift */; };
 		B546D8ED1F568D7600D045D8 /* KJAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546D8EC1F568D7600D045D8 /* KJAddController.swift */; };
 		B546D8EF1F569A3C00D045D8 /* KJAddRoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546D8EE1F569A3C00D045D8 /* KJAddRoutineCell.swift */; };
+		B56849921F8C97ED00E98E53 /* KJSecurityKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56849911F8C97ED00E98E53 /* KJSecurityKit.swift */; };
 		B5694D011F592DEA00C6832E /* KJSkiddingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5694D001F592DEA00C6832E /* KJSkiddingController.swift */; };
 		B5694D041F59318300C6832E /* KJPublicDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5694D031F59318300C6832E /* KJPublicDefine.swift */; };
 		B5694D061F594B0900C6832E /* KJSkiddingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5694D051F594B0900C6832E /* KJSkiddingCell.swift */; };
@@ -71,6 +72,7 @@
 		B546D8DA1F50150200D045D8 /* KJSettingRoutineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSettingRoutineCell.swift; sourceTree = "<group>"; };
 		B546D8EC1F568D7600D045D8 /* KJAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJAddController.swift; sourceTree = "<group>"; };
 		B546D8EE1F569A3C00D045D8 /* KJAddRoutineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJAddRoutineCell.swift; sourceTree = "<group>"; };
+		B56849911F8C97ED00E98E53 /* KJSecurityKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJSecurityKit.swift; sourceTree = "<group>"; };
 		B5694D001F592DEA00C6832E /* KJSkiddingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSkiddingController.swift; sourceTree = "<group>"; };
 		B5694D031F59318300C6832E /* KJPublicDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPublicDefine.swift; sourceTree = "<group>"; };
 		B5694D051F594B0900C6832E /* KJSkiddingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSkiddingCell.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		B538FD0A1F441B3C00A1BC5C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B568498E1F8C974B00E98E53 /* SecurityKit */,
 				B5158F251F6A517500E66F61 /* AlertController */,
 				B5694D021F59316F00C6832E /* Macros */,
 				B5A5521B1F4AC8500032FE78 /* TabBarController */,
@@ -295,6 +298,14 @@
 				B546D8EE1F569A3C00D045D8 /* KJAddRoutineCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B568498E1F8C974B00E98E53 /* SecurityKit */ = {
+			isa = PBXGroup;
+			children = (
+				B56849911F8C97ED00E98E53 /* KJSecurityKit.swift */,
+			);
+			path = SecurityKit;
 			sourceTree = "<group>";
 		};
 		B5694D021F59316F00C6832E /* Macros */ = {
@@ -563,6 +574,7 @@
 				B5694D061F594B0900C6832E /* KJSkiddingCell.swift in Sources */,
 				B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */,
 				B5694D041F59318300C6832E /* KJPublicDefine.swift in Sources */,
+				B56849921F8C97ED00E98E53 /* KJSecurityKit.swift in Sources */,
 				B5A552141F4AB4CE0032FE78 /* KJHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class KJAddController: UIViewController {
     
     @objc let tableView = UITableView.init(frame: CGRect(x:0,y:0,width:0,height:0), style: UITableViewStyle.grouped)
@@ -73,6 +74,11 @@ class KJAddController: UIViewController {
         
         if password == surePass {
             defaultPassBox.password = password
+            
+            if defaultPassBox.title == "" {
+                defaultPassBox.title = "账户信息"
+            }
+            KJSecurityKit.shared.addPasswordBox(Password: defaultPassBox)
         } else {
             print("错误")
         }
@@ -108,6 +114,9 @@ extension KJAddController : UITableViewDataSource {
         if indexPath.section == 0 {
             
             cell.configCell(Type: KJAddRoutineCellType.imageHeaderCell, Title: "")
+            cell.textFieldClosure = {[weak self] (text) -> Void in
+                self?.defaultPassBox.title = text
+            }
             
         } else if indexPath.section == 1 && indexPath.row == 0 {
             
@@ -147,6 +156,8 @@ extension KJAddController : UITableViewDataSource {
             cell.configCell(Type: KJAddRoutineCellType.sliderCell, Title: "密码长度")
             cell.sliderClosure = { [weak self] (value) -> Void in
                 self?.defaultPassBox.password = value
+                self?.password = value
+                self?.surePass = value
                 let indexPath = IndexPath(item: 1, section: 1)
                 let indexPath1 = IndexPath(item: 2, section: 1)
                 self?.tableView.reloadRows(at: [indexPath,indexPath1], with: .none)

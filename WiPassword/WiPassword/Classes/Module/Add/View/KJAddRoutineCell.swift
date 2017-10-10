@@ -99,7 +99,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     
     private func setupCellWithDefaultType() {
         
-         NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         textField.textColor = kTextNormalColor
         textField.font = kFont14
         textField.delegate = self
@@ -164,6 +164,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     }
     
     private func setupCellWithImageHeaderCell() {
+        NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         titleLabel.removeFromSuperview()
         
         let imageButton = UIButton()
@@ -184,6 +185,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
         textField.textColor = kTextNormalColor
         textField.font = kFont18
         textField.text = "账户信息"
+        textField.delegate = self
         
         self.addSubview(textField)
         

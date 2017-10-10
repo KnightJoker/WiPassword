@@ -16,7 +16,7 @@ class KJHomeController: UIViewController {
     private let maskedGesture = UITapGestureRecognizer()
     
     @objc let tableView = UITableView.init()
-    let model = KJHomeModel()
+    var model = KJHomeModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,34 +89,35 @@ class KJHomeController: UIViewController {
     // to testUI,would delete this func
     @objc func initData() {
         
-        let tempModel = KJHomeViewModel()
-        let passBox1 = KJPasswordBox()
-        passBox1.title = "我的Email"
-        passBox1.username = "huni@git.com"
-        passBox1.password = "1234456dsda"
-        passBox1.note = "6666666"
-        tempModel.passType = KJHomePasswordType.mail
-        tempModel.passwordBox = passBox1
-        
-        let tempModel1 = KJHomeViewModel()
-        let passBox2 = KJPasswordBox()
-        passBox2.title = "我的账户"
-        passBox2.username = "chenxuli@git.com"
-        passBox2.password = "345fda"
-        passBox2.note = ""
-        tempModel1.passType = KJHomePasswordType.account
-        tempModel1.passwordBox = passBox2
-        
-        let tempModel2 = KJHomeViewModel()
-        let passBox3 = KJPasswordBox()
-        passBox3.title = "QQ账户"
-        passBox3.username = "besthuni@git.com"
-        passBox3.password = "@$#$44235vsdvt"
-        passBox3.note = "我不记得有一些什么东西了MMP"
-        tempModel2.passType = KJHomePasswordType.message
-        tempModel2.passwordBox = passBox3
-        model.viewModelList = [tempModel,tempModel1,tempModel2]
-        
+//        let tempModel = KJHomeViewModel()
+//        let passBox1 = KJPasswordBox()
+//        passBox1.title = "我的Email"
+//        passBox1.username = "huni@git.com"
+//        passBox1.password = "1234456dsda"
+//        passBox1.note = "6666666"
+//        tempModel.passType = KJHomePasswordType.mail
+//        tempModel.passwordBox = passBox1
+//
+//        let tempModel1 = KJHomeViewModel()
+//        let passBox2 = KJPasswordBox()
+//        passBox2.title = "我的账户"
+//        passBox2.username = "chenxuli@git.com"
+//        passBox2.password = "345fda"
+//        passBox2.note = ""
+//        tempModel1.passType = KJHomePasswordType.account
+//        tempModel1.passwordBox = passBox2
+//
+//        let tempModel2 = KJHomeViewModel()
+//        let passBox3 = KJPasswordBox()
+//        passBox3.title = "QQ账户"
+//        passBox3.username = "besthuni@git.com"
+//        passBox3.password = "@$#$44235vsdvt"
+//        passBox3.note = "我不记得有一些什么东西了MMP"
+//        tempModel2.passType = KJHomePasswordType.message
+//        tempModel2.passwordBox = passBox3
+//        model.viewModelList = [tempModel,tempModel1,tempModel2]
+
+        model = KJSecurityKit.shared.queryAllPasswordBox()
     }
     
     // MARK: - Event
@@ -214,6 +215,7 @@ extension KJHomeController: UITableViewDelegate {
         let delete = UITableViewRowAction(style: .normal, title: "删除") {
             action, index in
             print("delete")
+            KJSecurityKit.shared.deleteAllPasswordBox()
         }
         delete.backgroundColor = kThemeGreenColor
         return [delete]

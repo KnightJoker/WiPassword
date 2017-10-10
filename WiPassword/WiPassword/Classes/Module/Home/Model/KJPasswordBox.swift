@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-class KJPasswordBox {
-    var title : String = ""
-    var username : String = ""
-    var password : String = ""
-    var note : String = ""
+class KJPasswordBox: Object {
+   @objc dynamic var title : String = ""
+   @objc dynamic var username : String = ""
+   @objc dynamic var password : String = ""
+   @objc dynamic var note : String = ""
 }
+
+
