@@ -71,18 +71,26 @@ class KJAddController: UIViewController {
     @objc func sureButtonDidClicked() {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
-        
-        if password == surePass {
-            defaultPassBox.password = password
-            
-            if defaultPassBox.title == "" {
-                defaultPassBox.title = "账户信息"
-            }
-            KJSecurityKit.shared.addPasswordBox(Password: defaultPassBox)
-        } else {
-            print("错误")
+
+        if defaultPassBox.title == "" {
+            defaultPassBox.title = "账户信息"
         }
-//        print("确定")
+        
+        if defaultPassBox.username == "" {
+             KJAlertController.presentAlertShowTip(Controller: self, Title: "用户名不能为空", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+        }
+        
+        if password == surePass && defaultPassBox.username == "" {
+            defaultPassBox.password = password
+            defaultPassBox.passwordID = defaultPassBox.username + String(Date().nowTimestamp())
+            KJSecurityKit.shared.addPasswordBox(Password: defaultPassBox)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "保存成功", Message: "", buttonText: "确定", ButtonDidClickClosure: { [weak self]  Void in
+                self?.navigationController?.popToRootViewController(animated: true)
+            })
+        } else {
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+        }
+
     }
 }
 

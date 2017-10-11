@@ -10,10 +10,11 @@ import Foundation
 import RealmSwift
 
 class KJPasswordBox: Object {
-   @objc dynamic var title : String = ""
-   @objc dynamic var username : String = ""
-   @objc dynamic var password : String = ""
-   @objc dynamic var note : String = ""
+    @objc dynamic var passwordID : String = ""
+    @objc dynamic var title : String = ""
+    @objc dynamic var username : String = ""
+    @objc dynamic var password : String = ""
+    @objc dynamic var note : String = ""
 }
 
 

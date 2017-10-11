@@ -35,7 +35,7 @@ class KJAlertController: UIAlertController {
  
 
     // MARK - public
-     @objc func presentAlertController(Controller vc:UIViewController,Title title:String,Message message:String,LeftButtonText leftText:String,RightButtonText rightText:String,LeftButtonClosure leftClosure:leftButtonClosure?,RightButtonClosure rightClosure:rightButtonClosure?) {
+     @objc class func presentAlertController(Controller vc:UIViewController,Title title:String,Message message:String,LeftButtonText leftText:String,RightButtonText rightText:String,LeftButtonClosure leftClosure:leftButtonClosure?,RightButtonClosure rightClosure:rightButtonClosure?) {
         
         let uiAlert = KJAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         vc.present(uiAlert, animated: true, completion: nil)
@@ -43,5 +43,12 @@ class KJAlertController: UIAlertController {
         uiAlert.addAction(UIAlertAction(title: rightText, style: .default, handler: rightClosure))
         
         uiAlert.addAction(UIAlertAction(title: leftText, style: .cancel, handler: leftClosure))
+    }
+    
+    @objc class func presentAlertShowTip(Controller vc:UIViewController,Title title:String,Message message:String,buttonText text:String,ButtonDidClickClosure closure:rightButtonClosure?) {
+        let uiAlert = KJAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        vc.present(uiAlert, animated: true, completion: nil)
+        
+        uiAlert.addAction(UIAlertAction(title: text, style: .default, handler: closure))
     }
 }

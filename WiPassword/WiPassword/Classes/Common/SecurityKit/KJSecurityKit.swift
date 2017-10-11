@@ -52,20 +52,24 @@ class KJSecurityKit {
     // 查询数据库中所有数据
     public func queryAllPasswordBox() -> KJHomeModel {
         
-        
-        let realm = try! Realm()
-        let passwordArray = realm.objects(KJPasswordBox.self)
         let homeModel = KJHomeModel()
-        
-        for passwordBox in passwordArray {
-            //Todo judge viewModel's type
-            let homeViewModel = KJHomeViewModel()
-            homeViewModel.expandStatus = false
-            homeViewModel.passType = KJHomePasswordType.account
-            homeViewModel.passwordBox = passwordBox
-            homeModel.viewModelList.append(homeViewModel)
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                let realm = try! Realm()
+                let passwordArray = realm.objects(KJPasswordBox.self)
+                
+                
+                for passwordBox in passwordArray {
+                    //Todo judge viewModel's type
+                    let homeViewModel = KJHomeViewModel()
+                    homeViewModel.expandStatus = false
+                    homeViewModel.passType = KJHomePasswordType.account
+                    homeViewModel.passwordBox = passwordBox
+                    homeModel.viewModelList.append(homeViewModel)
+                }
+      
+            }
         }
-        
         return homeModel
     }
     
