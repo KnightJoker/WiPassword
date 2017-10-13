@@ -20,7 +20,7 @@ enum KJAddRoutineCellType : Int {
     
 }
 
-class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
+class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     
     private let titleLabel = UILabel()
     private let slider = UISlider()
@@ -33,10 +33,12 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     typealias defaultTextFieldClosure = (_ text:String) -> Void
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
     typealias sliderButtonClosure = (_ sliderValue:String) -> Void
+    typealias defaultTextViewClosure = (_ text:String) -> Void
     
     @objc var switchClosure: switchButtonClosure?
     @objc var sliderClosure: sliderButtonClosure?
-    @objc var textFieldClosure : defaultTextFieldClosure?
+    @objc var textFieldClosure: defaultTextFieldClosure?
+    @objc var textViewClosure: defaultTextViewClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -218,6 +220,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
         textView.backgroundColor = kThemeBlockColor
         textView.textColor = kTextNormalColor
         textView.font = kFont14
+        textView.delegate = self;
         textView.textAlignment = .left
         
         self.addSubview(textView)
@@ -236,6 +239,14 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textFieldClosure != nil) {
             textFieldClosure!(textField.text!)
+        }
+    }
+    
+    // MARK: - textViewDelegate
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textViewClosure != nil) {
+            textViewClosure!(textView.text)
         }
     }
     

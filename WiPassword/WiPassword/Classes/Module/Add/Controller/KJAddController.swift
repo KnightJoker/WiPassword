@@ -80,10 +80,10 @@ class KJAddController: UIViewController {
              KJAlertController.presentAlertShowTip(Controller: self, Title: "用户名不能为空", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
         }
         
-        if password == surePass && defaultPassBox.username == "" {
+        if password == surePass && defaultPassBox.username != "" {
             defaultPassBox.password = password
             defaultPassBox.passwordID = defaultPassBox.username + String(Date().nowTimestamp())
-            KJSecurityKit.shared.addPasswordBox(Password: defaultPassBox)
+            KJSecurityKit.sharedInstance.addPasswordBox(Password: defaultPassBox)
             KJAlertController.presentAlertShowTip(Controller: self, Title: "保存成功", Message: "", buttonText: "确定", ButtonDidClickClosure: { [weak self]  Void in
                 self?.navigationController?.popToRootViewController(animated: true)
             })
@@ -174,6 +174,9 @@ extension KJAddController : UITableViewDataSource {
         } else {
             
             cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "备注")
+            cell.textViewClosure = { [weak self] (text) -> Void in
+                self?.defaultPassBox.note = text
+            }
         }
         
         return cell

@@ -88,7 +88,7 @@ class KJHomeController: UIViewController {
     
     // to testUI,would delete this func
     @objc func initData() {
-        model = KJSecurityKit.shared.queryAllPasswordBox()
+        model = KJSecurityKit.sharedInstance.queryAllPasswordBox()
         tableView.reloadData()
     }
     
@@ -184,10 +184,10 @@ extension KJHomeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
+        let tempModel = model.viewModelList[indexPath.row]
         let delete = UITableViewRowAction(style: .normal, title: "删除") {
             action, index in
-            print("delete")
-            KJSecurityKit.shared.deleteAllPasswordBox()
+            KJSecurityKit.sharedInstance.deletePasswordBox(PasswordBox: tempModel.passwordBox)
             tableView.reloadData()
         }
         delete.backgroundColor = kThemeGreenColor
