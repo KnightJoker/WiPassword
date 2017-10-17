@@ -116,16 +116,11 @@ class KJSecurityKit {
     
     // 删除某一个数据
     public func deletePasswordBox(PasswordBox passBox:KJPasswordBox) {
-        DispatchQueue(label: "background").async {
-            autoreleasepool {
-                let realm = try! Realm()
-                try! realm.write {
-                    realm.delete(passBox)
-                }
-            }
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(passBox as Object)
         }
     }
-    
-    
     
 }

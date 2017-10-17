@@ -15,6 +15,10 @@ class KJPasswordBox: Object {
     @objc dynamic var username : String = ""
     @objc dynamic var password : String = ""
     @objc dynamic var note : String = ""
+    
+    override static func primaryKey() -> String? {
+        return "passwordID"
+    }
 }
 
 

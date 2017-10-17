@@ -209,8 +209,9 @@ extension KJHomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
         let tempModel = model.viewModelList[indexPath.row]
-        let delete = UITableViewRowAction(style: .normal, title: "删除") {
+        let delete = UITableViewRowAction(style: .normal, title: "删除") { [weak self] 
             action, index in
+            self?.model.viewModelList.remove(at: index.row)
             KJSecurityKit.sharedInstance.deletePasswordBox(PasswordBox: tempModel.passwordBox)
             tableView.reloadData()
         }
