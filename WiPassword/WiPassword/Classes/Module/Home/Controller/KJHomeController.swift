@@ -98,22 +98,30 @@ class KJHomeController: UIViewController {
         skiddingButtonStatus = !skiddingButtonStatus
         
         if skiddingButtonStatus {
-            skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
+
+            skiddingVC.view.frame = CGRect(x:0,y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
             maskedGesture.addTarget(self, action: #selector(maskedGestureDidClicked))
             self.tabBarController?.view.addGestureRecognizer(maskedGesture)
             self.tabBarController?.view.superview?.addSubview(skiddingVC.view)
-            UIView.animate(withDuration: 0.5, animations: {
-                self.skiddingVC.view.frame = CGRect(x:0,y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
-                self.tabBarController?.view.frame =  CGRect(x:(kScreenWidth * 2 / 3),y:0,width:kScreenWidth,height:kScreenHeight)
-            })
-        } else {
-            self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
-            UIView.animate(withDuration: 0.5, animations: {
-                self.skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
-                self.tabBarController?.view.frame =  CGRect(x:0,y:0,width:kScreenWidth,height:kScreenHeight)
-            }, completion: {(bool) -> Void in
-                self.skiddingVC.view.removeFromSuperview()
-            })
+
+            let ani = CABasicAnimation(keyPath: "position.x")
+            ani.fromValue = -(kScreenWidth / 3)
+            ani.toValue = (kScreenWidth  / 3)
+            ani.duration = 0.5
+            ani.isRemovedOnCompletion = false
+            ani.fillMode = kCAFillModeForwards
+            ani.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            self.skiddingVC.view.layer.add(ani, forKey: "animationSkid")
+            
+            let anim = CABasicAnimation(keyPath: "position.x")
+            anim.fromValue = (kScreenWidth / 2)
+            anim.toValue = (kScreenWidth * 2 / 3) + (kScreenWidth / 2)
+            anim.duration = 0.5
+            anim.isRemovedOnCompletion = false
+            anim.fillMode = kCAFillModeForwards
+            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            self.tabBarController?.view.layer.add(anim, forKey: "animationTabBar")
+
         }
     }
     
@@ -121,10 +129,26 @@ class KJHomeController: UIViewController {
         
         skiddingButtonStatus = !skiddingButtonStatus
         self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.skiddingVC.view.frame = CGRect(x:-(kScreenWidth * 2 / 3),y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
-            self.tabBarController?.view.frame =  CGRect(x:0,y:0,width:kScreenWidth,height:kScreenHeight)
-        }, completion: {(bool) -> Void in
+
+        let ani = CABasicAnimation(keyPath: "position.x")
+        ani.fromValue = (kScreenWidth / 3)
+        ani.toValue = -(kScreenWidth / 3)
+        ani.duration = 0.5
+        ani.isRemovedOnCompletion = false
+        ani.fillMode = kCAFillModeForwards
+        ani.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        self.skiddingVC.view.layer.add(ani, forKey: "animationSkidBack")
+        
+        let anim = CABasicAnimation(keyPath: "position.x")
+        anim.fromValue = (kScreenWidth * 2 / 3) + (kScreenWidth / 2)
+        anim.toValue = (kScreenWidth / 2)
+        anim.duration = 0.5
+        anim.isRemovedOnCompletion = false
+        anim.fillMode = kCAFillModeForwards
+        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        self.tabBarController?.view.layer.add(anim, forKey: "animationTabBarBack")
+        
+        _ = KJCommonFunc.delay(0.5, task: {
             self.skiddingVC.view.removeFromSuperview()
         })
     }

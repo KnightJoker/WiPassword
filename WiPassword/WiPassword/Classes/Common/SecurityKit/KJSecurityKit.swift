@@ -70,22 +70,34 @@ class KJSecurityKit {
     public func queryAllPasswordBox() -> KJHomeModel {
         
         let homeModel = KJHomeModel()
-       
-        DispatchQueue(label: "background").async {
-            autoreleasepool {
-                let realm = try! Realm()
-                let passwordArray = realm.objects(KJPasswordBox.self)
-
-                for passwordBox in passwordArray {
-                    //Todo judge viewModel's type
-                    let homeViewModel = KJHomeViewModel()
-                    homeViewModel.expandStatus = false
-                    homeViewModel.passType = KJHomePasswordType.account
-                    homeViewModel.passwordBox = passwordBox
-                    homeModel.viewModelList.append(homeViewModel)
-                }
-                
-            }
+   
+        //      Todo:异步处理
+//        DispatchQueue(label: "background").async {
+//            autoreleasepool {
+//                let realm = try! Realm()
+//                let passwordArray = realm.objects(KJPasswordBox.self)
+//
+//                for passwordBox in passwordArray {
+//                    //Todo judge viewModel's type
+//                    let homeViewModel = KJHomeViewModel()
+//                    homeViewModel.expandStatus = false
+//                    homeViewModel.passType = KJHomePasswordType.account
+//                    homeViewModel.passwordBox = passwordBox
+//                    homeModel.viewModelList.append(homeViewModel)
+//                }
+//
+//            }
+//        }
+        let realm = try! Realm()
+        let passwordArray = realm.objects(KJPasswordBox.self)
+        
+        for passwordBox in passwordArray {
+            //Todo judge viewModel's type
+            let homeViewModel = KJHomeViewModel()
+            homeViewModel.expandStatus = false
+            homeViewModel.passType = KJHomePasswordType.account
+            homeViewModel.passwordBox = passwordBox
+            homeModel.viewModelList.append(homeViewModel)
         }
         return homeModel
     }
