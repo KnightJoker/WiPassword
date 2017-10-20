@@ -78,7 +78,6 @@ class KJLoginController: UIViewController {
         titleLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(logoImageView.snp.bottom).offset(20)
             make.centerX.equalTo(self.view)
-
         }
         
         passTextField.snp.makeConstraints { (make) -> Void in

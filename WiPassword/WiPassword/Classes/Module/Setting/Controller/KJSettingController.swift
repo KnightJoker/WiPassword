@@ -12,6 +12,7 @@ class KJSettingController: UIViewController {
 
     @objc let tableView = UITableView.init()
     
+     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
@@ -28,6 +29,7 @@ class KJSettingController: UIViewController {
         // ASICS GEL-LYTE 3  559
     }
     
+     // MARK: - InitView
     @objc func initNavigationBar() {
         
         self.navigationController?.navigationBar.isHidden = false
@@ -143,6 +145,15 @@ extension KJSettingController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 安全设置
+        if indexPath.section == 0 && indexPath.row == 1 {
+            let modifyVc = KJModifyPwdController()
+            modifyVc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(modifyVc, animated: true)
+        }
+        
+        
     }
     
 }

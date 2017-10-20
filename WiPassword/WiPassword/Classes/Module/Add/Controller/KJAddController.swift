@@ -57,8 +57,7 @@ class KJAddController: UIViewController {
         self.view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view)
-            make.left.right.bottom.equalTo(self.view)
+            make.top.left.right.bottom.equalTo(self.view)
         }
     }
     
@@ -129,7 +128,7 @@ extension KJAddController : UITableViewDataSource {
         } else if indexPath.section == 1 && indexPath.row == 0 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
-            cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名")
+            cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名", SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.defaultPassBox.username = text
             }
@@ -137,7 +136,7 @@ extension KJAddController : UITableViewDataSource {
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
-            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码")
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码", SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.password = text
             }
@@ -145,7 +144,7 @@ extension KJAddController : UITableViewDataSource {
         } else if indexPath.section == 1 && indexPath.row == 2 {
             
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
-            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码")
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码", SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.surePass = text
             }
@@ -184,6 +183,14 @@ extension KJAddController : UITableViewDataSource {
 }
 
 extension KJAddController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {

@@ -18,6 +18,7 @@ class KJHomeController: UIViewController {
     @objc let tableView = UITableView.init()
     var model = KJHomeModel()
     
+     // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()

@@ -49,7 +49,8 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     }
 
     // MARK: - config Cell
-    @objc func setTextField(Text text:String, PlaceHolder placeHolder:String) {
+    @objc func setTextField(Text text:String, PlaceHolder placeHolder:String,SecureTextEntry isSecureTextEntry:Bool) {
+        textField.isSecureTextEntry = isSecureTextEntry
         textField.text = text
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                              attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])
