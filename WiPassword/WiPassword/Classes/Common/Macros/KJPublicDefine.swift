@@ -8,9 +8,12 @@
 
 import UIKit
 
+
 let kScreenHeight = UIScreen.main.bounds.height
 let kScreenWidth = UIScreen.main.bounds.width
 
 let kIsTouchId = "kIsTouchIdKey"
+let kHaveLoginPwd = "kHaveLoginPwdKey"
+
 
 

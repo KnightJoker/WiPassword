@@ -11,6 +11,18 @@ import LocalAuthentication
 
 class KJLoginController: UIViewController {
     
+    private let logoImageView = UIImageView(image:UIImage(named:"logo"))
+    private let titleLabel = UILabel()
+    private let passTextField = KJTextField()
+    private let touchButton = UIButton()
+    
+    private let registeredBackgroundView = UIView()
+    private let registeredPwdField = KJTextField()
+    private let registeredSurePwdField = KJTextField()
+    private let registeredButton = UIButton()
+    private var password = String()
+    private var surePwd = String()
+    
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,36 +49,37 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: init View
-    @objc func initNavigationBar() {
+    private func initNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
         
     }
     
-    @objc func setupView() {
+    private func setupView() {
         self.view.backgroundColor = kThemeBackgroundColor
         
-        let logoImageView = UIImageView(image:UIImage(named:"logo"))
-        
-        let titleLabel = UILabel()
         titleLabel.text = "WiPassword"
         titleLabel.font = kFont22
         titleLabel.textColor = kTextNormalColor
         
-        let passTextField = KJTextField()
         passTextField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "password")
-        passTextField.textFieldValueClosure { (text) in
-            print(text)
+        passTextField.textFieldValueClosure {[weak self] (text) in
+            if UserDefaults.standard.string(forKey: kHaveLoginPwd) == text {
+                let tabBarVC = KJTabBarController()
+                self?.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+                self?.navigationController?.pushViewController(tabBarVC, animated: true)
+            } else {
+                KJAlertController.presentAlertShowTip(Controller: self!, Title: "密码输入不正确", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            }
         }
         
-        let loginButton = UIButton()
-        loginButton.layer.cornerRadius = 20
-        loginButton.setImage(UIImage(named:"ic_touchID_gray"), for: .normal)
-        loginButton.addTarget(self, action: #selector(loginButtonDidClicked), for:.touchUpInside)
+        touchButton.layer.cornerRadius = 20
+        touchButton.setImage(UIImage(named:"ic_touchID_gray"), for: .normal)
+        touchButton.addTarget(self, action: #selector(touchButtonDidClicked), for:.touchUpInside)
         
         self.view.addSubview(logoImageView)
         self.view.addSubview(titleLabel)
         self.view.addSubview(passTextField)
-        self.view.addSubview(loginButton)
+        self.view.addSubview(touchButton)
         
         logoImageView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(120)
@@ -87,22 +100,106 @@ class KJLoginController: UIViewController {
             make.height.equalTo(40)
         }
         
-        loginButton.snp.makeConstraints { (make) -> Void in
+        touchButton.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(self.view).offset(-65)
             make.centerX.equalTo(self.view)
             make.height.width.equalTo(40)
         }
+        
+        
+        if (UserDefaults.standard.object(forKey: kHaveLoginPwd) != nil) {
+            self.removeRegisteredView()
+        } else {
+            self.setupRegisteredView()
+        }
+    }
+    
+    private func setupRegisteredView() {
+        
+        registeredBackgroundView.backgroundColor = kThemeBackgroundColor
+        
+        registeredPwdField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "初始登陆密码")
+        registeredPwdField.textFieldValueClosure {[weak self] (text) in
+            self?.password = text
+        }
+        registeredSurePwdField.initWithImage(image: UIImage(named:"ic_surePassword_gray")!, placeHolder: "再次输入登陆密码")
+        registeredSurePwdField.textFieldValueClosure {[weak self] (text) in
+            self?.surePwd = text
+        }
+        
+        registeredButton.backgroundColor = kThemeBackgroundColor
+        registeredButton.layer.borderWidth = 1.0
+        registeredButton.layer.borderColor = kThemeGreenColor.cgColor
+        registeredButton.setTitle("确定", for: UIControlState.normal)
+        registeredButton.addTarget(self, action: #selector(registeredButtonDidClicked), for:.touchUpInside)
+        
+        self.view.addSubview(registeredBackgroundView)
+        self.view.addSubview(registeredPwdField)
+        self.view.addSubview(registeredSurePwdField)
+        self.view.addSubview(registeredButton)
+        
+        registeredBackgroundView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.left.right.bottom.equalTo(self.view)
+        }
+        
+        registeredPwdField.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(titleLabel.snp.bottom).offset(50)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(40)
+        }
+        registeredSurePwdField.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(registeredPwdField.snp.bottom).offset(20)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(40)
+        }
+        registeredButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(registeredSurePwdField.snp.bottom).offset(60)
+            make.left.equalTo(35)
+            make.right.equalTo(-35)
+            make.height.equalTo(40)
+        }
+        
+    }
+    
+    func removeRegisteredView() {
+        registeredBackgroundView.removeFromSuperview()
+        registeredPwdField.removeFromSuperview()
+        registeredSurePwdField.removeFromSuperview()
+        registeredButton.removeFromSuperview()
     }
     
     // MARK: events
-    @objc func loginButtonDidClicked() {
+    @objc func touchButtonDidClicked() {
         //Todo 账户密码的校验
-        let tabBarVC = KJTabBarController()
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        self.navigationController?.pushViewController(tabBarVC, animated: true)
+//        let tabBarVC = KJTabBarController()
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+//        self.navigationController?.pushViewController(tabBarVC, animated: true)
         
-//        self.loginWithTouchID()
-//        self.startTouchID()
+        if UserDefaults.standard.bool(forKey: kIsTouchId) {
+            self.loginWithTouchID()
+        } else {
+            KJAlertController.presentAlertController(Controller: self, Title: "是否开启指纹登陆", Message: "", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: nil, RightButtonClosure: { Void in
+                UserDefaults.standard.set(true, forKey: kIsTouchId)
+                self.loginWithTouchID()
+            })
+        }
+        
+
+    }
+    
+    @objc func registeredButtonDidClicked() {
+        if password == surePwd {
+            // Todo 初始密码安全设置
+            UserDefaults.standard.set(password, forKey: kHaveLoginPwd)
+            let tabBarVC = KJTabBarController()
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            self.navigationController?.pushViewController(tabBarVC, animated: true)
+        } else {
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+        }
     }
     
     @objc func loginWithTouchID() {
@@ -132,7 +229,7 @@ class KJLoginController: UIViewController {
                     if successful{
                         print("PassCode Yes")
                     } else {
-                        print("PassCode No")
+                        KJAlertController.presentAlertShowTip(Controller: self, Title: "Touch ID开启失败", Message: "请在\"设置->Touch ID与密码\"中设置您的指纹", buttonText: "确定", ButtonDidClickClosure: nil)
                     }
                 })
             } else {

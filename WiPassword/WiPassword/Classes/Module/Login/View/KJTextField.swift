@@ -32,6 +32,7 @@ class KJTextField: UIView {
         lineView.backgroundColor = kLineViewColor
         
         textField.textColor = kTextNormalColor
+        textField.returnKeyType = UIReturnKeyType.go
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                                attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])
@@ -75,11 +76,10 @@ extension KJTextField: UITextFieldDelegate {
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if (textFieldReturnClosure != nil) {
-            textFieldReturnClosure!(textField.text!)
-        }
-        
+        textField.resignFirstResponder()  
+//        if (textFieldReturnClosure != nil) {
+//            textFieldReturnClosure!(textField.text!)
+//        }
         return true
     }
 }
