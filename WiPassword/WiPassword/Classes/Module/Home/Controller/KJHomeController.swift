@@ -9,6 +9,7 @@
 import UIKit
 
 private var skiddingButtonStatus = false
+private let kSkiddingViewAnimationTime = 0.3
 
 class KJHomeController: UIViewController {
     
@@ -108,7 +109,7 @@ class KJHomeController: UIViewController {
             let ani = CABasicAnimation(keyPath: "position.x")
             ani.fromValue = -(kScreenWidth / 3)
             ani.toValue = (kScreenWidth  / 3)
-            ani.duration = 0.5
+            ani.duration = kSkiddingViewAnimationTime
             ani.isRemovedOnCompletion = false
             ani.fillMode = kCAFillModeForwards
             ani.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -117,7 +118,7 @@ class KJHomeController: UIViewController {
             let anim = CABasicAnimation(keyPath: "position.x")
             anim.fromValue = (kScreenWidth / 2)
             anim.toValue = (kScreenWidth * 2 / 3) + (kScreenWidth / 2)
-            anim.duration = 0.5
+            anim.duration = kSkiddingViewAnimationTime
             anim.isRemovedOnCompletion = false
             anim.fillMode = kCAFillModeForwards
             anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -134,7 +135,7 @@ class KJHomeController: UIViewController {
         let ani = CABasicAnimation(keyPath: "position.x")
         ani.fromValue = (kScreenWidth / 3)
         ani.toValue = -(kScreenWidth / 3)
-        ani.duration = 0.5
+        ani.duration = kSkiddingViewAnimationTime
         ani.isRemovedOnCompletion = false
         ani.fillMode = kCAFillModeForwards
         ani.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -143,13 +144,13 @@ class KJHomeController: UIViewController {
         let anim = CABasicAnimation(keyPath: "position.x")
         anim.fromValue = (kScreenWidth * 2 / 3) + (kScreenWidth / 2)
         anim.toValue = (kScreenWidth / 2)
-        anim.duration = 0.5
+        anim.duration = kSkiddingViewAnimationTime
         anim.isRemovedOnCompletion = false
         anim.fillMode = kCAFillModeForwards
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         self.tabBarController?.view.layer.add(anim, forKey: "animationTabBarBack")
         
-        _ = KJCommonFunc.delay(0.5, task: {
+        _ = KJCommonFunc.delay(kSkiddingViewAnimationTime, task: {
             self.skiddingVC.view.removeFromSuperview()
         })
     }

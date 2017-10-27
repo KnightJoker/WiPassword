@@ -33,6 +33,7 @@ class KJTextField: UIView {
         
         textField.textColor = kTextNormalColor
         textField.returnKeyType = UIReturnKeyType.go
+        textField.isSecureTextEntry = true
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                                attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])

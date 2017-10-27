@@ -11,6 +11,9 @@ import UIKit
 class KJModifyPwdController: UIViewController {
 
     let tableView = UITableView()
+    private var oldPwd = String()
+    private var newPwd = String()
+    private var surePws = String()
     
      // MARK: - Cycle Life
     override func viewDidLoad() {
@@ -59,6 +62,20 @@ class KJModifyPwdController: UIViewController {
     
     @objc func sureButtonDidClicked() {
         
+        // 这个地方逻辑判断，先判断旧密码是否正确，在判断新密码的两次输入是否一致
+        if UserDefaults.standard.string(forKey: kHaveLoginPwd) == oldPwd {
+            if newPwd == surePws {
+                UserDefaults.standard.set(newPwd, forKey: kHaveLoginPwd)
+                KJAlertController.presentAlertShowTip(Controller: self, Title: "设置新密码成功", Message: "", buttonText: "确定", ButtonDidClickClosure: {[weak self] Void in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            } else {
+                 KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            }
+        } else {
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "登陆密码不正确", Message: "请重新输入", buttonText: "确定", ButtonDidClickClosure: nil)
+        }
+        
     }
 
 }
@@ -75,21 +92,21 @@ extension KJModifyPwdController : UITableViewDataSource {
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "初始密码")
             cell.setTextField(Text: "", PlaceHolder: "请输入登陆密码", SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
-                
+                self?.oldPwd = text
             }
         }
         if indexPath.row == 1 {
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "新密码")
             cell.setTextField(Text: "", PlaceHolder: "请输入新的密码", SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
-                
+               self?.newPwd = text
             }
         }
         if indexPath.row == 2 {
             cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
             cell.setTextField(Text: "", PlaceHolder: "再次输入新的密码", SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
-                
+                self?.surePws = text
             }
         }
         
