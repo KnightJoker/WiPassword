@@ -9,7 +9,7 @@ WiPassword is a free, open source and no advertising password manager. It doesn'
 ## Requirements
 
 - XCode 8.0 +
-- Target of iOS 8 +
+- Target of iOS 9 +
 - CocoaPods 1.1.0 +
 
 

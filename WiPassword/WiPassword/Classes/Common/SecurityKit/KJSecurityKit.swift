@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
-
+import Disk
 
 class KJSecurityKit {
     
@@ -58,12 +57,25 @@ class KJSecurityKit {
     public func addPasswordBox(Password passBox:KJPasswordBox) {
         DispatchQueue(label: "background").async {
             autoreleasepool {
-                let realm = try! Realm()
-                try! realm.write {
-                    realm.add(passBox)
+                do {
+                    if Disk.exists("passwordBox.json", in: .documents) {
+                        try Disk.append(passBox, to: "passwordBox.json", in: .documents)
+                    } else {
+                        try Disk.save([passBox], to: .documents, as: "passwordBox.json")
+                    }
+                    
+                } catch let error as NSError {
+                    fatalError("""
+                        Domain: \(error.domain)
+                        Code: \(error.code)
+                        Description: \(error.localizedDescription)
+                        Failure Reason: \(error.localizedFailureReason ?? "")
+                        Suggestions: \(error.localizedRecoverySuggestion ?? "")
+                        """)
                 }
             }
         }
+       
     }
     
     // 查询数据库中所有数据
@@ -71,34 +83,21 @@ class KJSecurityKit {
         
         let homeModel = KJHomeModel()
    
-        //      Todo:异步处理
-//        DispatchQueue(label: "background").async {
-//            autoreleasepool {
-//                let realm = try! Realm()
-//                let passwordArray = realm.objects(KJPasswordBox.self)
-//
-//                for passwordBox in passwordArray {
-//                    //Todo judge viewModel's type
-//                    let homeViewModel = KJHomeViewModel()
-//                    homeViewModel.expandStatus = false
-//                    homeViewModel.passType = KJHomePasswordType.account
-//                    homeViewModel.passwordBox = passwordBox
-//                    homeModel.viewModelList.append(homeViewModel)
-//                }
-//
-//            }
-//        }
-        let realm = try! Realm()
-        let passwordArray = realm.objects(KJPasswordBox.self)
-        
-        for passwordBox in passwordArray {
-            //Todo judge viewModel's type
-            let homeViewModel = KJHomeViewModel()
-            homeViewModel.expandStatus = false
-            homeViewModel.passType = KJHomePasswordType.account
-            homeViewModel.passwordBox = passwordBox
-            homeModel.viewModelList.append(homeViewModel)
+        do {
+            let passwordBoxs = try Disk.retrieve("passwordBox.json", from: .documents, as: [KJPasswordBox].self)
+            for passwordBox in passwordBoxs {
+                //Todo judge viewModel's type
+                let homeViewModel = KJHomeViewModel()
+                homeViewModel.expandStatus = false
+                homeViewModel.passType = KJHomePasswordType.account
+                homeViewModel.passwordBox = passwordBox
+                homeModel.viewModelList.append(homeViewModel)
+            }
+        } catch {
+            
         }
+        
+        
         return homeModel
     }
     
@@ -106,9 +105,16 @@ class KJSecurityKit {
     public func deleteAllPasswordBox() {
         DispatchQueue(label: "background").async {
             autoreleasepool {
-                let realm = try! Realm()
-                try! realm.write {
-                    realm.deleteAll()
+                do {
+                    try Disk.remove("passwordBox.json", from: .documents)
+                } catch let error as NSError {
+                    fatalError("""
+                        Domain: \(error.domain)
+                        Code: \(error.code)
+                        Description: \(error.localizedDescription)
+                        Failure Reason: \(error.localizedFailureReason ?? "")
+                        Suggestions: \(error.localizedRecoverySuggestion ?? "")
+                        """)
                 }
             }
         }
@@ -117,10 +123,10 @@ class KJSecurityKit {
     // 删除某一个数据
     public func deletePasswordBox(PasswordBox passBox:KJPasswordBox) {
 
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(passBox as Object)
-        }
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.delete(passBox as Object)
+//        }
     }
     
 }
