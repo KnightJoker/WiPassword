@@ -56,10 +56,41 @@ class KJLoginController: UIViewController {
     
     private func setupView() {
         self.view.backgroundColor = kThemeBackgroundColor
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target:self, action:#selector(handleTap(sender:))))
         
         titleLabel.text = "WiPassword"
         titleLabel.font = kFont22
         titleLabel.textColor = kTextNormalColor
+        
+
+        
+        self.view.addSubview(logoImageView)
+        self.view.addSubview(titleLabel)
+
+        
+        logoImageView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(120)
+            make.centerX.equalTo(self.view)
+            make.width.equalTo(75)
+            make.height.equalTo(90)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoImageView.snp.bottom).offset(20)
+            make.centerX.equalTo(self.view)
+        }
+        
+        
+        if (UserDefaults.standard.object(forKey: kHaveLoginPwd) != nil) {
+            self.removeRegisteredView()
+            self.setupLoginView()
+        } else {
+            self.setupRegisteredView()
+            self.removeLoginView()
+        }
+    }
+    
+    private func setupLoginView() {
         
         passTextField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "password")
         passTextField.textFieldValueClosure {[weak self] (text) in
@@ -76,22 +107,8 @@ class KJLoginController: UIViewController {
         touchButton.setImage(UIImage(named:"ic_touchID_gray"), for: .normal)
         touchButton.addTarget(self, action: #selector(touchButtonDidClicked), for:.touchUpInside)
         
-        self.view.addSubview(logoImageView)
-        self.view.addSubview(titleLabel)
         self.view.addSubview(passTextField)
         self.view.addSubview(touchButton)
-        
-        logoImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(120)
-            make.centerX.equalTo(self.view)
-            make.width.equalTo(75)
-            make.height.equalTo(90)
-        }
-        
-        titleLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(logoImageView.snp.bottom).offset(20)
-            make.centerX.equalTo(self.view)
-        }
         
         passTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(titleLabel.snp.bottom).offset(100)
@@ -106,12 +123,11 @@ class KJLoginController: UIViewController {
             make.height.width.equalTo(40)
         }
         
-        
-        if (UserDefaults.standard.object(forKey: kHaveLoginPwd) != nil) {
-            self.removeRegisteredView()
-        } else {
-            self.setupRegisteredView()
-        }
+    }
+    
+    private func removeLoginView() {
+        passTextField.removeFromSuperview()
+        touchButton.removeFromSuperview()
     }
     
     private func setupRegisteredView() {
@@ -164,7 +180,7 @@ class KJLoginController: UIViewController {
         
     }
     
-    func removeRegisteredView() {
+   private func removeRegisteredView() {
         registeredBackgroundView.removeFromSuperview()
         registeredPwdField.removeFromSuperview()
         registeredSurePwdField.removeFromSuperview()
@@ -172,6 +188,16 @@ class KJLoginController: UIViewController {
     }
     
     // MARK: events
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            passTextField.textField.resignFirstResponder()
+            registeredPwdField.textField.resignFirstResponder()
+            registeredSurePwdField.textField.resignFirstResponder()
+        }
+        sender.cancelsTouchesInView = false
+    }
+    
     @objc func touchButtonDidClicked() {
         //Todo 账户密码的校验
 //        let tabBarVC = KJTabBarController()
@@ -191,12 +217,16 @@ class KJLoginController: UIViewController {
     }
     
     @objc func registeredButtonDidClicked() {
-        if password == surePwd {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kloginEditEndNotification), object: nil)
+        if password == surePwd && password != "" {
             // Todo 初始密码安全设置
             UserDefaults.standard.set(password, forKey: kHaveLoginPwd)
             let tabBarVC = KJTabBarController()
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             self.navigationController?.pushViewController(tabBarVC, animated: true)
+        } else if password == "" {
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "初始密码不能为空", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
         } else {
             KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
         }

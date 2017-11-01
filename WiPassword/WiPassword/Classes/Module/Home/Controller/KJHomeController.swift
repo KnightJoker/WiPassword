@@ -14,7 +14,10 @@ private let kSkiddingViewAnimationTime = 0.3
 class KJHomeController: UIViewController {
     
     private let skiddingVC = KJSkiddingController()
-    private let maskedGesture = UITapGestureRecognizer()
+    private let maskedGesture = UITapGestureRecognizer()            //侧滑的手势
+    private let handleGesture = UITapGestureRecognizer()            //收起键盘的手势
+    private let searchBar = UISearchBar.init()
+    private var textFieldInsideSearchBar = UITextField()
     
     @objc let tableView = UITableView.init()
     var model = KJHomeModel()
@@ -60,11 +63,14 @@ class KJHomeController: UIViewController {
     
     @objc func setupView() {
         
-        let searchBar = UISearchBar.init()
+        
         searchBar.backgroundImage = UIImage().getImageWithColor(color: kThemeBlockColor)
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.backgroundColor = kThemeBackgroundColor
-        textFieldInsideSearchBar?.textColor = kTextNormalColor
+        textFieldInsideSearchBar = (searchBar.value(forKey: "searchField") as? UITextField)!
+        textFieldInsideSearchBar.backgroundColor = kThemeBackgroundColor
+        textFieldInsideSearchBar.textColor = kTextNormalColor
+        
+        handleGesture.addTarget(self, action: #selector(handleTap(sender:)))
+        self.view.addGestureRecognizer(handleGesture)
         
         self.view.addSubview(searchBar)
         searchBar.snp.makeConstraints { (make) -> Void in
@@ -95,12 +101,21 @@ class KJHomeController: UIViewController {
     }
     
     // MARK: - Event
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            textFieldInsideSearchBar.resignFirstResponder()
+        }
+        sender.cancelsTouchesInView = false
+    }
+    
     @objc func leftButtonDidClicked() {
 
         skiddingButtonStatus = !skiddingButtonStatus
         
         if skiddingButtonStatus {
 
+            self.view.removeGestureRecognizer(handleGesture)
             skiddingVC.view.frame = CGRect(x:0,y:0,width:(kScreenWidth * 2 / 3),height:kScreenHeight)
             maskedGesture.addTarget(self, action: #selector(maskedGestureDidClicked))
             self.tabBarController?.view.addGestureRecognizer(maskedGesture)
@@ -130,6 +145,7 @@ class KJHomeController: UIViewController {
     @objc func maskedGestureDidClicked() {
         
         skiddingButtonStatus = !skiddingButtonStatus
+        self.view.addGestureRecognizer(handleGesture)
         self.tabBarController?.view.removeGestureRecognizer(maskedGesture)
 
         let ani = CABasicAnimation(keyPath: "position.x")
@@ -210,12 +226,12 @@ extension KJHomeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
-//        let tempModel = model.viewModelList[indexPath.row]
+        let tempModel = model.viewModelList[indexPath.row]
         let delete = UITableViewRowAction(style: .normal, title: "删除") { [weak self]
             action, index in
             self?.model.viewModelList.remove(at: index.row)
-//            KJSecurityKit.sharedInstance.deletePasswordBox(PasswordBox: tempModel.passwordBox)
-            KJSecurityKit.sharedInstance.deleteAllPasswordBox()
+            KJSecurityKit.sharedInstance.deletePasswordBox(PasswordBox: tempModel.passwordBox)
+//            KJSecurityKit.sharedInstance.deleteAllPasswordBox()
             tableView.reloadData()
         }
         delete.backgroundColor = kThemeGreenColor

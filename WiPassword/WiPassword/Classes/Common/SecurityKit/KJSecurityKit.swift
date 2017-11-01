@@ -123,10 +123,30 @@ class KJSecurityKit {
     // 删除某一个数据
     public func deletePasswordBox(PasswordBox passBox:KJPasswordBox) {
 
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.delete(passBox as Object)
-//        }
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                do {
+                    var passwordBoxs = try Disk.retrieve("passwordBox.json", from: .documents, as: [KJPasswordBox].self)
+                    var newPasswordBoxs = Array<KJPasswordBox>()
+                    for i in 0..<(passwordBoxs.count) {
+                        if passwordBoxs[i].passwordID != passBox.passwordID {
+                            newPasswordBoxs.append(passwordBoxs[i])
+                        }
+                    }
+                    try Disk.remove("passwordBox.json", from: .documents)
+                    try Disk.save(newPasswordBoxs, to: .documents, as: "passwordBox.json")
+                    
+                } catch let error as NSError {
+                    fatalError("""
+                        Domain: \(error.domain)
+                        Code: \(error.code)
+                        Description: \(error.localizedDescription)
+                        Failure Reason: \(error.localizedFailureReason ?? "")
+                        Suggestions: \(error.localizedRecoverySuggestion ?? "")
+                        """)
+                }
+            }
+        }
     }
     
 }

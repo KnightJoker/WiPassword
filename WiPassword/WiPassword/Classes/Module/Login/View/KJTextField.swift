@@ -26,6 +26,8 @@ class KJTextField: UIView {
     
     @objc func initWithImage(image:UIImage,placeHolder:String) {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kloginEditEndNotification), object: nil)
+        
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         
@@ -65,22 +67,26 @@ class KJTextField: UIView {
         
     }
     
-    
+    @objc func editEnd() {
+        if (textFieldReturnClosure != nil) {
+            textFieldReturnClosure!(textField.text!)
+        }
+    }
 }
 
 extension KJTextField: UITextFieldDelegate {
 
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textFieldReturnClosure != nil) {
-            textFieldReturnClosure!(textField.text!)
-        }
+//        if (textFieldReturnClosure != nil) {
+//            textFieldReturnClosure!(textField.text!)
+//        }
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()  
-//        if (textFieldReturnClosure != nil) {
-//            textFieldReturnClosure!(textField.text!)
-//        }
+        if (textFieldReturnClosure != nil) {
+            textFieldReturnClosure!(textField.text!)
+        }
         return true
     }
 }

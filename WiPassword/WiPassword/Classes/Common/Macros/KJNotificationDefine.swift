@@ -9,4 +9,6 @@
 import Foundation
 
 let kAddEditEndNotification = "addEditEndNotification"
+let kloginEditEndNotification = "loginEditEndNotification"
+
 		
