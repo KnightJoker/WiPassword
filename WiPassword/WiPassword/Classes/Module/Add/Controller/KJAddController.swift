@@ -59,9 +59,18 @@ class KJAddController: UIViewController {
         tableView.snp.makeConstraints { (make) -> Void in
             make.top.left.right.bottom.equalTo(self.view)
         }
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target:self, action:#selector(handleTap(sender:))))
     }
     
     // MARK: - events
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
+        }
+        sender.cancelsTouchesInView = false
+    }
     
     @objc func backButtonDidClicked() {
         self.navigationController?.popViewController(animated: true)

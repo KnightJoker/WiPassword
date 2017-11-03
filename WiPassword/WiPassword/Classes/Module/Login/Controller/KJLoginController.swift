@@ -58,7 +58,7 @@ class KJLoginController: UIViewController {
         self.view.backgroundColor = kThemeBackgroundColor
         self.view.addGestureRecognizer(UITapGestureRecognizer(target:self, action:#selector(handleTap(sender:))))
         
-        titleLabel.text = "WiPassword"
+        titleLabel.text = "KJLoginLogoName".localized
         titleLabel.font = kFont22
         titleLabel.textColor = kTextNormalColor
         
@@ -99,7 +99,7 @@ class KJLoginController: UIViewController {
                 self?.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
                 self?.navigationController?.pushViewController(tabBarVC, animated: true)
             } else {
-                KJAlertController.presentAlertShowTip(Controller: self!, Title: "密码输入不正确", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+                KJAlertController.presentAlertShowTip(Controller: self!, Title: "KJTipPwdError".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
             }
         }
         
@@ -134,11 +134,11 @@ class KJLoginController: UIViewController {
         
         registeredBackgroundView.backgroundColor = kThemeBackgroundColor
         
-        registeredPwdField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "初始登陆密码")
+        registeredPwdField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "KJLoginInitPwd".localized)
         registeredPwdField.textFieldValueClosure {[weak self] (text) in
             self?.password = text
         }
-        registeredSurePwdField.initWithImage(image: UIImage(named:"ic_surePassword_gray")!, placeHolder: "再次输入登陆密码")
+        registeredSurePwdField.initWithImage(image: UIImage(named:"ic_surePassword_gray")!, placeHolder: "KJLoginEnterPwd".localized)
         registeredSurePwdField.textFieldValueClosure {[weak self] (text) in
             self?.surePwd = text
         }
@@ -146,7 +146,7 @@ class KJLoginController: UIViewController {
         registeredButton.backgroundColor = kThemeBackgroundColor
         registeredButton.layer.borderWidth = 1.0
         registeredButton.layer.borderColor = kThemeGreenColor.cgColor
-        registeredButton.setTitle("确定", for: UIControlState.normal)
+        registeredButton.setTitle("KJLoginSignUp".localized, for: UIControlState.normal)
         registeredButton.addTarget(self, action: #selector(registeredButtonDidClicked), for:.touchUpInside)
         
         self.view.addSubview(registeredBackgroundView)
@@ -199,7 +199,6 @@ class KJLoginController: UIViewController {
     }
     
     @objc func touchButtonDidClicked() {
-        //Todo 账户密码的校验
 //        let tabBarVC = KJTabBarController()
 //        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 //        self.navigationController?.pushViewController(tabBarVC, animated: true)
@@ -207,7 +206,7 @@ class KJLoginController: UIViewController {
         if UserDefaults.standard.bool(forKey: kIsTouchId) {
             self.loginWithTouchID()
         } else {
-            KJAlertController.presentAlertController(Controller: self, Title: "是否开启指纹登陆", Message: "", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: nil, RightButtonClosure: { Void in
+            KJAlertController.presentAlertController(Controller: self, Title: "KJTipOpenTouchId".localized, Message: "", LeftButtonText: "KJTipCancel".localized, RightButtonText: "KJTipConfirm".localized, LeftButtonClosure: nil, RightButtonClosure: { Void in
                 UserDefaults.standard.set(true, forKey: kIsTouchId)
                 self.loginWithTouchID()
             })
@@ -226,9 +225,9 @@ class KJLoginController: UIViewController {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
             self.navigationController?.pushViewController(tabBarVC, animated: true)
         } else if password == "" {
-            KJAlertController.presentAlertShowTip(Controller: self, Title: "初始密码不能为空", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdCanNotBeNULL".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
         } else {
-            KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdKeepSame".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
         }
     }
     
@@ -237,7 +236,7 @@ class KJLoginController: UIViewController {
         var error: NSError?
         
         if authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error){
-            authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "轻触Home键验证已有手机指纹", reply: { successful, error -> Void in
+            authContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "KJTipTouchId".localized, reply: { successful, error -> Void in
                 
                 DispatchQueue.main.async(execute: { [weak self] () -> Void in //放到主线程运行。这里特别重要
                     if successful {
@@ -259,7 +258,7 @@ class KJLoginController: UIViewController {
                     if successful{
                         print("PassCode Yes")
                     } else {
-                        KJAlertController.presentAlertShowTip(Controller: self, Title: "Touch ID开启失败", Message: "请在\"设置->Touch ID与密码\"中设置您的指纹", buttonText: "确定", ButtonDidClickClosure: nil)
+                        KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipTouchIdError".localized, Message: "KJTipSetTouchId".localized, buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
                     }
                 })
             } else {

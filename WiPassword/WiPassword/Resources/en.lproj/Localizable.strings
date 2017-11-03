@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  WiPassword
+
+  Created by Huni on 03/11/2017.
+  Copyright © 2017 KnighhtJoker. All rights reserved.
+*/
+
+//提示
+KJTipConfirm = "confirm";
+KJTipCancel = "Cancel";
+KJTipOk = "Ok";
+KJTipPwdError = "Incorrect password";
+KJTipPwdCanNotBeNULL = "The initial password can not be empty";
+KJTipPwdKeepSame = "Please keep the same password";
+KJTipOpenTouchId = "Whether to open fingerprint login";
+KJTipTouchId = "Touch the Home to verify the phone fingerprint";
+KJTipTouchIdError = "Touch ID failed to open";
+KJTipSetTouchId = "Please set your fingerprints in \"Settings -> Touch ID & Password\"";
+
+//登陆页面
+KJLoginLogoName = "WiPass";
+KJLoginInitPwd = "Initialize password";
+KJLoginEnterPwd = "Enter the password again";
+KJLoginSignUp = "SIGN UP";
+

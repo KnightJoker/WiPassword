@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  WiPassword
+
+  Created by Huni on 03/11/2017.
+  Copyright © 2017 KnighhtJoker. All rights reserved.
+*/
+
+CFBundleName = "微密码";
+CFBundleDisplayName = "微密码";

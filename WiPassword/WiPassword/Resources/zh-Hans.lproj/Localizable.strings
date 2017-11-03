@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  WiPassword
+
+  Created by Huni on 03/11/2017.
+  Copyright © 2017 KnighhtJoker. All rights reserved.
+*/
+
+//提示
+KJTipConfirm = "确定";
+KJTipCancel = "取消";
+KJTipOk = "确定";
+KJTipPwdError = "密码输入不正确";
+KJTipPwdCanNotBeNULL = "初始密码不能为空";
+KJTipPwdKeepSame = "两次密码请保持一致";
+KJTipOpenTouchId = "是否开启指纹登陆";
+KJTipTouchId = "轻触Home键验证已有手机指纹";
+KJTipTouchIdError = "Touch ID开启失败";
+KJTipSetTouchId = "请在\"设置->Touch ID与密码\"中设置您的指纹";
+
+//登陆页面
+KJLoginLogoName = "微密码";
+KJLoginInitPwd = "初始登陆密码";
+KJLoginEnterPwd = "再次输入登陆密码";
+KJLoginSignUp = "确定";
+
