@@ -57,13 +57,13 @@ extension KJSkiddingController : UITableViewDataSource {
         let cell = KJSkiddingCell.init(style: UITableViewCellStyle.default, reuseIdentifier: skiddingCellIdentifier)
         
         if indexPath.row == 0 {
-            cell.configCell(Image: "ic_allAndHome", Title: "全部")
+            cell.configCell(Image: "ic_allAndHome", Title: "KJHomeSkiddingAll".localized)
         } else if indexPath.row == 1 {
-            cell.configCell(Image: "ic_star", Title: "登陆")
+            cell.configCell(Image: "ic_star", Title: "KJHomeSkiddingStar".localized)
         } else if indexPath.row == 2 {
-            cell.configCell(Image: "ic_message", Title: "消息")
+            cell.configCell(Image: "ic_message", Title: "KJHomeSkiddingSocial".localized)
         } else if indexPath.row == 3 {
-            cell.configCell(Image: "ic_email", Title: "邮箱")
+            cell.configCell(Image: "ic_email", Title: "KJHomeSkiddingEmail".localized)
         }
         
         

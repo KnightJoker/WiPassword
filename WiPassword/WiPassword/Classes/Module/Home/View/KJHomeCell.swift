@@ -133,7 +133,7 @@ class KJHomeCell: UITableViewCell {
             
             passLabel.textColor = kTextNormalColor
             passLabel.font = kFont14
-            passLabel.text = "当前密码:" + model.passwordBox.password
+            passLabel.text = "KJHomeCurrentPwd".localized + model.passwordBox.password
             passGroundView.addSubview(passLabel)
             passLabel.snp.makeConstraints { (make) -> Void in
                 make.left.equalTo(10)
@@ -172,19 +172,19 @@ class KJHomeCell: UITableViewCell {
             }
             
             if String().judgeComplexity(model.passwordBox.password) == 0 {
-                passStrengthLabel.text = "弱"
+                passStrengthLabel.text = "KJHomePwdStrengthWeak".localized
                 passView.backgroundColor = kThemeRedColor
                 passView.snp.updateConstraints { (make) -> Void in
                     make.width.equalTo(kScreenWidth / 5)
                 }
             } else if String().judgeComplexity(model.passwordBox.password) == 1 {
-                passStrengthLabel.text = "较强"
+                passStrengthLabel.text = "KJHomePwdStrengthStrong".localized
                 passView.backgroundColor = kThemeOrangleColor
                 passView.snp.updateConstraints { (make) -> Void in
                     make.width.equalTo(kScreenWidth * 2 / 5)
                 }
             } else {
-                passStrengthLabel.text = "强"
+                passStrengthLabel.text = "KJHomePwdStrengthStrongest".localized
                 passView.backgroundColor = kThemeGreenColor
                 passView.snp.updateConstraints { (make) -> Void in
                     make.width.equalTo(kScreenWidth * 3 / 5)

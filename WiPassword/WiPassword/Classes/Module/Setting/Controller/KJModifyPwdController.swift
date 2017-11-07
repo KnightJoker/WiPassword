@@ -46,7 +46,7 @@ class KJModifyPwdController: UIViewController {
     }
     
     func initNavigationBar() {
-        self.navigationItem.title = "修改登录密码"
+        self.navigationItem.title = "KJModifyPwdNavigationTitle".localized
         let backItem = UIBarButtonItem(image:UIImage(named:"ic_back_gray"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(backButtonDidClicked))
         backItem.tintColor = kTextNormalColor
         let sureItem = UIBarButtonItem(image:UIImage(named:"ic_sure_green"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(sureButtonDidClicked))
@@ -62,18 +62,22 @@ class KJModifyPwdController: UIViewController {
     
     @objc func sureButtonDidClicked() {
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
         // 这个地方逻辑判断，先判断旧密码是否正确，在判断新密码的两次输入是否一致
         if UserDefaults.standard.string(forKey: kHaveLoginPwd) == oldPwd {
-            if newPwd == surePws {
+            if newPwd == surePws && newPwd != "" {
                 UserDefaults.standard.set(newPwd, forKey: kHaveLoginPwd)
-                KJAlertController.presentAlertShowTip(Controller: self, Title: "设置新密码成功", Message: "", buttonText: "确定", ButtonDidClickClosure: {[weak self] Void in
+                KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipSetPwdSuccess".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: {[weak self] Void in
                     self?.navigationController?.popViewController(animated: true)
                 })
-            } else {
-                 KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            } else if newPwd != surePws {
+                 KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdKeepSame".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
+            } else if newPwd == "" {
+                KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdCanNotBeNULL".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
             }
+            
         } else {
-            KJAlertController.presentAlertShowTip(Controller: self, Title: "登陆密码不正确", Message: "请重新输入", buttonText: "确定", ButtonDidClickClosure: nil)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdError".localized, Message: "KJTipReEnter".localized, buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
         }
         
     }
@@ -89,22 +93,22 @@ extension KJModifyPwdController : UITableViewDataSource {
         let cell = KJAddRoutineCell.init(style: UITableViewCellStyle.default, reuseIdentifier: addRoutineCellIdentifier)
         
         if indexPath.row == 0 {
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "初始密码")
-            cell.setTextField(Text: "", PlaceHolder: "请输入登陆密码", SecureTextEntry: true)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJModiftPwdOriginal".localized)
+            cell.setTextField(Text: "", PlaceHolder: "KJModiftPwdOriginalPlaceHolder".localized, SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.oldPwd = text
             }
         }
         if indexPath.row == 1 {
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "新密码")
-            cell.setTextField(Text: "", PlaceHolder: "请输入新的密码", SecureTextEntry: true)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJModiftPwdNew".localized)
+            cell.setTextField(Text: "", PlaceHolder: "KJModiftPwdNewPlaceHolder".localized, SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                self?.newPwd = text
             }
         }
         if indexPath.row == 2 {
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
-            cell.setTextField(Text: "", PlaceHolder: "再次输入新的密码", SecureTextEntry: true)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJModiftPwdConfirm".localized)
+            cell.setTextField(Text: "", PlaceHolder: "KJModiftPwdConfirmPlaceHolder".localized, SecureTextEntry: true)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.surePws = text
             }

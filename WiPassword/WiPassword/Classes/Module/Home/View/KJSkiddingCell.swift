@@ -32,17 +32,7 @@ class KJSkiddingCell: UITableViewCell {
         
         self.backgroundColor = kThemeDeepBlockColor
         self.selectionStyle = .none
-        titleLabel.text = title
-        titleLabel.font = kFont16
-        titleLabel.textColor = kLineViewColor
-        
-        self.addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self)
-            make.centerX.equalTo(self)
-        }
-        
+
         titleImageString = image
         titleImage.image = UIImage(named:image + "_gray")
         titleImage.contentMode = .scaleAspectFit
@@ -51,9 +41,20 @@ class KJSkiddingCell: UITableViewCell {
         
         titleImage.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(self)
-            make.right.equalTo(titleLabel.snp.left).offset(-16)
+            make.centerX.equalTo(self).offset(-35)
             make.width.equalTo(25)
             make.height.equalTo(30)
+        }
+        
+        titleLabel.text = title
+        titleLabel.font = kFont16
+        titleLabel.textColor = kLineViewColor
+        
+        self.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self)
+            make.left.equalTo(titleImage.snp.right).offset(16)
         }
         
         

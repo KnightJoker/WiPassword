@@ -38,7 +38,7 @@ class KJSettingController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: kTextNormalColor]
-        self.navigationItem.title = "设置"
+        self.navigationItem.title = "KJSettingNavigationTitle".localized
     }
 
     @objc func setupView() {
@@ -75,15 +75,15 @@ extension KJSettingController : UITableViewDataSource {
 
         if indexPath.section == 0 && indexPath.row == 0 {
             
-            cell.configCell(Icon: UIImage(named:"ic_username_green")!, Title: "账户信息", Type: KJSettingRoutineCellType.defaultCell)
+            cell.configCell(Icon: UIImage(named:"ic_username_green")!, Title: "KJSettingGeneral".localized, Type: KJSettingRoutineCellType.defaultCell)
             
         } else if indexPath.section == 0 && indexPath.row == 1 {
             
-            cell.configCell(Icon: UIImage(named:"ic_password_green")!, Title: "安全设置", Type: KJSettingRoutineCellType.defaultCell)
+            cell.configCell(Icon: UIImage(named:"ic_password_green")!, Title: "KJSettingSecurity".localized, Type: KJSettingRoutineCellType.defaultCell)
             
         } else if indexPath.section == 1 && indexPath.row == 0 {
             
-            cell.configCell(Icon: UIImage(named:"ic_cloud_green")!, Title: "同步到iCloud", Type: KJSettingRoutineCellType.switchCell)
+            cell.configCell(Icon: UIImage(named:"ic_cloud_green")!, Title: "KJSettingICloud".localized, Type: KJSettingRoutineCellType.switchCell)
             
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
@@ -95,7 +95,7 @@ extension KJSettingController : UITableViewDataSource {
                     UserDefaults.standard.set(isOn, forKey: kIsTouchId)
                 } else {
 //                    let alertVC = KJAlertController()
-                    KJAlertController.presentAlertController(Controller: self!, Title: "确定关闭指纹登陆", Message: "", LeftButtonText: "取消", RightButtonText: "确定", LeftButtonClosure: {_ in
+                    KJAlertController.presentAlertController(Controller: self!, Title: "KJTipCloseTouchId".localized, Message: "", LeftButtonText: "KJTipCancel".localized, RightButtonText: "KJTipClose".localized, LeftButtonClosure: {_ in
                         UserDefaults.standard.set(true, forKey: kIsTouchId)
                         let indexPath = IndexPath(item: 1, section: 1)
                         self?.tableView.reloadRows(at: [indexPath], with: .none)
@@ -109,11 +109,11 @@ extension KJSettingController : UITableViewDataSource {
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
             
-            cell.configCell(Icon: UIImage(named:"ic_suggestion_green")!, Title: "反馈与意见", Type: KJSettingRoutineCellType.defaultCell)
+            cell.configCell(Icon: UIImage(named:"ic_suggestion_green")!, Title: "KJSettingCommentsFeedback".localized, Type: KJSettingRoutineCellType.defaultCell)
             
         } else if indexPath.section == 2 && indexPath.row == 1 {
             
-            cell.configCell(Icon: UIImage(named:"ic_about_green")!, Title: "关于我们", Type: KJSettingRoutineCellType.defaultCell)
+            cell.configCell(Icon: UIImage(named:"ic_about_green")!, Title: "KJSettingContact".localized, Type: KJSettingRoutineCellType.defaultCell)
             
         }
         

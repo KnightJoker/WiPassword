@@ -48,7 +48,7 @@ class KJHomeController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = kThemeBlockColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: kTextNormalColor]
-        self.navigationItem.title = "密码管理"
+        self.navigationItem.title = "KJHomeNavigationTitle".localized
 
         let leftItem = UIBarButtonItem(image:UIImage(named:"ic_menu_gray"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(leftButtonDidClicked))
         leftItem.tintColor = kTextNormalColor
@@ -227,7 +227,7 @@ extension KJHomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
         let tempModel = model.viewModelList[indexPath.row]
-        let delete = UITableViewRowAction(style: .normal, title: "删除") { [weak self]
+        let delete = UITableViewRowAction(style: .normal, title: "KJHomeDeleteButtton".localized) { [weak self]
             action, index in
             self?.model.viewModelList.remove(at: index.row)
             KJSecurityKit.sharedInstance.deletePasswordBox(PasswordBox: tempModel.passwordBox)

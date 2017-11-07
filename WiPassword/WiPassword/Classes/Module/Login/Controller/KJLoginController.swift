@@ -92,7 +92,7 @@ class KJLoginController: UIViewController {
     
     private func setupLoginView() {
         
-        passTextField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "password")
+        passTextField.initWithImage(image: UIImage(named:"ic_password_gray")!, placeHolder: "KJLoginPwd".localized)
         passTextField.textFieldValueClosure {[weak self] (text) in
             if UserDefaults.standard.string(forKey: kHaveLoginPwd) == text {
                 let tabBarVC = KJTabBarController()

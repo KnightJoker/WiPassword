@@ -7,9 +7,10 @@
 */
 
 //提示
-KJTipConfirm = "confirm";
+KJTipConfirm = "Confirm";
 KJTipCancel = "Cancel";
 KJTipOk = "Ok";
+KJTipClose = "Close";
 KJTipPwdError = "Incorrect password";
 KJTipPwdCanNotBeNULL = "The initial password can not be empty";
 KJTipPwdKeepSame = "Please keep the same password";
@@ -17,10 +18,49 @@ KJTipOpenTouchId = "Whether to open fingerprint login";
 KJTipTouchId = "Touch the Home to verify the phone fingerprint";
 KJTipTouchIdError = "Touch ID failed to open";
 KJTipSetTouchId = "Please set your fingerprints in \"Settings -> Touch ID & Password\"";
+KJTipCloseTouchId = "Close Fingerprint Login?";
+KJTipReEnter = "Please enter again";
+KJTipSetPwdSuccess = "Set successfully";
 
 //登陆页面
 KJLoginLogoName = "WiPass";
+KJLoginPwd = "Login password";
 KJLoginInitPwd = "Initialize password";
 KJLoginEnterPwd = "Enter the password again";
 KJLoginSignUp = "SIGN UP";
+
+//Tabbar
+KJTabberHomeTitle = "Home";
+KJTabberSettingTitle = "Setting";
+
+//主页
+KJHomeNavigationTitle = "Manager";
+KJHomeDeleteButtton = "Delete";
+KJHomeCurrentPwd = "Current password:";
+KJHomePwdStrengthWeak = "Weak";
+KJHomePwdStrengthStrong = "Strong";
+KJHomePwdStrengthStrongest = "Strongest";
+KJHomeSkiddingAll = "All";
+KJHomeSkiddingStar = "Star";
+KJHomeSkiddingSocial = "Social";
+KJHomeSkiddingEmail = "Email";
+
+//设置
+KJSettingNavigationTitle = "Setting";
+KJSettingGeneral = "General";
+KJSettingSecurity = "Security";
+KJSettingICloud = "iCloud Sync";
+KJSettingCommentsFeedback = "Comments & Feedback";
+KJSettingContact = "About Us";
+
+//修改登陆密码
+KJModifyPwdNavigationTitle = "Set Password";
+KJModiftPwdOriginal = "Original";
+KJModiftPwdNew = "New";
+KJModiftPwdConfirm = "Confirm";
+KJModiftPwdOriginalPlaceHolder = "Enter original password";
+KJModiftPwdNewPlaceHolder = "Enter new password";
+KJModiftPwdConfirmPlaceHolder = "Enter the password again";
+
+//添加密码盒
 
