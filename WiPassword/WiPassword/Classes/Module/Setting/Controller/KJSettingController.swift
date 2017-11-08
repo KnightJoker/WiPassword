@@ -9,10 +9,10 @@
 import UIKit
 
 class KJSettingController: UIViewController {
-
+    
     @objc let tableView = UITableView.init()
     
-     // MARK: - Cycle Life
+    // MARK: - Cycle Life
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
@@ -22,14 +22,14 @@ class KJSettingController: UIViewController {
         super.viewWillAppear(animated)
         self.initNavigationBar()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         // ASICS GEL-LYTE 3  559
     }
     
-     // MARK: - InitView
+    // MARK: - InitView
     @objc func initNavigationBar() {
         
         self.navigationController?.navigationBar.isHidden = false
@@ -40,7 +40,7 @@ class KJSettingController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: kTextNormalColor]
         self.navigationItem.title = "KJSettingNavigationTitle".localized
     }
-
+    
     @objc func setupView() {
         
         tableView.backgroundColor = kThemeBlockColor
@@ -55,7 +55,7 @@ class KJSettingController: UIViewController {
             make.left.right.bottom.equalTo(self.view)
         }
     }
-
+    
 }
 
 extension KJSettingController : UITableViewDataSource {
@@ -63,7 +63,7 @@ extension KJSettingController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -72,7 +72,7 @@ extension KJSettingController : UITableViewDataSource {
         
         let cell = KJSettingRoutineCell.init(style: UITableViewCellStyle.default, reuseIdentifier: settingRoutineCellIdentifier)
         
-
+        
         if indexPath.section == 0 && indexPath.row == 0 {
             
             cell.configCell(Icon: UIImage(named:"ic_username_green")!, Title: "KJSettingGeneral".localized, Type: KJSettingRoutineCellType.defaultCell)
@@ -94,7 +94,7 @@ extension KJSettingController : UITableViewDataSource {
                 if isOn {
                     UserDefaults.standard.set(isOn, forKey: kIsTouchId)
                 } else {
-//                    let alertVC = KJAlertController()
+                    //                    let alertVC = KJAlertController()
                     KJAlertController.presentAlertController(Controller: self!, Title: "KJTipCloseTouchId".localized, Message: "", LeftButtonText: "KJTipCancel".localized, RightButtonText: "KJTipClose".localized, LeftButtonClosure: {_ in
                         UserDefaults.standard.set(true, forKey: kIsTouchId)
                         let indexPath = IndexPath(item: 1, section: 1)
@@ -138,13 +138,19 @@ extension KJSettingController : UITableViewDelegate {
         }
         return 15.0
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 通用设置
+        if indexPath.section == 0 && indexPath.row == 0 {
+            
+            
+        }
         
         // 安全设置
         if indexPath.section == 0 && indexPath.row == 1 {
@@ -157,3 +163,4 @@ extension KJSettingController : UITableViewDelegate {
     }
     
 }
+

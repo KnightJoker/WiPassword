@@ -27,7 +27,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     private let sliderLabel = UILabel()
     private let textField = UITextField()
     private let switchButton = UISwitch()
-
+    
     @objc var switchIsOn : Bool = false
     
     typealias defaultTextFieldClosure = (_ text:String) -> Void
@@ -43,11 +43,11 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
     // MARK: - config Cell
     @objc func setTextField(Text text:String, PlaceHolder placeHolder:String,SecureTextEntry isSecureTextEntry:Bool) {
         textField.isSecureTextEntry = isSecureTextEntry
@@ -69,7 +69,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         titleLabel.snp.makeConstraints {  (make) -> Void in
             make.centerY.equalTo(self)
             make.left.equalTo(15)
-            make.width.equalTo(65)
+            make.width.equalTo(67)
         }
         
         switch type {
@@ -97,7 +97,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
             make.height.equalTo(3)
         }
         
-       
+        
     }
     
     private func setupCellWithDefaultType() {
@@ -171,7 +171,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         titleLabel.removeFromSuperview()
         
         let imageButton = UIButton()
-        imageButton.setImage(UIImage(named:"ic_password_white"), for: UIControlState.normal)
+        imageButton.setImage(UIImage(named:"ic_star_white"), for: UIControlState.normal)
         imageButton.contentMode = .scaleAspectFit
         imageButton.backgroundColor = kThemeGreenColor
         
@@ -187,7 +187,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         
         textField.textColor = kTextNormalColor
         textField.font = kFont18
-        textField.text = "账户信息"
+        textField.text = "KJAddDefaultTitle".localized
         textField.delegate = self
         
         self.addSubview(textField)
@@ -211,7 +211,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     }
     
     private func setupCellWithRemarkCell() {
-    
+        
         NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         titleLabel.snp.updateConstraints { (make) -> Void in
             make.centerY.equalTo(self).offset(-15)
@@ -252,7 +252,7 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     }
     
     // MARK: - events
-
+    
     @objc func sliderValueChanged(slider:UISlider) {
         sliderLabel.text = String(Int(slider.value))
         if (sliderClosure != nil) {
@@ -275,3 +275,4 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         self.endEditing(true)
     }
 }
+

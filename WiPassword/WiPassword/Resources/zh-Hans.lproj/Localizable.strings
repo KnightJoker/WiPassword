@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  WiPassword
-
-  Created by Huni on 03/11/2017.
-  Copyright © 2017 KnighhtJoker. All rights reserved.
-*/
+/*
+ Localizable.strings
+ WiPassword
+ 
+ Created by Huni on 03/11/2017.
+ Copyright © 2017 KnighhtJoker. All rights reserved.
+ */
 
 //提示
 KJTipConfirm = "确定";
@@ -21,6 +21,8 @@ KJTipSetTouchId = "请在\"设置->Touch ID与密码\"中设置您的指纹";
 KJTipCloseTouchId = "确定关闭指纹登陆?";
 KJTipReEnter = "请重新输入";
 KJTipSetPwdSuccess = "设置新密码成功";
+KJTipSaveSuccess = "保存成功";
+KJTipUsernameNotBeNULL = "用户名不能为空";
 
 //登陆页面
 KJLoginLogoName = "微密码";
@@ -61,6 +63,28 @@ KJModiftPwdConfirm = "确认密码";
 KJModiftPwdOriginalPlaceHolder = "请输入登陆密码";
 KJModiftPwdNewPlaceHolder = "请输入新的密码";
 KJModiftPwdConfirmPlaceHolder = "再次输入新的密码";
+
+//添加密码盒
+KJAddNavigationTitle = "新建密码";
+KJAddDefaultTitle = "账户信息";
+KJAddUserTitle = "用户名";
+KJAddUserPlaceHolder = "请输入用户名";
+KJAddPwdTitle = "密码";
+KJAddPwdPlaceHolder = "请输入密码";
+KJAddConfirmTitle = "确认密码";
+KJAddConfirmPlaceHolder = "请再次输入密码";
+KJAddRandomPwd = "随机密码";
+KJAddPwdLength = "密码长度";
+KJAddRemark = "备注";
+
+
+
+
+
+
+
+
+
 
 
 

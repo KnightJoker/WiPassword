@@ -22,7 +22,7 @@ class KJAddController: UIViewController {
         
         self.setupView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,11 +32,11 @@ class KJAddController: UIViewController {
         super.viewWillAppear(animated)
         self.initNavigationBar()
     }
-
+    
     // MARK: - init View
     
     @objc func initNavigationBar() {
-        self.navigationItem.title = "新建卡片"
+        self.navigationItem.title = "KJAddNavigationTitle".localized
         let backItem = UIBarButtonItem(image:UIImage(named:"ic_back_gray"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(backButtonDidClicked))
         backItem.tintColor = kTextNormalColor
         let sureItem = UIBarButtonItem(image:UIImage(named:"ic_sure_green"), style:UIBarButtonItemStyle.plain, target:self, action:#selector(sureButtonDidClicked))
@@ -48,7 +48,7 @@ class KJAddController: UIViewController {
     }
     
     @objc func setupView() {
-      
+        
         tableView.backgroundColor = kThemeBackgroundColor
         tableView.register(KJAddRoutineCell.self,forCellReuseIdentifier: addRoutineCellIdentifier)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -79,26 +79,26 @@ class KJAddController: UIViewController {
     @objc func sureButtonDidClicked() {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: kAddEditEndNotification), object: nil)
-
+        
         if defaultPassBox.title == "" {
-            defaultPassBox.title = "账户信息"
+            defaultPassBox.title = "KJAddDefaultTitle".localized
         }
         
         if defaultPassBox.username == "" {
-             KJAlertController.presentAlertShowTip(Controller: self, Title: "用户名不能为空", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipUsernameNotBeNULL".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
         }
         
         if password == surePass && defaultPassBox.username != "" {
             defaultPassBox.password = password
             defaultPassBox.passwordID = defaultPassBox.username + String(Date().nowTimestamp())
             KJSecurityKit.sharedInstance.addPasswordBox(Password: defaultPassBox)
-            KJAlertController.presentAlertShowTip(Controller: self, Title: "保存成功", Message: "", buttonText: "确定", ButtonDidClickClosure: { [weak self]  Void in
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipSaveSuccess".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: { [weak self]  Void in
                 self?.navigationController?.popToRootViewController(animated: true)
             })
         } else {
-            KJAlertController.presentAlertShowTip(Controller: self, Title: "两次密码请保持一致", Message: "", buttonText: "确定", ButtonDidClickClosure: nil)
+            KJAlertController.presentAlertShowTip(Controller: self, Title: "KJTipPwdKeepSame".localized, Message: "", buttonText: "KJTipOk".localized, ButtonDidClickClosure: nil)
         }
-
+        
     }
 }
 
@@ -121,12 +121,12 @@ extension KJAddController : UITableViewDataSource {
             }
             return 3
         }
- 
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = KJAddRoutineCell.init(style: UITableViewCellStyle.default, reuseIdentifier: addRoutineCellIdentifier)
-
+        
         if indexPath.section == 0 {
             
             cell.configCell(Type: KJAddRoutineCellType.imageHeaderCell, Title: "")
@@ -136,24 +136,24 @@ extension KJAddController : UITableViewDataSource {
             
         } else if indexPath.section == 1 && indexPath.row == 0 {
             
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "用户名")
-            cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "请输入用户名", SecureTextEntry: false)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJAddUserTitle".localized)
+            cell.setTextField(Text: defaultPassBox.username, PlaceHolder: "KJAddUserPlaceHolder".localized, SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.defaultPassBox.username = text
             }
             
         } else if indexPath.section == 1 && indexPath.row == 1 {
             
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "密码")
-            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请输入密码", SecureTextEntry: false)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJAddPwdTitle".localized)
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "KJAddPwdPlaceHolder".localized, SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.password = text
             }
             
         } else if indexPath.section == 1 && indexPath.row == 2 {
             
-            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "确认密码")
-            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "请再次输入密码", SecureTextEntry: false)
+            cell.configCell(Type: KJAddRoutineCellType.defaultCell, Title: "KJAddConfirmTitle".localized)
+            cell.setTextField(Text: defaultPassBox.password, PlaceHolder: "KJAddConfirmPlaceHolder".localized, SecureTextEntry: false)
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.surePass = text
             }
@@ -161,15 +161,15 @@ extension KJAddController : UITableViewDataSource {
         } else if indexPath.section == 2 && indexPath.row == 0 {
             
             cell.switchIsOn = isOn
-            cell.configCell(Type: KJAddRoutineCellType.switchCell, Title: "随机密码")
+            cell.configCell(Type: KJAddRoutineCellType.switchCell, Title: "KJAddRandomPwd".localized)
             cell.switchClosure = { [weak self] (isOn) -> Void in
                 self?.isOn = isOn
                 self?.tableView.reloadData()
             }
-
+            
         } else if indexPath.section == 2 && indexPath.row == 1 && isOn == true {
             
-            cell.configCell(Type: KJAddRoutineCellType.sliderCell, Title: "密码长度")
+            cell.configCell(Type: KJAddRoutineCellType.sliderCell, Title: "KJAddPwdLength".localized)
             cell.sliderClosure = { [weak self] (value) -> Void in
                 self?.defaultPassBox.password = value
                 self?.password = value
@@ -181,7 +181,7 @@ extension KJAddController : UITableViewDataSource {
             
         } else {
             
-            cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "备注")
+            cell.configCell(Type: KJAddRoutineCellType.remarkCell, Title: "KJAddRemark".localized)
             cell.textViewClosure = { [weak self] (text) -> Void in
                 self?.defaultPassBox.note = text
             }
@@ -196,7 +196,7 @@ extension KJAddController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
     }
-
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
@@ -222,16 +222,7 @@ extension KJAddController : UITableViewDelegate {
         }
         return 50.0
     }
-
+    
 }
-
-
-
-
-
-
-
-
-
 
 

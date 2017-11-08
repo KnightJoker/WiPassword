@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  WiPassword
-
-  Created by Huni on 03/11/2017.
-  Copyright © 2017 KnighhtJoker. All rights reserved.
-*/
+/*
+ Localizable.strings
+ WiPassword
+ 
+ Created by Huni on 03/11/2017.
+ Copyright © 2017 KnighhtJoker. All rights reserved.
+ */
 
 //提示
 KJTipConfirm = "Confirm";
@@ -21,6 +21,8 @@ KJTipSetTouchId = "Please set your fingerprints in \"Settings -> Touch ID & Pass
 KJTipCloseTouchId = "Close Fingerprint Login?";
 KJTipReEnter = "Please enter again";
 KJTipSetPwdSuccess = "Set successfully";
+KJTipSaveSuccess = "Save successfully";
+KJTipUsernameNotBeNULL = "Username can not be empty";
 
 //登陆页面
 KJLoginLogoName = "WiPass";
@@ -63,4 +65,19 @@ KJModiftPwdNewPlaceHolder = "Enter new password";
 KJModiftPwdConfirmPlaceHolder = "Enter the password again";
 
 //添加密码盒
+KJAddNavigationTitle = "New Password";
+KJAddDefaultTitle = "User Message";
+KJAddUserTitle = "Username";
+KJAddUserPlaceHolder = "Please enter your username";
+KJAddPwdTitle = "Password";
+KJAddPwdPlaceHolder = "Please enter your password";
+KJAddConfirmTitle = "Confirm";
+KJAddConfirmPlaceHolder = "Please enter password again";
+KJAddRandomPwd = "Random";
+KJAddPwdLength = "Length";
+KJAddRemark = "Remark";
+
+
+
+
 
