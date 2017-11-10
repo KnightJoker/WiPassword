@@ -20,6 +20,7 @@ enum KJAddRoutineCellType : Int {
     
 }
 
+
 class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     
     private let titleLabel = UILabel()
@@ -27,6 +28,8 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     private let sliderLabel = UILabel()
     private let textField = UITextField()
     private let switchButton = UISwitch()
+    private let imageButton = UIButton()
+    private var pwdType = KJPasswordType.passwordTypeStar
     
     @objc var switchIsOn : Bool = false
     
@@ -34,11 +37,13 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     typealias switchButtonClosure = (_ isOn:Bool) -> Void
     typealias sliderButtonClosure = (_ sliderValue:String) -> Void
     typealias defaultTextViewClosure = (_ text:String) -> Void
+    typealias pwdTypeClosure = (_ type:KJPasswordType) -> Void
     
     @objc var switchClosure: switchButtonClosure?
     @objc var sliderClosure: sliderButtonClosure?
     @objc var textFieldClosure: defaultTextFieldClosure?
     @objc var textViewClosure: defaultTextViewClosure?
+    var passwdClosure: pwdTypeClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +59,10 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         textField.text = text
         textField.attributedPlaceholder = NSAttributedString(string:placeHolder,
                                                              attributes:[NSAttributedStringKey.foregroundColor:kLineViewColor])
+    }
+    
+    func setPasswordType(Type type:KJPasswordType) {
+        pwdType = type
     }
     
     func configCell(Type type:KJAddRoutineCellType, Title title:String) {
@@ -170,8 +179,9 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(editEnd), name: Notification.Name(rawValue: kAddEditEndNotification), object: nil)
         titleLabel.removeFromSuperview()
         
-        let imageButton = UIButton()
-        imageButton.setImage(UIImage(named:"ic_star_white"), for: UIControlState.normal)
+//        imageButton.setImage(UIImage(named:"ic_star_white"), for: UIControlState.normal)
+        self.updateHeaderImage()
+
         imageButton.contentMode = .scaleAspectFit
         imageButton.backgroundColor = kThemeGreenColor
         
@@ -187,7 +197,9 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
         
         textField.textColor = kTextNormalColor
         textField.font = kFont18
-        textField.text = "KJAddDefaultTitle".localized
+        if textField.text == "" {
+           textField.text = "KJAddDefaultTitle".localized
+        }
         textField.delegate = self
         
         self.addSubview(textField)
@@ -207,6 +219,17 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
             make.centerY.equalTo(self)
             make.right.equalTo(-15)
             make.height.width.equalTo(22.5)
+        }
+    }
+    
+    private func updateHeaderImage() {
+        switch pwdType {
+        case .passwordTypeStar:
+            imageButton.setImage(UIImage(named:"ic_star_white"), for: UIControlState.normal)
+        case .passwordTypeSocial:
+            imageButton.setImage(UIImage(named:"ic_message_white"), for: UIControlState.normal)
+        case .passwordTypeEmail:
+            imageButton.setImage(UIImage(named:"ic_email_white"), for: UIControlState.normal)
         }
     }
     
@@ -267,7 +290,18 @@ class KJAddRoutineCell: UITableViewCell,UITextFieldDelegate,UITextViewDelegate {
     }
     
     @objc func imageButtonDidClicked() {
-        print("点击")
+        if pwdType == KJPasswordType.passwordTypeEmail {
+            pwdType = KJPasswordType.passwordTypeStar
+        } else {
+            pwdType = KJPasswordType(rawValue: pwdType.rawValue + 1)!
+        }
+        
+        self.updateHeaderImage()
+        
+        if (passwdClosure != nil) {
+            passwdClosure!(pwdType)
+        }
+       
     }
     
     // MARK: - notification

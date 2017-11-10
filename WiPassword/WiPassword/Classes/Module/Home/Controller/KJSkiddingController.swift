@@ -83,8 +83,9 @@ extension KJSkiddingController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectCell = indexPath.row
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kSelectPasswordWithTypeNotification), object: indexPath.row)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kSelectPasswordWithTypeNotification), object: nil, userInfo: ["pwdType":indexPath.row])
         tableView.reloadData()
-        
     }
 
 }

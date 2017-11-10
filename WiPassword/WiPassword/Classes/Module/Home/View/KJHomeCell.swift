@@ -33,12 +33,12 @@ class KJHomeCell: UITableViewCell {
         
         self.backgroundColor = kThemeBlockColor
         let iconImageView = UIImageView.init()
-        switch model.passType {
-        case KJHomePasswordType.account:
+        switch model.passwordBox.type {
+        case KJPasswordType.passwordTypeStar.rawValue:
             iconImageView.image = UIImage(named:"ic_star_gray")
-        case KJHomePasswordType.mail:
+        case KJPasswordType.passwordTypeEmail.rawValue:
             iconImageView.image = UIImage(named:"ic_email_gray")
-        case KJHomePasswordType.message:
+        case KJPasswordType.passwordTypeSocial.rawValue:
             iconImageView.image = UIImage(named:"ic_message_gray")
         default:
             iconImageView.image = UIImage(named:"ic_password_gray")

@@ -89,7 +89,7 @@ class KJSecurityKit {
                 //Todo judge viewModel's type
                 let homeViewModel = KJHomeViewModel()
                 homeViewModel.expandStatus = false
-                homeViewModel.passType = KJHomePasswordType.account
+//                homeViewModel.passType = KJHomePasswordType.star 
                 homeViewModel.passwordBox = passwordBox
                 homeModel.viewModelList.append(homeViewModel)
             }

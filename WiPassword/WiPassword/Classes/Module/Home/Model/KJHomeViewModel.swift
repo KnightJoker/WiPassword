@@ -8,18 +8,6 @@
 
 import UIKit
 
-enum KJHomePasswordType : Int {
-    
-    case account
-    
-    case mail
-    
-    case message
-    
-    // Todo
-    case card
-
-}
 
 class KJHomeModel {
     var viewModelList = Array<KJHomeViewModel>()
@@ -27,7 +15,6 @@ class KJHomeModel {
 
 class KJHomeViewModel {
     
-    var passType = KJHomePasswordType(rawValue: 0)!
     var passwordBox = KJPasswordBox()
     var expandStatus : Bool = false
 }

@@ -129,9 +129,14 @@ extension KJAddController : UITableViewDataSource {
         
         if indexPath.section == 0 {
             
+            cell.setPasswordType(Type: KJPasswordType(rawValue: self.defaultPassBox.type)!)
+            cell.setTextField(Text: defaultPassBox.title, PlaceHolder: "", SecureTextEntry: false)
             cell.configCell(Type: KJAddRoutineCellType.imageHeaderCell, Title: "")
             cell.textFieldClosure = {[weak self] (text) -> Void in
                 self?.defaultPassBox.title = text
+            }
+            cell.passwdClosure = {[weak self] (type) -> Void in
+                self?.defaultPassBox.type = type.rawValue
             }
             
         } else if indexPath.section == 1 && indexPath.row == 0 {

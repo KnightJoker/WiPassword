@@ -84,8 +84,6 @@
 		B5694D001F592DEA00C6832E /* KJSkiddingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSkiddingController.swift; sourceTree = "<group>"; };
 		B5694D031F59318300C6832E /* KJPublicDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPublicDefine.swift; sourceTree = "<group>"; };
 		B5694D051F594B0900C6832E /* KJSkiddingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSkiddingCell.swift; sourceTree = "<group>"; };
-		B580E03F1FAC479D00A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		B580E0401FAC479D00A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		B580E0441FAC47F000A1D9A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B580E0461FAC47F600A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B580E04A1FAC497300A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -627,7 +625,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B538FCE91F44193F00A1BC5C /* Base */,
-				B580E03F1FAC479D00A1D9A8 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -636,7 +633,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B538FCEE1F44193F00A1BC5C /* Base */,
-				B580E0401FAC479D00A1D9A8 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

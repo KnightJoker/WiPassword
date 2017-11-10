@@ -63,6 +63,7 @@ class KJHomeController: UIViewController {
     
     @objc func setupView() {
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateModel), name: Notification.Name(rawValue: kSelectPasswordWithTypeNotification), object: nil)
         
         searchBar.backgroundImage = UIImage().getImageWithColor(color: kThemeBlockColor)
         textFieldInsideSearchBar = (searchBar.value(forKey: "searchField") as? UITextField)!
@@ -176,6 +177,61 @@ class KJHomeController: UIViewController {
         addVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(addVC, animated: true)
     }
+    
+    // MARK: Notification
+     @objc func updateModel(notification:NSNotification) {
+        let type = notification.userInfo!["pwdType"] as! Int
+        // 这里传过来的Type: 0 - 全部， 1 - 标记， 2 - 社交， 3 - 邮箱
+        switch type {
+        case 0:
+            self.initData()
+        case 1:
+            self.selectStarPassword()
+        case 2:
+            self.selectSocialPassword()
+        case 3:
+            self.selectEmailPassword()
+        default:
+            break
+        }
+    }
+    
+    func selectStarPassword() {
+        model = KJSecurityKit.sharedInstance.queryAllPasswordBox()
+        var lists = Array<KJHomeViewModel>()
+        for i in 0..<model.viewModelList.count {
+            if model.viewModelList[i].passwordBox.type == 0 {
+                lists.append(model.viewModelList[i])
+            }
+        }
+        model.viewModelList = lists
+        self.tableView.reloadData()
+    }
+    
+    func selectSocialPassword() {
+        model = KJSecurityKit.sharedInstance.queryAllPasswordBox()
+        var lists = Array<KJHomeViewModel>()
+        for i in 0..<model.viewModelList.count {
+            if model.viewModelList[i].passwordBox.type == 1 {
+                lists.append(model.viewModelList[i])
+            }
+        }
+        model.viewModelList = lists
+        self.tableView.reloadData()
+    }
+    
+    func selectEmailPassword() {
+        model = KJSecurityKit.sharedInstance.queryAllPasswordBox()
+        var lists = Array<KJHomeViewModel>()
+        for i in 0..<model.viewModelList.count {
+            if model.viewModelList[i].passwordBox.type == 2 {
+                lists.append(model.viewModelList[i])
+            }
+        }
+        model.viewModelList = lists
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension KJHomeController: UITableViewDataSource {

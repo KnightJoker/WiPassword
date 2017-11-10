@@ -8,7 +8,9 @@
 
 import Foundation
 
+
 let kAddEditEndNotification = "addEditEndNotification"
+
 let kloginEditEndNotification = "loginEditEndNotification"
 
-		
+let kSelectPasswordWithTypeNotification = "selectPasswordWithTypeNotification"
