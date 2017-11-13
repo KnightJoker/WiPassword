@@ -66,6 +66,7 @@ class KJHomeController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateModel), name: Notification.Name(rawValue: kSelectPasswordWithTypeNotification), object: nil)
         
         searchBar.backgroundImage = UIImage().getImageWithColor(color: kThemeBlockColor)
+        searchBar.delegate = self
         textFieldInsideSearchBar = (searchBar.value(forKey: "searchField") as? UITextField)!
         textFieldInsideSearchBar.backgroundColor = kThemeBackgroundColor
         textFieldInsideSearchBar.textColor = kTextNormalColor
@@ -293,6 +294,20 @@ extension KJHomeController: UITableViewDelegate {
         delete.backgroundColor = kThemeGreenColor
         return [delete]
         
+    }
+}
+
+extension KJHomeController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        model = KJSecurityKit.sharedInstance.queryPasswordBox(Key: searchBar.text!)
+        self.tableView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            self.initData()
+        }
     }
 }
 

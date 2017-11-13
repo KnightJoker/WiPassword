@@ -86,18 +86,40 @@ class KJSecurityKit {
         do {
             let passwordBoxs = try Disk.retrieve("passwordBox.json", from: .documents, as: [KJPasswordBox].self)
             for passwordBox in passwordBoxs {
-                //Todo judge viewModel's type
                 let homeViewModel = KJHomeViewModel()
                 homeViewModel.expandStatus = false
-//                homeViewModel.passType = KJHomePasswordType.star 
                 homeViewModel.passwordBox = passwordBox
                 homeModel.viewModelList.append(homeViewModel)
             }
-        } catch {
-            
+        } catch _ as NSError {
+       
         }
         
+        return homeModel
+    }
+    
+    public func queryPasswordBox(Key key:String) -> KJHomeModel {
         
+        if key == "" {
+            return queryAllPasswordBox()
+        }
+        
+        let homeModel = KJHomeModel()
+        do {
+            let passwordBoxs = try Disk.retrieve("passwordBox.json", from: .documents, as: [KJPasswordBox].self)
+            for passwordBox in passwordBoxs {
+                
+                if passwordBox.title.contains(key) || passwordBox.username.contains(key) {
+                    let homeViewModel = KJHomeViewModel()
+                    homeViewModel.expandStatus = false
+                    homeViewModel.passwordBox = passwordBox
+                    homeModel.viewModelList.append(homeViewModel)
+                }
+            }
+        } catch _ as NSError {
+
+        }
+       
         return homeModel
     }
     
