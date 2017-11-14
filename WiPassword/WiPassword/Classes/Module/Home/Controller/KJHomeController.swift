@@ -74,9 +74,11 @@ class KJHomeController: UIViewController {
         handleGesture.addTarget(self, action: #selector(handleTap(sender:)))
         self.view.addGestureRecognizer(handleGesture)
         
+        
+        
         self.view.addSubview(searchBar)
         searchBar.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(64)
+            make.top.equalTo(Int((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height))
             make.centerX.equalTo(self.view)
             make.width.equalTo(self.view)
             make.height.equalTo(45)

@@ -64,6 +64,10 @@ KJModiftPwdOriginalPlaceHolder = "Enter original password";
 KJModiftPwdNewPlaceHolder = "Enter new password";
 KJModiftPwdConfirmPlaceHolder = "Enter the password again";
 
+//通用设置
+KJGeneralNavigationTitle = "General";
+KJGeneralLanguage = "Language";
+
 //添加密码盒
 KJAddNavigationTitle = "New Password";
 KJAddDefaultTitle = "User Message";

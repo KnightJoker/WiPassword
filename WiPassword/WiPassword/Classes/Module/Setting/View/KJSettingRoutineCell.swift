@@ -12,6 +12,7 @@ enum KJSettingRoutineCellType : Int {
     
     case defaultCell                //默认右边带箭头
     case switchCell                 //开关类型
+    case titleCell                  //默认样式，左边不带图片
     
 }
 
@@ -54,21 +55,24 @@ class KJSettingRoutineCell: UITableViewCell {
             make.width.height.equalTo(25)
         }
         
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.textColor = kTextNormalColor
-        titleLabel.font = kFont16
-        
-        self.addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints { (make) -> Void in
-            make.centerY.equalTo(self)
-            make.left.equalTo(iconImageView.snp.right).offset(10)
-        }
-        
         switch type {
-        case KJSettingRoutineCellType.defaultCell:
+        case KJSettingRoutineCellType.titleCell:
             
+            self.backgroundColor = kThemeBlockColor
+            iconImageView.snp.updateConstraints{ (make) -> Void in
+                make.width.height.equalTo(0)
+            }
+            
+            let arrowImageView = UIImageView.init(image: UIImage(named:"ic_arrow_gray"))
+            arrowImageView.contentMode = .scaleAspectFit
+            self.addSubview(arrowImageView)
+            arrowImageView.snp.makeConstraints { (make) -> Void in
+                make.centerY.equalTo(self)
+                make.right.equalTo(-15)
+                make.width.height.equalTo(10)
+            }
+            
+        case KJSettingRoutineCellType.defaultCell:
             let arrowImageView = UIImageView.init(image: UIImage(named:"ic_arrow_gray"))
             arrowImageView.contentMode = .scaleAspectFit
             self.addSubview(arrowImageView)
@@ -80,7 +84,6 @@ class KJSettingRoutineCell: UITableViewCell {
             
         default:
             self.selectionStyle = .none
-
             switchButton.onTintColor = kThemeGreenColor
             switchButton.thumbTintColor = kTextNormalColor
             switchButton.tintColor = kLineViewColor
@@ -92,6 +95,18 @@ class KJSettingRoutineCell: UITableViewCell {
                 make.right.equalTo(-15)
             }
             
+        }
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.textColor = kTextNormalColor
+        titleLabel.font = kFont16
+        
+        self.addSubview(titleLabel)
+        
+        titleLabel.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self)
+            make.left.equalTo(iconImageView.snp.right).offset(10)
         }
         
         let lineView = UIView()
@@ -107,6 +122,7 @@ class KJSettingRoutineCell: UITableViewCell {
         }
         
     }
+
     
     // MARK : events
 

@@ -149,10 +149,9 @@ extension KJSettingController : UITableViewDelegate {
         // 通用设置
         if indexPath.section == 0 && indexPath.row == 0 {
             
-//            fileprivate var localizedBundle: Bundle = {
-//                return Bundle(path: Bundle.main.path(forResource: "zh-Hans", ofType: "lproj")!)!
-//            }()
-//            Bundle(path: Bundle.main.path(forResource: "zh-Hans", ofType: "lproj")!)
+            let generalVc = KJGeneralController()
+            generalVc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(generalVc, animated: true)
         }
         
         // 安全设置

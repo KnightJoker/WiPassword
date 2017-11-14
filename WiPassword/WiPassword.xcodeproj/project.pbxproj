@@ -34,6 +34,10 @@
 		B5694D061F594B0900C6832E /* KJSkiddingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5694D051F594B0900C6832E /* KJSkiddingCell.swift */; };
 		B580E0431FAC47F000A1D9A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B580E0451FAC47F000A1D9A8 /* Localizable.strings */; };
 		B580E0491FAC497300A1D9A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B580E04B1FAC497300A1D9A8 /* InfoPlist.strings */; };
+		B582C8CB1FBAC4A100F4A767 /* KJLocalizationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C8CA1FBAC4A100F4A767 /* KJLocalizationManger.swift */; };
+		B582C8CF1FBAD18D00F4A767 /* KJGeneralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C8CE1FBAD18D00F4A767 /* KJGeneralController.swift */; };
+		B582C8D11FBAE00E00F4A767 /* KJLanguageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C8D01FBAE00E00F4A767 /* KJLanguageListController.swift */; };
+		B582C8D31FBAE3B600F4A767 /* KJLanguageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C8D21FBAE3B600F4A767 /* KJLanguageListCell.swift */; };
 		B5A552071F469B3C0032FE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A552061F469B3C0032FE78 /* Assets.xcassets */; };
 		B5A552141F4AB4CE0032FE78 /* KJHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */; };
 		B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */; };
@@ -66,7 +70,6 @@
 		B538FCE41F44193F00A1BC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B538FCE91F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B538FCEE1F44193F00A1BC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B538FCF01F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B538FCF51F44193F00A1BC5C /* WiPasswordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiPasswordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiPasswordUITests.swift; sourceTree = "<group>"; };
 		B538FCFB1F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +91,11 @@
 		B580E0461FAC47F600A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B580E04A1FAC497300A1D9A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		B580E04C1FAC497400A1D9A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B582C8C71FBABA3900F4A767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B582C8CA1FBAC4A100F4A767 /* KJLocalizationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJLocalizationManger.swift; sourceTree = "<group>"; };
+		B582C8CE1FBAD18D00F4A767 /* KJGeneralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJGeneralController.swift; sourceTree = "<group>"; };
+		B582C8D01FBAE00E00F4A767 /* KJLanguageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJLanguageListController.swift; sourceTree = "<group>"; };
+		B582C8D21FBAE3B600F4A767 /* KJLanguageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJLanguageListCell.swift; sourceTree = "<group>"; };
 		B5A552061F469B3C0032FE78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJHomeController.swift; sourceTree = "<group>"; };
 		B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJTabBarController.swift; sourceTree = "<group>"; };
@@ -169,7 +177,7 @@
 			children = (
 				B538FD071F441A3200A1BC5C /* Classes */,
 				B538FD081F441A3900A1BC5C /* Resources */,
-				B538FD091F441A4000A1BC5C /* Supporting Files */,
+				B582C8C61FBABA3900F4A767 /* Supporting Files */,
 				B538FCE41F44193F00A1BC5C /* AppDelegate.swift */,
 				B538FCE81F44193F00A1BC5C /* Main.storyboard */,
 				B538FCED1F44193F00A1BC5C /* LaunchScreen.storyboard */,
@@ -205,17 +213,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B538FD091F441A4000A1BC5C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B538FCF01F44193F00A1BC5C /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		B538FD0A1F441B3C00A1BC5C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B582C8C91FBAC46800F4A767 /* Helper */,
 				B568498E1F8C974B00E98E53 /* SecurityKit */,
 				B5158F251F6A517500E66F61 /* AlertController */,
 				B5694D021F59316F00C6832E /* Macros */,
@@ -333,6 +334,23 @@
 			path = Macros;
 			sourceTree = "<group>";
 		};
+		B582C8C61FBABA3900F4A767 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B582C8C71FBABA3900F4A767 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = "WiPassword/Supporting Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		B582C8C91FBAC46800F4A767 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B582C8CA1FBAC4A100F4A767 /* KJLocalizationManger.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		B5A5520F1F4AB49E0032FE78 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +411,8 @@
 			children = (
 				B5A552271F4BFCB40032FE78 /* KJSettingController.swift */,
 				B53EC5651F99C423003122AC /* KJModifyPwdController.swift */,
+				B582C8CE1FBAD18D00F4A767 /* KJGeneralController.swift */,
+				B582C8D01FBAE00E00F4A767 /* KJLanguageListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				B546D8DA1F50150200D045D8 /* KJSettingRoutineCell.swift */,
+				B582C8D21FBAE3B600F4A767 /* KJLanguageListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +601,7 @@
 				B5694D011F592DEA00C6832E /* KJSkiddingController.swift in Sources */,
 				B5158F1D1F6949AA00E66F61 /* KJError.swift in Sources */,
 				B5158EE61F5D3B6500E66F61 /* KJString.swift in Sources */,
+				B582C8CF1FBAD18D00F4A767 /* KJGeneralController.swift in Sources */,
 				B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */,
 				B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */,
 				B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */,
@@ -592,6 +614,9 @@
 				B5A552321F4ECD4B0032FE78 /* KJHomeViewModel.swift in Sources */,
 				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
 				B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */,
+				B582C8D31FBAE3B600F4A767 /* KJLanguageListCell.swift in Sources */,
+				B582C8D11FBAE00E00F4A767 /* KJLanguageListController.swift in Sources */,
+				B582C8CB1FBAC4A100F4A767 /* KJLocalizationManger.swift in Sources */,
 				B5158F161F690D6100E66F61 /* KJPasswordBox.swift in Sources */,
 				B546D8EF1F569A3C00D045D8 /* KJAddRoutineCell.swift in Sources */,
 				B5694D061F594B0900C6832E /* KJSkiddingCell.swift in Sources */,
@@ -773,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FBGLSWFH2Z;
-				INFOPLIST_FILE = WiPassword/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WiPassword/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPassword;
@@ -788,7 +813,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FBGLSWFH2Z;
-				INFOPLIST_FILE = WiPassword/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WiPassword/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dbcxl.com.WiPassword;
