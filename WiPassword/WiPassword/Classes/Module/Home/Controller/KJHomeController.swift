@@ -170,7 +170,7 @@ class KJHomeController: UIViewController {
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         self.tabBarController?.view.layer.add(anim, forKey: "animationTabBarBack")
         
-        _ = KJCommonFunc.delay(kSkiddingViewAnimationTime, task: {
+        _ = KJGCDHelper.delay(kSkiddingViewAnimationTime, task: {
             self.skiddingVC.view.removeFromSuperview()
         })
     }

@@ -1,8 +1,8 @@
 //
-//  KJCommonFunc.swift
+//  KJGCDHelper.swift
 //  WiPassword
 //
-//  Created by Huni on 17/10/2017.
+//  Created by Huni on 20/11/2017.
 //  Copyright © 2017 KnighhtJoker. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import Foundation
 
 typealias Task = (_ cancel : Bool) -> Void
 
-class KJCommonFunc {
-  class func delay(_ time: TimeInterval, task: @escaping ()->()) ->  Task? {
+class KJGCDHelper {
+    class func delay(_ time: TimeInterval, task: @escaping ()->()) ->  Task? {
         
         func dispatch_later(block: @escaping ()->()) {
             let t = DispatchTime.now() + time

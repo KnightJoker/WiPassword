@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		132400535EDC7B2558DBF411 /* Pods_WiPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */; };
-		B5158EE61F5D3B6500E66F61 /* KJString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158EE51F5D3B6500E66F61 /* KJString.swift */; };
+		B5158EE61F5D3B6500E66F61 /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158EE51F5D3B6500E66F61 /* String+Random.swift */; };
 		B5158F161F690D6100E66F61 /* KJPasswordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F151F690D6100E66F61 /* KJPasswordBox.swift */; };
 		B5158F1B1F69494700E66F61 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5158F1A1F69494700E66F61 /* LocalAuthentication.framework */; };
-		B5158F1D1F6949AA00E66F61 /* KJError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F1C1F6949AA00E66F61 /* KJError.swift */; };
 		B5158F271F6A519D00E66F61 /* KJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F261F6A519D00E66F61 /* KJAlertController.swift */; };
 		B5158F591F7119E900E66F61 /* KJNotificationDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158F581F7119E900E66F61 /* KJNotificationDefine.swift */; };
 		B538FCE51F44193F00A1BC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCE41F44193F00A1BC5C /* AppDelegate.swift */; };
@@ -20,10 +19,9 @@
 		B538FCFA1F44193F00A1BC5C /* WiPasswordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FCF91F44193F00A1BC5C /* WiPasswordUITests.swift */; };
 		B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD101F441CD500A1BC5C /* KJLoginController.swift */; };
 		B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD231F45750B00A1BC5C /* KJTextField.swift */; };
-		B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD291F457B5700A1BC5C /* KJThemeColor.swift */; };
-		B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */; };
-		B53EC5061F8E43A7003122AC /* KJDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EC5051F8E43A7003122AC /* KJDate.swift */; };
-		B53EC5421F95DDB7003122AC /* KJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EC5411F95DDB7003122AC /* KJCommonFunc.swift */; };
+		B538FD2B1F457B5700A1BC5C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD291F457B5700A1BC5C /* UIColor+Extension.swift */; };
+		B538FD2C1F457B5700A1BC5C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538FD2A1F457B5700A1BC5C /* UIFont+Extension.swift */; };
+		B53EC5061F8E43A7003122AC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EC5051F8E43A7003122AC /* Date+Extension.swift */; };
 		B53EC5661F99C423003122AC /* KJModifyPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53EC5651F99C423003122AC /* KJModifyPwdController.swift */; };
 		B546D8DB1F50150200D045D8 /* KJSettingRoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546D8DA1F50150200D045D8 /* KJSettingRoutineCell.swift */; };
 		B546D8ED1F568D7600D045D8 /* KJAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546D8EC1F568D7600D045D8 /* KJAddController.swift */; };
@@ -41,10 +39,11 @@
 		B5A552071F469B3C0032FE78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A552061F469B3C0032FE78 /* Assets.xcassets */; };
 		B5A552141F4AB4CE0032FE78 /* KJHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */; };
 		B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */; };
-		B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552211F4BDF7A0032FE78 /* KJImage.swift */; };
+		B5A552221F4BDF7A0032FE78 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552211F4BDF7A0032FE78 /* UIImage+Extension.swift */; };
 		B5A552281F4BFCB40032FE78 /* KJSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552271F4BFCB40032FE78 /* KJSettingController.swift */; };
 		B5A552301F4EB3820032FE78 /* KJHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5522F1F4EB3820032FE78 /* KJHomeCell.swift */; };
 		B5A552321F4ECD4B0032FE78 /* KJHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A552311F4ECD4B0032FE78 /* KJHomeViewModel.swift */; };
+		B5E074C51FC28B8E0060CF90 /* KJGCDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E074C41FC28B8E0060CF90 /* KJGCDHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +59,9 @@
 /* Begin PBXFileReference section */
 		1A50EC8CDE2CB3A6925E0270 /* Pods-WiPassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.release.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.release.xcconfig"; sourceTree = "<group>"; };
 		5D999D7BE5CEA973D4D6B160 /* Pods-WiPassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiPassword.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WiPassword/Pods-WiPassword.debug.xcconfig"; sourceTree = "<group>"; };
-		B5158EE51F5D3B6500E66F61 /* KJString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJString.swift; sourceTree = "<group>"; };
+		B5158EE51F5D3B6500E66F61 /* String+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Random.swift"; sourceTree = "<group>"; };
 		B5158F151F690D6100E66F61 /* KJPasswordBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJPasswordBox.swift; sourceTree = "<group>"; };
 		B5158F1A1F69494700E66F61 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
-		B5158F1C1F6949AA00E66F61 /* KJError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJError.swift; sourceTree = "<group>"; };
 		B5158F261F6A519D00E66F61 /* KJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJAlertController.swift; sourceTree = "<group>"; };
 		B5158F581F7119E900E66F61 /* KJNotificationDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJNotificationDefine.swift; sourceTree = "<group>"; };
 		B538FCE11F44193F00A1BC5C /* WiPassword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiPassword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,10 +73,9 @@
 		B538FCFB1F44193F00A1BC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B538FD101F441CD500A1BC5C /* KJLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJLoginController.swift; sourceTree = "<group>"; };
 		B538FD231F45750B00A1BC5C /* KJTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJTextField.swift; sourceTree = "<group>"; };
-		B538FD291F457B5700A1BC5C /* KJThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeColor.swift; sourceTree = "<group>"; };
-		B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJThemeFont.swift; sourceTree = "<group>"; };
-		B53EC5051F8E43A7003122AC /* KJDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJDate.swift; sourceTree = "<group>"; };
-		B53EC5411F95DDB7003122AC /* KJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJCommonFunc.swift; sourceTree = "<group>"; };
+		B538FD291F457B5700A1BC5C /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B538FD2A1F457B5700A1BC5C /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		B53EC5051F8E43A7003122AC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B53EC5651F99C423003122AC /* KJModifyPwdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJModifyPwdController.swift; sourceTree = "<group>"; };
 		B546D8DA1F50150200D045D8 /* KJSettingRoutineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSettingRoutineCell.swift; sourceTree = "<group>"; };
 		B546D8EC1F568D7600D045D8 /* KJAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJAddController.swift; sourceTree = "<group>"; };
@@ -99,10 +96,11 @@
 		B5A552061F469B3C0032FE78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5A552131F4AB4CE0032FE78 /* KJHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJHomeController.swift; sourceTree = "<group>"; };
 		B5A5521C1F4AC8500032FE78 /* KJTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJTabBarController.swift; sourceTree = "<group>"; };
-		B5A552211F4BDF7A0032FE78 /* KJImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJImage.swift; sourceTree = "<group>"; };
+		B5A552211F4BDF7A0032FE78 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B5A552271F4BFCB40032FE78 /* KJSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJSettingController.swift; sourceTree = "<group>"; };
 		B5A5522F1F4EB3820032FE78 /* KJHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJHomeCell.swift; sourceTree = "<group>"; };
 		B5A552311F4ECD4B0032FE78 /* KJHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KJHomeViewModel.swift; sourceTree = "<group>"; };
+		B5E074C41FC28B8E0060CF90 /* KJGCDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KJGCDHelper.swift; sourceTree = "<group>"; };
 		FC982F780C8A67B161EBF816 /* Pods_WiPassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiPassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -273,13 +271,11 @@
 		B538FD281F457B5700A1BC5C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B538FD291F457B5700A1BC5C /* KJThemeColor.swift */,
-				B538FD2A1F457B5700A1BC5C /* KJThemeFont.swift */,
-				B5A552211F4BDF7A0032FE78 /* KJImage.swift */,
-				B5158EE51F5D3B6500E66F61 /* KJString.swift */,
-				B5158F1C1F6949AA00E66F61 /* KJError.swift */,
-				B53EC5051F8E43A7003122AC /* KJDate.swift */,
-				B53EC5411F95DDB7003122AC /* KJCommonFunc.swift */,
+				B538FD291F457B5700A1BC5C /* UIColor+Extension.swift */,
+				B538FD2A1F457B5700A1BC5C /* UIFont+Extension.swift */,
+				B5A552211F4BDF7A0032FE78 /* UIImage+Extension.swift */,
+				B5158EE51F5D3B6500E66F61 /* String+Random.swift */,
+				B53EC5051F8E43A7003122AC /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -347,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				B582C8CA1FBAC4A100F4A767 /* KJLocalizationManger.swift */,
+				B5E074C41FC28B8E0060CF90 /* KJGCDHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -594,26 +591,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A552221F4BDF7A0032FE78 /* KJImage.swift in Sources */,
+				B5A552221F4BDF7A0032FE78 /* UIImage+Extension.swift in Sources */,
 				B5A552281F4BFCB40032FE78 /* KJSettingController.swift in Sources */,
 				B53EC5661F99C423003122AC /* KJModifyPwdController.swift in Sources */,
-				B53EC5061F8E43A7003122AC /* KJDate.swift in Sources */,
+				B53EC5061F8E43A7003122AC /* Date+Extension.swift in Sources */,
 				B5694D011F592DEA00C6832E /* KJSkiddingController.swift in Sources */,
-				B5158F1D1F6949AA00E66F61 /* KJError.swift in Sources */,
-				B5158EE61F5D3B6500E66F61 /* KJString.swift in Sources */,
+				B5158EE61F5D3B6500E66F61 /* String+Random.swift in Sources */,
 				B582C8CF1FBAD18D00F4A767 /* KJGeneralController.swift in Sources */,
 				B5A5521D1F4AC8500032FE78 /* KJTabBarController.swift in Sources */,
-				B538FD2B1F457B5700A1BC5C /* KJThemeColor.swift in Sources */,
+				B538FD2B1F457B5700A1BC5C /* UIColor+Extension.swift in Sources */,
 				B538FD241F45750B00A1BC5C /* KJTextField.swift in Sources */,
 				B546D8ED1F568D7600D045D8 /* KJAddController.swift in Sources */,
 				B5A552301F4EB3820032FE78 /* KJHomeCell.swift in Sources */,
-				B53EC5421F95DDB7003122AC /* KJCommonFunc.swift in Sources */,
 				B546D8DB1F50150200D045D8 /* KJSettingRoutineCell.swift in Sources */,
 				B5158F271F6A519D00E66F61 /* KJAlertController.swift in Sources */,
+				B5E074C51FC28B8E0060CF90 /* KJGCDHelper.swift in Sources */,
 				B5158F591F7119E900E66F61 /* KJNotificationDefine.swift in Sources */,
 				B5A552321F4ECD4B0032FE78 /* KJHomeViewModel.swift in Sources */,
 				B538FD111F441CD500A1BC5C /* KJLoginController.swift in Sources */,
-				B538FD2C1F457B5700A1BC5C /* KJThemeFont.swift in Sources */,
+				B538FD2C1F457B5700A1BC5C /* UIFont+Extension.swift in Sources */,
 				B582C8D31FBAE3B600F4A767 /* KJLanguageListCell.swift in Sources */,
 				B582C8D11FBAE00E00F4A767 /* KJLanguageListController.swift in Sources */,
 				B582C8CB1FBAC4A100F4A767 /* KJLocalizationManger.swift in Sources */,
