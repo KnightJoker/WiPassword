@@ -9,7 +9,7 @@ WiPassword is a free, open source and no advertising password manager. It doesn'
 
 ## Screenshots
 
-<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_0.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_1.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_2.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_3.png" width="210">
+<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_0.png" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_1.png" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_2.png" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_3.png" width="210">
 
 
 ## Requirements

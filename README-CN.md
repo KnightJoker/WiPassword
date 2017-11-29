@@ -10,7 +10,7 @@
 
 ## 截屏
 
-<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_0.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_1.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_2.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_3.png" width="210">
+<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_0.PNG" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_1.PNG" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_2.PNG" width="210">&nbsp;<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/cn_3.PNG" width="210">
 
 ## 需要
 
