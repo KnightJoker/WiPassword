@@ -4,9 +4,12 @@
 ![Language](https://img.shields.io/badge/language-swift%204.0-orange.svg)
 [![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/KnightJoker/WiPassword/master/LICENSE)
 [![README](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-lightgrey.svg)](README-CN.md)
+
 WiPassword is a free, open source and no advertising password manager. It doesn't require any server or additional resources.You can use it anytime, anywhere on your iPhone. 
 
 ## Screenshots
+
+<img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_0.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_1.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_2.png" width="210"><img src="https://github.com/KnightJoker/WiPassword/blob/master/Screenshots/en_3.png" width="210">
 
 
 ## Requirements
